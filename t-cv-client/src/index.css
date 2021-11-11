@@ -1,0 +1,22 @@
+:root {
+  --cv-width: 794px; /*for resolution 96 PPI*/
+  --cv-heigth: 1123px; /*for  resolution 96 PPI*/
+  --cv-margins: 64px; /* CV-recommended margin is 0.5-1 inch, 1 inch = 96PPI*/
+}
+
+body {
+  margin: 0;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  width: var(--cv-width);
+  height: var(--cv-heigth);
+  border: 1px dotted black;
+}
+
+@media print {
+  body {
+    border: none;
+  }
+/* set on class corresponding to readyCV element*/
+}

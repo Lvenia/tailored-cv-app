@@ -1,0 +1,17 @@
+.cv-container {
+  --container-heigth: calc(var(--cv-heigth) - var(--cv-margins)*2);
+  height: var(--container-heigth);
+  margin: var(--cv-margins);
+  border: 1px dotted red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header, article, footer {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 50px;
+  margin: 1px
+}
+
