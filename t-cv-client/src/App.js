@@ -4,7 +4,7 @@ function App() {
   return (
     <main className="cv-container">
       <header className="header">
-        Header
+          Header
       </header>
       <div className="content-container">
           <article>

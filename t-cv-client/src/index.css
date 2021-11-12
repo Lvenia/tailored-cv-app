@@ -5,7 +5,7 @@
   --cv-margin-t-b: 64px; /* top-bottom 0.5 inch*/
   --cv-margin-l-t: 72px; /* left-right 0.75 inch*/
   --container-heigth: calc(var(--cv-heigth) - var(--cv-margin-t-b)*2); /*cv aria*/
-  --basic-font-size: 16px; /*FONT SIZE TO SET*/
+  --basic-font-size: 16px; /* 16px = 12pt or 1em*/
   --text-aligment: left; /*Always align text in CV to left, especially headers and bullet points*/
   --text-line-heihth: 1.5;
 }
@@ -28,6 +28,21 @@ body {
 @media print {
   body {
     border: none;
+    color: #000;
   }
 /* set on class corresponding to readyCV element*/
+  /*
+  Remove background colors and images
+  Adjust text for readability - using black text on a white background works best.
+  Hide web-only functionality
+  For images decrease the size of large images to avoid taking up too much real estate on the page.
+  Flexbox and CSS grid styles both have limited support, for example. Make sure you’re implementing fallbacks.
+  Control page breaking: use the page-break-before, page-break-after
+  Prevent widows and orphans
+  [...] https://blog.tbhcreative.com/2019/06/website-print-friendly-styling.html
+  */
+}
+
+@page {
+  margin: 0px; /*prevent adding default margins and body margins during print*/
 }
