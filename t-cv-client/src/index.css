@@ -1,10 +1,11 @@
 :root {
-  --cv-width: 794px; /*for resolution 96 PPI*/
-  --cv-heigth: 1123px; /*for  resolution 96 PPI*/
+  --A4-width: 794px; /*for resolution 96 PPI*/
+  --A4-heigth: 1123px; /*for  resolution 96 PPI*/
   /* CV-recommended margin is 0.5-1 inch, 1 inch = 96PPI*/
   --cv-margin-t-b: 64px; /* top-bottom 0.5 inch*/
-  --cv-margin-l-t: 72px; /* left-right 0.75 inch*/
-  --container-heigth: calc(var(--cv-heigth) - var(--cv-margin-t-b)*2); /*cv aria*/
+  --cv-margin-l-r: 72px; /* left-right 0.75 inch*/
+  --cv-container-heigth: calc(var(--A4-heigth) - var(--cv-margin-t-b)*2); /*cv aria*/
+  --cv-container-width: calc(var(--A4-width) - var(--cv-margin-l-r)*2); /*cv aria*/
   --basic-font-size: 16px; /* 16px = 12pt or 1em*/
   --text-aligment: left; /*Always align text in CV to left, especially headers and bullet points*/
   --text-line-heihth: 1.5;
@@ -14,15 +15,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-body {
-  font-family: Arial, sans-serif;
-  font-size: var(--basic-font-size);
-  line-height: var(--text-line-heihth);
-  text-align: var(--text-aligment);
-  width: var(--cv-width);
-  height: var(--cv-heigth);
-  border: 1px dotted black;
 }
 
 @media print {
