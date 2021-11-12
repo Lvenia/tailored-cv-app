@@ -1,17 +1,29 @@
 .cv-container {
-  --container-heigth: calc(var(--cv-heigth) - var(--cv-margins)*2);
   height: var(--container-heigth);
-  margin: var(--cv-margins);
+  margin: var(--cv-margin-t-b) var(--cv-margin-l-t);
   border: 1px dotted red;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+.content-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 100%;
+}
+
+section {
+  border: 1px dotted aqua;
+  height: 25%;
+}
+
+section h2 {
+  font-size: inherit;
+  font-weight: inherit;
+  border-bottom: 1px solid lightsteelblue;
+}
 
 header, article, footer {
   background-color: #F1F1F1;
-  text-align: center;
-  padding: 50px;
   margin: 1px
 }
-
