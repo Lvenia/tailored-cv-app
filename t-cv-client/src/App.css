@@ -1,12 +1,62 @@
-main, nav {
+main {
   width: 75%;
   margin: auto;
   height: max-content;
   background-color: lightslategray;
 }
 
+article {
+  height: 25%;
+}
+
+article h2 {
+  font-size: inherit;
+  font-weight: inherit;
+  border-bottom: 1px solid lightsteelblue;
+}
+
+header, article {
+  background-color: #F1F1F1;
+  margin: 1px
+}
+/*NAVIGATION STYLES*/
+.nav-bar {
+  padding: 1rem;
+  background-color: lightslategray;
+}
+.nav-bar a {
+  text-decoration: none;
+}
+
+.nav-bar a:hover {
+  background-color: aliceblue;
+}
+.nav-bar a:visited {
+  color: black;
+}
+
+.main-nav-bar {
+  width: 75%;
+  margin: auto;
+}
+
+.main-nav-bar a {
+  padding: 5px;
+}
+
+.tailor-nav-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.tailor-nav-bar a {
+  padding: 5px;
+}
+
 /*FEATURE TAILOR PAGE STYLES*/
 .feature-container {
+  display: flex;
+  flex-direction: row;
   background-color: lightgray;
 }
 
@@ -34,17 +84,3 @@ header.cv-header {
   height: 100%;
 }
 
-article {
-  height: 25%;
-}
-
-article h2 {
-  font-size: inherit;
-  font-weight: inherit;
-  border-bottom: 1px solid lightsteelblue;
-}
-
-header, article {
-  background-color: #F1F1F1;
-  margin: 1px
-}
