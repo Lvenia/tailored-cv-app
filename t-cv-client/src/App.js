@@ -1,13 +1,10 @@
-import FeatureTailor from "./FeatureTailor";
-import Resume from "./Resume";
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <>
-       <FeatureTailor/>
-       <Resume/>
-    </>
+    <main className="main">
+        <h1>Main Page Content</h1>
+    </main>
   );
 }
 

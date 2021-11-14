@@ -22,6 +22,15 @@
     border: none;
     color: #000;
   }
+  nav {
+    display: none;
+  }
+
+  .cv-container {
+    position: initial;
+    margin: var(--cv-margin-t-b) var(--cv-margin-l-r);/*ok*/
+    border: none;
+  }
 /* set on class corresponding to readyCV element*/
   /*
   Remove background colors and images

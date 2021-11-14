@@ -1,14 +1,20 @@
+main, nav {
+  width: 75%;
+  margin: auto;
+  height: max-content;
+  background-color: lightslategray;
+}
+
 /*FEATURE TAILOR PAGE STYLES*/
 .feature-container {
-  width: 70%;
-  margin: auto;
   background-color: lightgray;
 }
+
 /*RESUME PAGE STYLES*/
-main.cv-container {
+.cv-container {
   height: var(--cv-container-heigth); /*ADJUST INCLUDING BORDERS WHEN SETTLED */
   width: var(--cv-container-width);
-  margin: var(--cv-margin-t-b) var(--cv-margin-l-r);/*ok*/
+  margin: auto;
   border: 1px dotted red;
   display: flex;
   flex-direction: column;
@@ -16,7 +22,6 @@ main.cv-container {
   font-family: Arial, sans-serif;
   font-size: var(--basic-font-size);
   line-height: var(--text-line-heihth);
-  text-align: var(--text-aligment);
 }
 
 header.cv-header {
@@ -39,7 +44,7 @@ article h2 {
   border-bottom: 1px solid lightsteelblue;
 }
 
-header, article, footer {
+header, article {
   background-color: #F1F1F1;
   margin: 1px
 }
