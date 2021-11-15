@@ -2,8 +2,8 @@
   --A4-width: 794px; /*for resolution 96 PPI*/
   --A4-heigth: 1123px; /*for  resolution 96 PPI*/
   /* CV-recommended margin is 0.5-1 inch, 1 inch = 96PPI*/
-  --cv-margin-t-b: 64px; /* top-bottom 0.5 inch*/
-  --cv-margin-l-r: 72px; /* left-right 0.75 inch*/
+  --cv-margin-t-b: 1in; /* top-bottom 0.5 inch*/
+  --cv-margin-l-r: 1in; /* left-right 0.75 inch*/
   --cv-container-heigth: calc(var(--A4-heigth) - var(--cv-margin-t-b)*2); /*cv aria*/
   --cv-container-width: calc(var(--A4-width) - var(--cv-margin-l-r)*2); /*cv aria*/
   --basic-font-size: 16px; /* 16px = 12pt or 1em*/
@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 
-html {
+body {
   font-size: var(--basic-font-size);
 }
 
@@ -51,3 +51,14 @@ html {
 @page {
   margin: 0px; /*prevent adding default margins and body margins during print*/
 }
+
+/* [x] Set one-inch margins on all four sides.*/
+/* [x] Pick a 11 or 12pt resume font and stick to it.*/
+/* []  create a proper resume header format for your contact details.*/
+/* [x] Divide your resume into legible resume sections: Contact Information, Resume Summary, Work Experience, Education, Skills.*/
+/*Use bullet points to talk about past jobs.*/
+/*Be consistent with your resume formatting (stick to the same date format: for example 11–2018, or November 2018.)*/
+/*Use single or 1.15 line spacing.*/
+/* Add an extra space before and after each section heading.*/
+/* Make your resume as long as it needs to be.*/
+/* Don’t use photos on your resume. Unless the job description specifically asks for them. You’re looking for a job, not a date!*/

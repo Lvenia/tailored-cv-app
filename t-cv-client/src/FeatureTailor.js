@@ -5,14 +5,13 @@ const FeatureTailor = () => {
     return (
         <main className="feature-container">
             <nav className="nav-bar tailor-nav-bar">
-                <Link to="header">Header</Link>
-                <Link to="objective">Objective</Link>
-                <Link to="experience">Experience</Link>
-                <Link to="education">Education</Link>
-                <Link to="certificates">Certificates</Link>
-                <Link to="personal-info">Personal Info</Link>
-                <Link to="skills">Skills</Link>
-                <Link to="interests">Interests</Link>
+                <Link to="set-header">Header</Link>
+                <Link to="set-resume-summary">Resume Summary</Link>
+                <Link to="set-work-experience">Experience</Link>
+                <Link to="set-education">Education</Link>
+                <Link to="set-certificates">Certificates</Link>
+                <Link to="set-contact-info">Contact Information</Link>
+                <Link to="set-skills">Skills</Link>
             </nav>
             <Outlet/>
         </main>

@@ -1,36 +1,26 @@
 import React from 'react';
+// import Certificates from "./resume-sections/Certificates";
+import Header from "./resume-sections/Header";
+import ResumeSummary from "./resume-sections/ResumeSummary";
+import WorkExperience from "./resume-sections/WorkExperience";
+import Education from "./resume-sections/Education";
+import ContactInformation from "./resume-sections/ContactInformation";
+import Skills from "./resume-sections/Skills";
 
 const Resume = () => {
     return (
         <main className="cv-container">
-            <header className="cv-header">
-                Header
-            </header>
+            {<Header/>}
+            {<ResumeSummary/>}
             <div className="cv-content">
                 <section className="left">
-                    <article>
-                        <h2>Resume objective/ resume summary</h2>
-                    </article>
-                    <article>
-                        <h2>Experience</h2>
-                    </article>
-                    <article>
-                        <h2>Education</h2>
-                    </article>
-                    <article>
-                        <h2>Certificates</h2>
-                    </article>
+                    {<WorkExperience/>}
+                    {<Education/>}
+                    {/*{<Certificates/>}*/}
                 </section>
                 <section className="right">
-                    <article>
-                        <h2>Personal Info</h2>
-                    </article>
-                    <article>
-                        <h2>Skills</h2>
-                    </article>
-                    <article>
-                        <h2>Interests</h2>
-                    </article>
+                    {<ContactInformation/>}
+                    {<Skills/>}
                 </section>
             </div>
         </main>

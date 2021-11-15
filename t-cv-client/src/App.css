@@ -6,7 +6,7 @@ main {
 }
 
 article {
-  height: 25%;
+  /*height: 25%;*/
 }
 
 article h2 {
@@ -18,6 +18,10 @@ article h2 {
 header, article {
   background-color: #F1F1F1;
   margin: 1px
+}
+
+ul {
+  padding-left: 2em;
 }
 /*NAVIGATION STYLES*/
 .nav-bar {
@@ -84,3 +88,7 @@ header.cv-header {
   height: 100%;
 }
 
+.item {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
