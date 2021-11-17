@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SetSkills = () => {
+const SkillsPage = () => {
     return (
         <h2>Set Skills</h2>
     )
 };
 
-export default SetSkills;
+export default SkillsPage;

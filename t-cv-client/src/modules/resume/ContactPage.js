@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SetContactInformation = () => {
+const ContactPage = () => {
     return (
         <h2>Set Contact Information</h2>
     )
 };
 
-export default SetContactInformation;
+export default ContactPage;

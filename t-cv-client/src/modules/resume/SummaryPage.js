@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SetResumeSummary = () => {
+const SummaryPage = () => {
     return (
         <h2>Set Resume Summary</h2>
     )
 };
 
-export default SetResumeSummary;
+export default SummaryPage;

@@ -5,8 +5,8 @@ const MainNavBar = () => {
     return (
         <nav className="nav-bar main-nav-bar">
             <Link to="/">Home</Link>
-            <Link to="/feature-tailor">Feature Tailor</Link>
-            <Link to="/resume">Resume</Link>
+            <Link to="/resume-settings">Resume Settings</Link>
+            <Link to="/preview">Resume Preview</Link>
         </nav>
     )
 };

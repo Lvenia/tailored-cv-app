@@ -8,7 +8,7 @@
   --cv-container-width: calc(var(--A4-width) - var(--cv-margin-l-r)*2); /*cv aria*/
   --basic-font-size: 16px; /* 16px = 12pt or 1em*/
   --text-aligment: left; /*Always align text in CV to left, especially headers and bullet points*/
-  --text-line-heihth: 1.5;
+  --text-line-heihth: 1.4;
 }
 
 * {
@@ -19,6 +19,9 @@
 
 body {
   font-size: var(--basic-font-size);
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #323232;
 }
 
 @media print {
@@ -52,13 +55,3 @@ body {
   margin: 0px; /*prevent adding default margins and body margins during print*/
 }
 
-/* [x] Set one-inch margins on all four sides.*/
-/* [x] Pick a 11 or 12pt resume font and stick to it.*/
-/* []  create a proper resume header format for your contact details.*/
-/* [x] Divide your resume into legible resume sections: Contact Information, Resume Summary, Work Experience, Education, Skills.*/
-/*Use bullet points to talk about past jobs.*/
-/*Be consistent with your resume formatting (stick to the same date format: for example 11–2018, or November 2018.)*/
-/*Use single or 1.15 line spacing.*/
-/* Add an extra space before and after each section heading.*/
-/* Make your resume as long as it needs to be.*/
-/* Don’t use photos on your resume. Unless the job description specifically asks for them. You’re looking for a job, not a date!*/

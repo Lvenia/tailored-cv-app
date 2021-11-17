@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SetEducation = () => {
+const EducationPage = () => {
     return (
         <h2>Set Education</h2>
     )
 };
 
-export default SetEducation;
+export default EducationPage;
