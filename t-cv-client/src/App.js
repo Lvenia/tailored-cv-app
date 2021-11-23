@@ -20,24 +20,23 @@ import NotFound from "./components/NotFound";
 //STYLES
 import "./App.css";
 
+const initialState = {
+    name: [],
+    role: []
+}
+
 export const AppContext = React.createContext({});
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'TAILOR':
-            return {...state, tailor: "HI"};
-        case 'RESUME':
-            return {...state, resume:"Hi"};
-        case 'HEADER':
-            return {...state, header:"Hi"};
-        case 'CHILD':
-            return {...state, child:"Hi"};
+        case 'ADD_ENTRY':
+            const {name, value} = action.payload;
+            const newValues = state[name].concat(value);
+            return {...state, [name]: newValues }
         default:
             throw new Error("========Error from reducer=====")
     }
 }
-
-const initialState = {};
 
 const App = () => {
     const [state, dispatch] = useReducer(reducer, initialState);

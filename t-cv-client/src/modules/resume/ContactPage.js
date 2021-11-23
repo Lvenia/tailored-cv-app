@@ -1,4 +1,10 @@
 import React from 'react';
+//contact information: {
+// email: ["", ""],
+// phone: ["", ""],
+// linkedinUrl: ["", ""],
+// githubUrl: ["", ""],
+// }
 
 const ContactPage = () => {
     return (

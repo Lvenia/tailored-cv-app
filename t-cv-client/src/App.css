@@ -2,8 +2,32 @@ main {
   width: 75%;
   margin: auto;
   height: max-content;
-  background-color: lightslategray;
 }
+
+/*TEMPORARY FORM STYLES*/
+
+fieldset {
+  margin-left: 3rem;
+  padding: 1rem;
+}
+
+fieldset div {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+}
+
+label {
+  margin-right: 0.5rem;
+
+}
+
+/*====================================*/
 
 h1 {
   font-size: 2em;
@@ -20,7 +44,6 @@ article h2 {
 }
 
 header, article {
-  background-color: #F1F1F1;
   margin: 1px
 }
 
@@ -31,17 +54,9 @@ ul {
 /*NAVIGATION STYLES*/
 .nav-bar {
   padding: 1rem;
-  background-color: lightslategray;
 }
 .nav-bar a {
   text-decoration: none;
-}
-
-.nav-bar a:hover {
-  background-color: aliceblue;
-}
-.nav-bar a:visited {
-  color: black;
 }
 
 .main-nav-bar {
@@ -66,7 +81,6 @@ ul {
 .feature-container {
   display: flex;
   flex-direction: row;
-  background-color: lightgray;
 }
 
 /*RESUME PAGE STYLES*/
