@@ -4,8 +4,8 @@ import { Link, Outlet } from "react-router-dom";
 
 const ResumePage = () => {
     return (
-        <main className="feature-container">
-            <nav className="nav-bar tailor-nav-bar">
+        <main className="resume-main">
+            <nav className="resume-nav">
                 <Link to="header-settings">Header</Link>
                 <Link to="summary-settings">Resume Summary</Link>
                 <Link to="experience-settings">Experience</Link>
@@ -14,7 +14,9 @@ const ResumePage = () => {
                 <Link to="contact-settings">Contact Information</Link>
                 <Link to="skills-settings">Skills</Link>
             </nav>
-            <Outlet/>
+            <section>
+              <Outlet/>
+            </section>
         </main>
     )
 };

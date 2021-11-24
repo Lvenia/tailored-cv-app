@@ -19,19 +19,22 @@ import MainNavBar from "./components/MainNavBar";
 import NotFound from "./components/NotFound";
 //STYLES
 import "./App.css";
+import { mockData } from "./modules/resume/mockData";
 
-const initialState = {
-    name: [],
-    role: []
-}
+// const initialState = {
+//     name: [{id, value}, {id, value}],
+//     role: [{id, value}, {id, value}],
+// }
+
+const initialState = mockData;
 
 export const AppContext = React.createContext({});
-
+//TODO: move reducer and initial state to separate file
 const reducer = (state, action) => {
     switch (action.type) {
         case 'ADD_ENTRY':
-            const {name, value} = action.payload;
-            const newValues = state[name].concat(value);
+            const {id, name, value} = action.payload;
+            const newValues = state[name].concat({ id, value });
             return {...state, [name]: newValues }
         default:
             throw new Error("========Error from reducer=====")
@@ -46,7 +49,7 @@ const App = () => {
                 <MainNavBar/>
                 <AppContext.Provider value={{state, dispatch}}>
                     <Routes>
-                        <Route path="/" element={<main><h1>Go through settings, then print preview</h1></main>}/>
+                        <Route path="/" element={<main><section>Go through settings, then print preview</section></main>}/>
                         <Route path="resume-settings" element={<ResumePage/>}>
                             <Route path="header-settings" element={<HeaderPage/>}/>
                             <Route path="summary-settings" element={<SummaryPage/>}/>

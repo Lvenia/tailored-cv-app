@@ -1,33 +1,59 @@
-main {
-  width: 75%;
-  margin: auto;
-  height: max-content;
+section {
+  width: 100%;
+  padding: 1rem;
 }
 
 /*TEMPORARY FORM STYLES*/
 
 fieldset {
-  margin-left: 3rem;
+  margin: 1rem auto;
   padding: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(252, 190, 190, 0.3);
 }
 
 fieldset div {
-  display: flex;
-  justify-content: right;
+  display: grid;
   align-items: center;
-  margin-top: 1rem;
 }
 
-input {
+legend {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  color: orangered;
+}
+
+input, button {
   padding: 0.5rem;
 }
 
-label {
-  margin-right: 0.5rem;
-
+input {
+  margin: 0.5rem
 }
 
-/*====================================*/
+.add {
+  grid-template-columns: 1fr 8fr 2fr;
+}
+
+.control {
+  grid-template-columns: 1fr 1fr 1fr 15fr;
+}
+
+/*TEMPORARY LIST STYLES*/
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li span {
+  margin: 0 0.5rem;
+}
+
 
 h1 {
   font-size: 2em;
@@ -51,42 +77,48 @@ ul {
   padding-left: 2em;
 }
 
-/*NAVIGATION STYLES*/
-.nav-bar {
+/*TEMPORARY NAVIGATION STYLES*/
+
+nav {
   padding: 1rem;
-}
-.nav-bar a {
-  text-decoration: none;
-}
-
-.main-nav-bar {
-  width: 75%;
-  margin: auto;
-}
-
-.main-nav-bar a {
-  padding: 5px;
-}
-
-.tailor-nav-bar {
+  border: 1px dashed blue;
   display: flex;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 0.5rem;
+  border: 1px solid red
+}
+
+.main-nav {
+  flex-direction: row;
+}
+
+.resume-nav {
   flex-direction: column;
+  width: 25%;
 }
 
-.tailor-nav-bar a {
-  padding: 5px;
-}
-
-/*FEATURE TAILOR PAGE STYLES*/
-.feature-container {
+/*TEMPORARY RESUME PAGE STYLES*/
+.resume-main {
   display: flex;
   flex-direction: row;
 }
 
-/*RESUME PAGE STYLES*/
-.cv-container {
-  height: var(--cv-container-heigth); /*ADJUST INCLUDING BORDERS WHEN SETTLED */
-  width: var(--cv-container-width);
+.resume-main section {
+  width: 75%;
+}
+
+.resume-main article {
+  width: 70%;
+  margin: auto;
+}
+
+/*TEMPORARY PREVIEW PAGE STYLES*/
+.preview-container {
+  height: var(--preview-container-heigth); /*ADJUST INCLUDING BORDERS WHEN SETTLED */
+  width: var(--preview-container-width);
   margin: auto;
   border: 1px dotted red;
   display: flex;

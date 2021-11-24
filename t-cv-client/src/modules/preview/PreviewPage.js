@@ -14,7 +14,7 @@ const PreviewPage = () => {
     console.log("global app state is accessible from PreviewPage");
 
     return (
-        <main className="cv-container">
+        <main className="preview-container">
             {<Header/>}
             {<ContactInformation/>}
             {<Summary/>}

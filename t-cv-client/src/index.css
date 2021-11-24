@@ -2,10 +2,10 @@
   --A4-width: 794px; /*for resolution 96 PPI*/
   --A4-heigth: 1123px; /*for  resolution 96 PPI*/
   /* CV-recommended margin is 0.5-1 inch, 1 inch = 96PPI*/
-  --cv-margin-t-b: 1in; /* top-bottom 0.5 inch*/
-  --cv-margin-l-r: 1in; /* left-right 0.75 inch*/
-  --cv-container-heigth: calc(var(--A4-heigth) - var(--cv-margin-t-b)*2); /*cv aria*/
-  --cv-container-width: calc(var(--A4-width) - var(--cv-margin-l-r)*2); /*cv aria*/
+  --preview-margin-t-b: 1in; /* top-bottom 0.5 inch*/
+  --preview-margin-l-r: 1in; /* left-right 0.75 inch*/
+  --preview-container-heigth: calc(var(--A4-heigth) - var(--preview-margin-t-b)*2); /*cv aria*/
+  --preview-container-width: calc(var(--A4-width) - var(--preview-margin-l-r)*2); /*cv aria*/
   --basic-font-size: 16px; /* 16px = 12pt or 1em*/
   --text-aligment: left; /*Always align text in CV to left, especially headers and bullet points*/
   --text-line-heihth: 1.4;
@@ -33,9 +33,9 @@ body {
     display: none;
   }
 
-  .cv-container {
+  .preview-container {
     position: initial;
-    margin: var(--cv-margin-t-b) var(--cv-margin-l-r);/*ok*/
+    margin: var(--preview-margin-t-b) var(--preview-margin-l-r);/*ok*/
     border: none;
   }
 /* set on class corresponding to readyCV element*/

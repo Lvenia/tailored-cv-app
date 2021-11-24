@@ -1,33 +1,27 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import { AppContext } from "../../App";
+import TextInputWithActions from "./TextInputWithActions";
+import { ADD_ENTRY, HEADER, generateId } from './consts';
 
-const ADD_ENTRY = "ADD_ENTRY";
-
-const TextInputWithAdd = ({
-  name,
-  type,
-  label,
-  inputRef,
-  handleAdd,
-}) => {
-
-  const handleClick = (e) => {
-    e.preventDefault(); //prevent page refresh
-    handleAdd(name, inputRef.current.value);
-    inputRef.current.value="";
-    inputRef.current.blur();
-  }
-
+//TODO: use TextInputWithActions instead
+const TextInputRUD = ({ id, type, content, readOnly }) => {
+  const [select, setSelect] = useState(false);
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className="control">
+      <button
+        style={{backgroundColor: select && "green"}}
+        onClick={() => setSelect(!select)}
+      >
+        S
+      </button>
+      <button>E</button>
+      <button>D</button>
       <input
-        id={name}
+        id={id}
         type={type}
-        ref={inputRef}
-        onKeyDown={e => e.key === 'Enter' && handleClick(e)}
+        value={content}
+        readOnly={readOnly}
       />
-      <button onClick={handleClick}>Add</button>
     </div>
   )
 }
@@ -37,20 +31,40 @@ const HeaderPage = () => {
   const nameRef = useRef("");
   const roleRef = useRef("");
 
-  const handleAdd = (name, value) => {
-    dispatch({type: ADD_ENTRY, payload: {name, value}})
+  const addEntry = (name, value) => {
+    dispatch({ type: ADD_ENTRY, payload: { id: generateId(), name, value } })
   }
 
+  const renderItems = (items) => {
+    return items.map(item => {
+      const { id, value } = item;
+      return <TextInputRUD key={id} id={id} content={value} readOnly={true} type="text"/>
+    })
+  }
+
+  //TODO: put some thoughts in return (consts, separate component?)
   return (
-    <div>
-      <fieldset>
-        <legend>CV Header</legend>
-        <TextInputWithAdd name="name" type="text" label="Name:" inputRef={nameRef} handleAdd={handleAdd}/>
-        <TextInputWithAdd name="role" type="text" label="Role:" inputRef={roleRef} handleAdd={handleAdd}/>
-      </fieldset>
-      <h1>Name: {state.name}</h1>
-      <h1>Role: {state.role}</h1>
-    </div>
+    <>
+      <article>
+        <fieldset>
+          <legend>{HEADER}</legend>
+          <TextInputWithActions name="name" type="text" label="Name:" inputRef={nameRef} addEntry={addEntry}/>
+          <TextInputWithActions name="role" type="text" label="Role:" inputRef={roleRef} addEntry={addEntry}/>
+        </fieldset>
+      </article>
+      <article className="control">
+        <fieldset>
+          <legend>Name Field Control</legend>
+          {renderItems(state.name)}
+        </fieldset>
+      </article>
+      <article className="control">
+        <fieldset>
+          <legend>Role Field Control</legend>
+          {renderItems(state.role)}
+        </fieldset>
+      </article>
+    </>
   )
 }
 

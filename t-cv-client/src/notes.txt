@@ -1,3 +1,6 @@
+TASKS:
+//TODO: [ ] prevent submission of empty input, show info to the user about error
+
 What data are you going to collect from user?
 name: ["Firstname Lastname", "Firstname2 Lastname2"],
 role: ["Junior Web Developer", "Web Developer", "Frontend Developer", "Front-end Developer", "Fullstack developer"],
