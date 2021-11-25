@@ -4,6 +4,14 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
+
+import {
+    ADD_ENTRY,
+    DELETE_ENTRY,
+    EDIT_ENTRY,
+    SELECT_ENTRY,
+    UNSELECT_ENTRY,
+} from './modules/resume/consts'
 // MODULES
 import ResumePage from "./modules/resume/ResumePage";
 import HeaderPage from "./modules/resume/HeaderPage";
@@ -22,8 +30,15 @@ import "./App.css";
 import { mockData } from "./modules/resume/mockData";
 
 // const initialState = {
-//     name: [{id, value}, {id, value}],
-//     role: [{id, value}, {id, value}],
+// name: {
+//     history: [{}{} ],
+//     selected: [id]
+// },
+// role: {
+//     history: [ ],
+//     selected: [id]
+// },
+// }
 // }
 
 const initialState = mockData;
@@ -31,11 +46,44 @@ const initialState = mockData;
 export const AppContext = React.createContext({});
 //TODO: move reducer and initial state to separate file
 const reducer = (state, action) => {
+    const {id, name, value} = action.payload;
+
     switch (action.type) {
-        case 'ADD_ENTRY':
-            const {id, name, value} = action.payload;
-            const newValues = state[name].concat({ id, value });
-            return {...state, [name]: newValues }
+        case ADD_ENTRY:
+            const newValues = state[name].history.concat({ id, value });
+            return {
+                ...state,
+                [name]: {
+                    ...state[name],
+                    history: newValues
+                }
+            };
+        case SELECT_ENTRY:
+            console.log(`access entry with ${id} to be selected`);
+            const idsAfterSelect = state[name].selected.concat(id);
+            return {
+                ...state,
+                [name]: {
+                    ...state[name],
+                    selected: idsAfterSelect
+                }
+            }
+        case UNSELECT_ENTRY:
+            console.log(`access entry with ${id} to be unselected`);
+            const idsAfterUnselect = state[name].selected.filter(el => el !== id);
+            return {
+                ...state,
+                [name]: {
+                    ...state[name],
+                    selected: idsAfterUnselect
+                }
+            }
+        case EDIT_ENTRY:
+            console.log(`access entry with ${id} to be edited`);
+            return state;
+        case DELETE_ENTRY:
+            console.log(`access entry with ${id} to be deleted`);
+            return state;
         default:
             throw new Error("========Error from reducer=====")
     }

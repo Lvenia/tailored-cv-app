@@ -3,9 +3,12 @@ section {
   padding: 1rem;
 }
 
+.selected-btn {
+  background-color: mediumspringgreen;
+}
 /*TEMPORARY FORM STYLES*/
 
-fieldset {
+fieldset, .entry-control-box {
   margin: 1rem auto;
   padding: 1rem;
   box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(252, 190, 190, 0.3);
@@ -16,13 +19,15 @@ fieldset div {
   align-items: center;
 }
 
-legend {
+legend, .entry-control-box h5 {
   font-size: 1.2rem;
   padding: 0.5rem;
   color: orangered;
+  background-color: white;
+  width: max-content;
 }
 
-input, button {
+input, button, .entry p {
   padding: 0.5rem;
 }
 
@@ -34,8 +39,28 @@ input {
   grid-template-columns: 1fr 8fr 2fr;
 }
 
-.control {
+/*TEMPORARY ENTRY CONTROL STYLES */
+.entry-control-box {
+  position: relative;
+  border-width: 2px;
+  border-style: groove;
+  border-color: threedface;
+}
+
+.entry-control-box h5 {
+  position: absolute;
+  top: -1.2rem;
+  font-weight: normal;
+}
+.entry {
+  display: grid;
+  margin-top: 1rem;
   grid-template-columns: 1fr 1fr 1fr 15fr;
+}
+
+.entry p {
+  border: 1px solid #767676;
+  border-radius: 2px;
 }
 
 /*TEMPORARY LIST STYLES*/
@@ -112,7 +137,7 @@ nav a {
 
 .resume-main article {
   width: 70%;
-  margin: auto;
+  margin: 2rem auto;
 }
 
 /*TEMPORARY PREVIEW PAGE STYLES*/
