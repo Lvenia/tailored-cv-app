@@ -15,3 +15,7 @@ export const ROLE_ENTRY_CONTROL = 'Role Entry Control';
 export const generateId = () => {
   return new Date().getTime().toString(); //temporary solution
 }
+
+//ENTRY GROUP NAMES
+export const NAME = 'name';
+export const ROLE = 'role';

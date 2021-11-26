@@ -1,44 +1,27 @@
-import React, { useRef, useContext, useState } from 'react';
+import React, { useRef, useContext } from 'react';
 import { AppContext } from "../../App";
 import TextInputWithAction from "./TextInputWithAction";
+import Button from "../../components/Button";
+
 import {
-  ADD_ENTRY,
-  DELETE_ENTRY,
-  EDIT_ENTRY,
-  SELECT_ENTRY,
-  UNSELECT_ENTRY,
+  addEntry,
+  editEntry,
+  deleteEntry,
+  toggleSelect
+} from "./actionHandlers";
+
+import {
   HEADER_INPUTS,
   NAME_ENTRY_CONTROL,
   ROLE_ENTRY_CONTROL,
-  generateId
+  NAME,
+  ROLE
 } from './consts';
-import Button from "../../components/Button";
 
 const HeaderPage = () => {
   const { state, dispatch } = useContext(AppContext);
   const nameRef = useRef("");
   const roleRef = useRef("");
-
-
-  const addEntry = (name, value) => {
-    dispatch({ type: ADD_ENTRY, payload: { id: generateId(), name, value }})
-  };
-
-  const editEntry = (id, name) => {
-    dispatch({type: EDIT_ENTRY, payload: {id, name}});
-  };
-
-  const deleteEntry = (id, name) => {
-    dispatch({type: DELETE_ENTRY, payload: {id, name}});
-  };
-
-  const toggleSelect = (id, name, shouldBeSelected) => {
-    if (shouldBeSelected) {
-      dispatch({type: UNSELECT_ENTRY, payload: {id, name}});
-    } else {
-      dispatch({type: SELECT_ENTRY, payload: {id, name}});
-    }
-  }
 
   const renderEntries = (entry, entryName) => {
     const { history, selected } = entry;
@@ -48,47 +31,49 @@ const HeaderPage = () => {
       return (
         <div key={id} className="entry">
           <Button
-            handleClick={() => toggleSelect(id, entryName, shouldBeSelected)}
+            handleClick={() => toggleSelect(dispatch, id, entryName, shouldBeSelected)}
             label="S"
-            style={selected.includes(id) && "selected-btn"}
+            style={selected.includes(id) ? "selected-btn" : ""}
           />
-          <Button handleClick={() => editEntry(id, entryName)} label="E" />
-          <Button handleClick={() => deleteEntry(id, entryName)} label="D"/>
+          <Button handleClick={() => editEntry(dispatch, id, entryName)} label="E" />
+          <Button handleClick={() => deleteEntry(dispatch,id, entryName)} label="D"/>
           <p key={id}>{value}</p>
         </div>
       )
     })
   }
 
-   const { name: nameEntry, role: roleEntry } = state;
+   const { name: nameArr, role: roleArr} = state;
    return (
      <>
        <article>
          <fieldset>
            <legend>{ HEADER_INPUTS }</legend>
            <TextInputWithAction
-             name="name"
+             name={NAME}
              type="text"
              label="Name:"
              inputRef={nameRef}
+             dispatch={dispatch}
              action={addEntry}
            />
            <TextInputWithAction
-             name="role"
+             name={ROLE}
              type="text"
              label="Role:"
              inputRef={roleRef}
              action={addEntry}
+             dispatch={dispatch}
            />
          </fieldset>
        </article>
        <article className="entry-control-box">
          <h5>{ NAME_ENTRY_CONTROL }</h5>
-         {renderEntries(nameEntry, "name")}
+         {renderEntries(nameArr, NAME)}
        </article>
        <article className="entry-control-box">
          <h5>{ ROLE_ENTRY_CONTROL }</h5>
-         {renderEntries(roleEntry, "role")}
+         {renderEntries(roleArr, ROLE)}
        </article>
      </>
    )

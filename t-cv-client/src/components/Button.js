@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({label, handleClick, style}) => {
-  const [toggle, setToggle] = useState();
   return (
     <button
       className={style}

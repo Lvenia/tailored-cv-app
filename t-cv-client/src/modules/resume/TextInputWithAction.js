@@ -6,12 +6,13 @@ import TextInput from "./TextInput";
 const TextInputWithAction = ({
   inputRef,
   action,
+  dispatch,
   ...rest
 }) => {
 
   const handleAdd = (e) => {
     e?.preventDefault(); //prevent page refresh
-    action(rest.name, inputRef.current.value);
+    action(dispatch, rest.name, inputRef.current.value);
     inputRef.current.value="";
     inputRef.current.blur();
   };
@@ -35,6 +36,7 @@ TextInputWithAction.propTypes = {
   label: PropTypes.string.isRequired,
   inputRef: PropTypes.object.isRequired,
   action: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 }
 
 export default TextInputWithAction;
