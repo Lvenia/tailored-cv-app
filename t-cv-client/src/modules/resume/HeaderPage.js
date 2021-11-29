@@ -1,6 +1,7 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import { AppContext } from "../../App";
 import TextInputWithAction from "./TextInputWithAction";
+import ItemWithActions from "./ItemWithActions";
 import Button from "../../components/Button";
 
 import {
@@ -22,61 +23,75 @@ const HeaderPage = () => {
   const { state, dispatch } = useContext(AppContext);
   const nameRef = useRef("");
   const roleRef = useRef("");
+  // const [editName, setEditName] = useState(false);
+  // const [editRole, setEditRole] = useState(false);
+  // const updateRefValue = (ref, newValue) => {
+  //   ref.current.value = newValue;
+  // }
 
-  const renderEntries = (entry, entryName) => {
-    const { history, selected } = entry;
-    return history.map(item => {
-      const { id, value } = item;
-      const shouldBeSelected = selected.includes(id);
+  const renderEntries = (stateSection, sectionName) => {
+    return stateSection.map(el => {
+      // {
+      //   item: {
+      //     id: '83739302',
+      //     value: 'Iryna Kresinska'
+      //   },
+      //   selected: true
+      // },
+      // console.log(item.item);
+      // const { id } = item.item;
       return (
-        <div key={id} className="entry">
-          <Button
-            handleClick={() => toggleSelect(dispatch, id, entryName, shouldBeSelected)}
-            label="S"
-            style={selected.includes(id) ? "selected-btn" : ""}
-          />
-          <Button handleClick={() => editEntry(dispatch, id, entryName)} label="E" />
-          <Button handleClick={() => deleteEntry(dispatch,id, entryName)} label="D"/>
-          <p key={id}>{value}</p>
-        </div>
+        <ItemWithActions
+          key={el.item.id}
+          sectionName={sectionName}
+          entry={el}
+          handleToggleSelect={toggleSelect(dispatch)}
+          // handleEdit={editEntry(dispatch)}
+          // handleDelete={deleteEntry(dispatch)}
+        />
       )
     })
   }
 
-   const { name: nameArr, role: roleArr} = state;
-   return (
-     <>
-       <article>
-         <fieldset>
-           <legend>{ HEADER_INPUTS }</legend>
-           <TextInputWithAction
-             name={NAME}
-             type="text"
-             label="Name:"
-             inputRef={nameRef}
-             dispatch={dispatch}
-             action={addEntry}
-           />
-           <TextInputWithAction
-             name={ROLE}
-             type="text"
-             label="Role:"
-             inputRef={roleRef}
-             action={addEntry}
-             dispatch={dispatch}
-           />
-         </fieldset>
-       </article>
-       <article className="entry-control-box">
-         <h5>{ NAME_ENTRY_CONTROL }</h5>
-         {renderEntries(nameArr, NAME)}
-       </article>
-       <article className="entry-control-box">
-         <h5>{ ROLE_ENTRY_CONTROL }</h5>
-         {renderEntries(roleArr, ROLE)}
-       </article>
-     </>
-   )
+  const { name: nameSection, role: roleSection } = state;
+
+  console.count("Header rendered")
+
+  return (
+    <>
+      <article>
+        <fieldset>
+          <legend>{HEADER_INPUTS}</legend>
+          <TextInputWithAction
+            name={NAME}
+            type="text"
+            label="Name:"
+            inputRef={nameRef}
+            addEntry={addEntry(dispatch)}
+            // editEntry={editEntry}
+            // editMode={editName}
+          />
+          <TextInputWithAction
+            name={ROLE}
+            type="text"
+            label="Role:"
+            inputRef={roleRef}
+            addEntry={addEntry(dispatch)}
+            // editEntry={editEntry}
+            // editMode={editRole}
+          />
+        </fieldset>
+      </article>
+      <article className="entry-control-box">
+        <h5>{NAME_ENTRY_CONTROL}</h5>
+        {renderEntries(nameSection, NAME)}
+      </article>
+      <article className="entry-control-box">
+        <h5>{ROLE_ENTRY_CONTROL}</h5>
+        {renderEntries(roleSection, ROLE)}
+      </article>
+    </>
+  )
 }
 
 export default HeaderPage;

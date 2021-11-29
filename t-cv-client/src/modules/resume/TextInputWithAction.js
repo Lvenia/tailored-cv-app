@@ -4,18 +4,30 @@ import Button from "../../components/Button";
 import TextInput from "./TextInput";
 
 const TextInputWithAction = ({
+  name,
   inputRef,
-  action,
-  dispatch,
+  addEntry,
+  // editEntry,
+  // editMode,
   ...rest
 }) => {
 
+  // const label = editMode ? "Save" : "Add";
+
   const handleAdd = (e) => {
     e?.preventDefault(); //prevent page refresh
-    action(dispatch, rest.name, inputRef.current.value);
+    addEntry(inputRef.current.value, name);
     inputRef.current.value="";
     inputRef.current.blur();
   };
+
+  // const handleEdit = (e) => {
+  //   e?.preventDefault(); //prevent page refresh
+  //   editEntry(dispatch, rest.id, rest.name, inputRef.current.value)//dispatch, id, name, value
+  //   inputRef.current.value="";
+  //   inputRef.current.blur();
+  // }
+
 
   return (
     <div className="add">
@@ -24,7 +36,7 @@ const TextInputWithAction = ({
         inputRef={inputRef}
         handleInputSubmit={handleAdd}
       />
-      {action && <Button label="Add" handleClick={handleAdd}/>}
+      {<Button label="Add" handleClick={handleAdd}/>}
     </div>
   )
 }
@@ -35,7 +47,7 @@ TextInputWithAction.propTypes = {
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   inputRef: PropTypes.object.isRequired,
-  action: PropTypes.func.isRequired,
+  // action: PropTypes.func.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 

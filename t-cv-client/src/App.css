@@ -58,6 +58,10 @@ input {
   grid-template-columns: 1fr 1fr 1fr 15fr;
 }
 
+.hidden-entry {
+  display: none;
+}
+
 .entry p {
   border: 1px solid #767676;
   border-radius: 2px;

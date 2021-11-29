@@ -8,7 +8,7 @@ import {
 import {
     ADD_ENTRY,
     DELETE_ENTRY,
-    EDIT_ENTRY,
+    EDIT_ENTRY, generateId,
     SELECT_ENTRY,
     UNSELECT_ENTRY,
 } from './modules/resume/consts'
@@ -46,44 +46,74 @@ const initialState = mockData;
 export const AppContext = React.createContext({});
 //TODO: move reducer and initial state to separate file
 const reducer = (state, action) => {
-    const {id, name, value} = action.payload;
+    //payload must be item {id, value} and sectionName
+    const {item, selected, sectionName} = action.payload;
+    // payload: {
+    //     item: {
+    //         id: generateId(),
+    //           value,
+    //           selected: false
+    //     },
+    //     sectionName
+    // }
 
     switch (action.type) {
         case ADD_ENTRY:
-            const newValues = state[name].history.concat({ id, value });
-            return {
-                ...state,
-                [name]: {
-                    ...state[name],
-                    history: newValues
-                }
+            const entry = {
+                item,
+                selected
             };
-        case SELECT_ENTRY:
-            console.log(`access entry with ${id} to be selected`);
-            const idsAfterSelect = state[name].selected.concat(id);
+            const newValues = state[sectionName].concat(entry);
             return {
                 ...state,
-                [name]: {
-                    ...state[name],
-                    selected: idsAfterSelect
-                }
-            }
-        case UNSELECT_ENTRY:
-            console.log(`access entry with ${id} to be unselected`);
-            const idsAfterUnselect = state[name].selected.filter(el => el !== id);
-            return {
-                ...state,
-                [name]: {
-                    ...state[name],
-                    selected: idsAfterUnselect
-                }
-            }
-        case EDIT_ENTRY:
-            console.log(`access entry with ${id} to be edited`);
-            return state;
-        case DELETE_ENTRY:
-            console.log(`access entry with ${id} to be deleted`);
-            return state;
+                [sectionName]: newValues
+            };
+        // case SELECT_ENTRY:
+        //     console.log(`access entry with ${id} to be selected`);
+        //     const idsAfterSelect = state[name].selected.concat(id);
+        //     return {
+        //         ...state,
+        //         [name]: {
+        //             ...state[name],
+        //             selected: idsAfterSelect
+        //         }
+        //     }
+        // case UNSELECT_ENTRY:
+        //     console.log(`access entry with ${id} to be unselected`);
+        //     const idsAfterUnselect = state[name].selected.filter(el => el !== id);
+        //     return {
+        //         ...state,
+        //         [name]: {
+        //             ...state[name],
+        //             selected: idsAfterUnselect
+        //         }
+        //     }
+        // case EDIT_ENTRY:
+        //     console.log(`access entry with ${id} ${value} ${name} to be edited`);
+        //     //i have id="23", name="role" and value "Emperor"
+        //   const updatedHistory = state[name].history.map(el => {
+        //       if (el.id === id) {
+        //           el.value = 'new value';
+        //       }
+        //       return el;
+        //   })
+        //   return {
+        //       ...state,
+        //      [name]: {
+        //           ...state[name],
+        //          history: updatedHistory
+        //      }
+        //   }
+        //   //[x] find that entry in history and set its value to ""
+        //   //send value to form, make it available to edit
+        //   //change button from add to save
+        //   //onsave rewrite history with that id
+        //
+        //
+        //
+        // case DELETE_ENTRY:
+        //     console.log(`access entry with ${id} to be deleted`);
+        //     return state;
         default:
             throw new Error("========Error from reducer=====")
     }
