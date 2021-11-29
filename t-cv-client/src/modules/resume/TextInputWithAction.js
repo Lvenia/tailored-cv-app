@@ -16,7 +16,7 @@ const TextInputWithAction = ({
 
   const handleAdd = (e) => {
     e?.preventDefault(); //prevent page refresh
-    addEntry(inputRef.current.value, name);
+    addEntry(name, inputRef.current.value);
     inputRef.current.value="";
     inputRef.current.blur();
   };

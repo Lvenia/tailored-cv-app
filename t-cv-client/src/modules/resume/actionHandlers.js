@@ -2,13 +2,14 @@ import {
   ADD_ENTRY,
   DELETE_ENTRY,
   EDIT_ENTRY,
+  TOGGLE_SELECT,
   SELECT_ENTRY,
   UNSELECT_ENTRY,
   generateId,
 } from './consts';
 
 export const addEntry = (dispatch) => {
-  return (value, sectionName) => {
+  return (sectionName, value) => {
     dispatch({
       type: ADD_ENTRY,
       payload: {
@@ -16,7 +17,7 @@ export const addEntry = (dispatch) => {
           id: generateId(),
           value,
         },
-        selected: false,
+        isSelected: false,
         sectionName
       }
     })
@@ -31,13 +32,8 @@ export const deleteEntry = (dispatch, id, name) => {
   dispatch({ type: DELETE_ENTRY, payload: { id, name } });
 };
 
-export const toggleSelect = (dispatch, data) => {
-  return ({ item, shouldBeSelected, entryName }) => {
-    const { id } = item;
-    if (shouldBeSelected) {
-      dispatch({ type: UNSELECT_ENTRY, payload: { id, name: entryName } });
-    } else {
-      dispatch({ type: SELECT_ENTRY, payload: { id, name: entryName } });
-    }
+export const toggleSelect = (dispatch) => {
+  return (sectionName, id) => {
+    dispatch({ type: TOGGLE_SELECT, payload: { sectionName, id } });
   }
 }

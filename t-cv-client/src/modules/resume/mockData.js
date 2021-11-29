@@ -5,21 +5,21 @@ export const mockData = {
         id: '83739302',
         value: 'Iryna Kresinska'
       },
-      selected: true
+      isSelected: true
     },
     {
       item: {
         id: '7383278236',
         value: 'Marcus Aurelius'
       },
-      selected: false
+      isSelected: false
     },
     {
       item: {
         id: '738328236',
         value: 'Don Quijote'
       },
-      selected: false
+      isSelected: false
     },
   ],
   role: [
@@ -28,21 +28,21 @@ export const mockData = {
         id: '21',
         value: 'Software Engineer'
       },
-      selected: true
+      isSelected: true
     },
     {
       item: {
         id: '22',
         value: 'Roman Emperor'
       },
-      selected: true
+      isSelected: true
     },
     {
       item: {
         id: '23',
         value: 'Knight-errant'
       },
-      selected: false
+      isSelected: false
     },
   ],
   edited: null

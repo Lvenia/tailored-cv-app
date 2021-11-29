@@ -7,27 +7,23 @@ const ItemWithActions = ({
   entry,
   handleToggleSelect,
 }) => {
-  const {item, selected} = entry;
+  const { item, isSelected } = entry;
+  const { id } = item;
   // console.log(inputRef.current)
 
   return (
     <div className="entry">
       {/* TODO: ONLY render buttons if correspondent handler is provided */}
-      <Button
-        // style={isSelected ? 'selected-btn' : ''}
+      {handleToggleSelect && <Button
+        style={isSelected ? 'selected-btn' : ''}
         label="S"
-        // handleClick={() => {
-        //   toggleSelect(dispatch, id, entryName, isSelected)
-        // }}
-        // handleClick={() => {
-        //   setSelected(!isSelected);
-        //   handleToggleSelect({ item, shouldBeSelected: isSelected, sectionNameentryName });
-        // }}
-      />
+        handleClick={() => handleToggleSelect(sectionName, id)}
+      />}
 
       <Button
         label="E"
-        handleClick={() => {}}
+        handleClick={() => {
+        }}
         // handleClick={() => {
         //   if(entryName === NAME) {
         //     setEditName(true)
@@ -44,7 +40,8 @@ const ItemWithActions = ({
       />
       <Button
         label="D"
-        handleClick={() => {}}
+        handleClick={() => {
+        }}
         // handleClick={() => {
         //   if(entryName === NAME) {
         //     setEditName(true)

@@ -31,18 +31,19 @@ const HeaderPage = () => {
 
   const renderEntries = (stateSection, sectionName) => {
     return stateSection.map(el => {
-      // {
+      // el: {
       //   item: {
       //     id: '83739302',
       //     value: 'Iryna Kresinska'
       //   },
-      //   selected: true
+      //   isSelected: true
       // },
+
       // console.log(item.item);
-      // const { id } = item.item;
+      const { id } = el.item;
       return (
         <ItemWithActions
-          key={el.item.id}
+          key={id}
           sectionName={sectionName}
           entry={el}
           handleToggleSelect={toggleSelect(dispatch)}
@@ -54,8 +55,6 @@ const HeaderPage = () => {
   }
 
   const { name: nameSection, role: roleSection } = state;
-
-  console.count("Header rendered")
 
   return (
     <>
