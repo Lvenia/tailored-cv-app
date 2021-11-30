@@ -1,61 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from "../../components/Button";
-
+import {
+  STYLE_HIDDEN,
+  STYLE_ENTRY,
+  STYLE_SLC_BTN
+} from "./consts";
 
 const ItemWithActions = ({
   sectionName,
   entry,
   handleToggleSelect,
+  handleEdit,
+  handleDelete,
+  hide
 }) => {
   const { item, isSelected } = entry;
   const { id } = item;
-  // console.log(inputRef.current)
 
   return (
-    <div className="entry">
+    <div className={STYLE_ENTRY}>
       {/* TODO: ONLY render buttons if correspondent handler is provided */}
       {handleToggleSelect && <Button
-        style={isSelected ? 'selected-btn' : ''}
+        style={isSelected ? STYLE_SLC_BTN : ''}
         label="S"
         handleClick={() => handleToggleSelect(sectionName, id)}
       />}
-
-      <Button
+      {handleEdit && <Button
         label="E"
         handleClick={() => {
+          hide(STYLE_HIDDEN)
+          handleEdit(sectionName, entry);
         }}
-        // handleClick={() => {
-        //   if(entryName === NAME) {
-        //     setEditName(true)
-        //   }
-        //   if(entryName === ROLE) {
-        //     setEditRole(true)
-        //   }
-        //   updateRefValue(inputRef, value);
-        //   inputRef.current.focus();
-        //
-        //   //dispatch newValue instead of old one
-        //   // editEntry(dispatch, id, entryName, value);
-        // }}
-      />
-      <Button
+      />}
+      {handleDelete && <Button
         label="D"
-        handleClick={() => {
-        }}
-        // handleClick={() => {
-        //   if(entryName === NAME) {
-        //     setEditName(true)
-        //   }
-        //   if(entryName === ROLE) {
-        //     setEditRole(true)
-        //   }
-        //   updateRefValue(inputRef, value);
-        //   inputRef.current.focus();
-        //
-        //   //dispatch newValue instead of old one
-        //   // editEntry(dispatch, id, entryName, value);
-        // }}
-      />
+        handleClick={() => {handleDelete(sectionName, id)}}
+      />}
       <p>{item.value}</p>
     </div>
   )

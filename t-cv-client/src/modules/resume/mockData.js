@@ -45,5 +45,8 @@ export const mockData = {
       isSelected: false
     },
   ],
-  edited: null
+  edited: {
+    sectionName: null,
+    entry: null,
+  }
 }

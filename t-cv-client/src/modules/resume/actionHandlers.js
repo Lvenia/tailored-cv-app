@@ -2,9 +2,9 @@ import {
   ADD_ENTRY,
   DELETE_ENTRY,
   EDIT_ENTRY,
+  SAVE_CHANGES,
+  DROP_CHANGES,
   TOGGLE_SELECT,
-  SELECT_ENTRY,
-  UNSELECT_ENTRY,
   generateId,
 } from './consts';
 
@@ -24,12 +24,26 @@ export const addEntry = (dispatch) => {
   }
 };
 
-export const editEntry = (dispatch, id, name, value) => {
-  dispatch({ type: EDIT_ENTRY, payload: { id, name, value } });
-};
+export const editEntry = (dispatch) => {
+  return (sectionName, entry) => {
+    dispatch({ type: EDIT_ENTRY, payload: { sectionName, entry } });
+  }
+}
 
-export const deleteEntry = (dispatch, id, name) => {
-  dispatch({ type: DELETE_ENTRY, payload: { id, name } });
+export const saveChanges = (dispatch) => {
+  return (sectionName, value) => {
+    dispatch({ type: SAVE_CHANGES, payload: { sectionName, value } });
+  }
+}
+
+export const dropChanges = (dispatch) => {
+  dispatch({ type: DROP_CHANGES, payload:{} }) //TODO: payload as empty obj to prevent undefined in reducer?
+}
+
+export const deleteEntry = (dispatch) => {
+  return (sectionName, id) => {
+    dispatch({ type: DELETE_ENTRY, payload: { sectionName, id } });
+  }
 };
 
 export const toggleSelect = (dispatch) => {

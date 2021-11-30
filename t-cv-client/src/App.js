@@ -9,9 +9,7 @@ import {
   ADD_ENTRY,
   TOGGLE_SELECT,
   DELETE_ENTRY,
-  EDIT_ENTRY, generateId,
-  SELECT_ENTRY,
-  UNSELECT_ENTRY,
+  EDIT_ENTRY, SAVE_CHANGES, DROP_CHANGES,
 } from './modules/resume/consts'
 // MODULES
 import ResumePage from "./modules/resume/ResumePage";
@@ -30,33 +28,21 @@ import NotFound from "./components/NotFound";
 import "./App.css";
 import { mockData } from "./modules/resume/mockData";
 
-// const initialState = {
-// name: {
-//     history: [{}{} ],
-//     selected: [id]
-// },
-// role: {
-//     history: [ ],
-//     selected: [id]
-// },
-// }
-// }
-
 const initialState = mockData;
 
 export const AppContext = React.createContext({});
 //TODO: move reducer and initial state to separate file
 const reducer = (state, action) => {
 
-  const { item, isSelected, sectionName, id } = action.payload;
+  const { item, isSelected, sectionName, id, entry, value } = action.payload;
 
   switch (action.type) {
     case ADD_ENTRY:
-      const entry = {
+      const entryToAdd = {
         item,
         isSelected
       };
-      const afterAdd = state[sectionName].concat(entry);
+      const afterAdd = state[sectionName].concat(entryToAdd);
       return {
         ...state,
         [sectionName]: afterAdd
@@ -72,53 +58,46 @@ const reducer = (state, action) => {
         ...state,
         [sectionName]: afterToggle
       };
-
-    // case SELECT_ENTRY:
-    //     console.log(`access entry with ${id} to be selected`);
-    //     const idsAfterSelect = state[name].selected.concat(id);
-    //     return {
-    //         ...state,
-    //         [name]: {
-    //             ...state[name],
-    //             selected: idsAfterSelect
-    //         }
-    //     }
-    // case UNSELECT_ENTRY:
-    //     console.log(`access entry with ${id} to be unselected`);
-    //     const idsAfterUnselect = state[name].selected.filter(el => el !== id);
-    //     return {
-    //         ...state,
-    //         [name]: {
-    //             ...state[name],
-    //             selected: idsAfterUnselect
-    //         }
-    //     }
-    // case EDIT_ENTRY:
-    //     console.log(`access entry with ${id} ${value} ${name} to be edited`);
-    //     //i have id="23", name="role" and value "Emperor"
-    //   const updatedHistory = state[name].history.map(el => {
-    //       if (el.id === id) {
-    //           el.value = 'new value';
-    //       }
-    //       return el;
-    //   })
-    //   return {
-    //       ...state,
-    //      [name]: {
-    //           ...state[name],
-    //          history: updatedHistory
-    //      }
-    //   }
-    //   //[x] find that entry in history and set its value to ""
-    //   //send value to form, make it available to edit
-    //   //change button from add to save
-    //   //onsave rewrite history with that id
-    //
-    //
-    //
-    // case DELETE_ENTRY:
-    //     console.log(`access entry with ${id} to be deleted`);
-    //     return state;
+    case EDIT_ENTRY:
+      const editedEntry = {
+        sectionName,
+        entry
+      }
+      return {
+        ...state,
+        edited: editedEntry,
+      };
+    case SAVE_CHANGES:
+      const editedEntryId = state.edited.entry.item.id;
+      const afterSave = state[sectionName].map(entry => {
+        const { id } = entry.item;
+        if (id === editedEntryId) {
+          entry.item.value = value;
+        }
+        return entry;
+      })
+      return {
+        ...state,
+        [sectionName]: afterSave,
+        edited: {
+          sectionName: null,
+          entry: null,
+        }
+      };
+    case DROP_CHANGES:
+      return {
+        ...state,
+        edited: {
+          sectionName: null,
+          entry: null,
+        }
+      }
+    case DELETE_ENTRY:
+      const afterDelete = state[sectionName].filter(entry => entry.item.id !== id)
+      return {
+        ...state,
+        [sectionName]: afterDelete
+      };
     default:
       throw new Error("========Error from reducer=====")
   }

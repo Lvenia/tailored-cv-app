@@ -4,9 +4,10 @@ export const ENTER = 'Enter';
 export const ADD_ENTRY = 'ADD_ENTRY';
 export const DELETE_ENTRY = 'DELETE_ENTRY';
 export const EDIT_ENTRY = 'EDIT_ENTRY';
+export const SAVE_CHANGES = 'SAVE_CHANGES';
+export const DROP_CHANGES = 'DROP_CHANGES';
 export const TOGGLE_SELECT = 'TOGGLE_SELECT';
-export const SELECT_ENTRY = 'SELECT_ENTRY';
-export const UNSELECT_ENTRY = 'UNSELECT_ENTRY';
+
 
 //fieldset legend
 export const HEADER_INPUTS = 'CV Header';
@@ -20,3 +21,10 @@ export const generateId = () => {
 //ENTRY GROUP NAMES
 export const NAME = 'name';
 export const ROLE = 'role';
+
+//CSS CLASS NAMES
+export const STYLE_HIDDEN = "hidden";
+export const STYLE_ADD = "add";
+export const STYLE_EDIT = "edit";
+export const STYLE_ENTRY = "entry";
+export const STYLE_SLC_BTN = "selected-btn"

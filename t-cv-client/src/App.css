@@ -19,6 +19,10 @@ fieldset div {
   align-items: center;
 }
 
+label {
+  width: 60px;
+}
+
 legend, .entry-control-box h5 {
   font-size: 1.2rem;
   padding: 0.5rem;
@@ -37,6 +41,15 @@ input {
 
 .add {
   grid-template-columns: 1fr 8fr 2fr;
+}
+
+.edit {
+  grid-template-columns: 1fr 8fr 1fr 1fr;
+}
+
+.hidden {
+  position: absolute;
+  visibility: hidden;
 }
 
 /*TEMPORARY ENTRY CONTROL STYLES */
@@ -58,8 +71,8 @@ input {
   grid-template-columns: 1fr 1fr 1fr 15fr;
 }
 
-.hidden-entry {
-  display: none;
+.edited-entry {
+  opacity: 0.5;
 }
 
 .entry p {

@@ -6,37 +6,42 @@ import TextInput from "./TextInput";
 const TextInputWithAction = ({
   name,
   inputRef,
-  addEntry,
-  // editEntry,
-  // editMode,
+  handleAction,
+  onCancel,
+  edit,
+  cssClass,
+  hide,
   ...rest
 }) => {
-
-  // const label = editMode ? "Save" : "Add";
-
-  const handleAdd = (e) => {
+  const handleSubmit = (e) => {
     e?.preventDefault(); //prevent page refresh
-    addEntry(name, inputRef.current.value);
+    handleAction(name, inputRef.current.value);
     inputRef.current.value="";
     inputRef.current.blur();
+    hide("");
   };
 
-  // const handleEdit = (e) => {
-  //   e?.preventDefault(); //prevent page refresh
-  //   editEntry(dispatch, rest.id, rest.name, inputRef.current.value)//dispatch, id, name, value
-  //   inputRef.current.value="";
-  //   inputRef.current.blur();
-  // }
+  const handleCancel = (e) => {
+    e?.preventDefault(); //prevent page refresh
+    onCancel();
+    inputRef.current.value="";
+    inputRef.current.blur();
+    hide("");
+  };
 
+  const label = edit ? "Save" : "Add";
 
   return (
-    <div className="add">
+    <div className={cssClass}>
       <TextInput
         {...rest}
+        name={name}
         inputRef={inputRef}
-        handleInputSubmit={handleAdd}
+        handler={handleSubmit}
+        edit
       />
-      {<Button label="Add" handleClick={handleAdd}/>}
+      {handleAction && <Button label={label} handleClick={handleSubmit}/>}
+      {edit && <Button label="Drop" handleClick={handleCancel}/>}
     </div>
   )
 }
@@ -46,9 +51,6 @@ TextInputWithAction.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  inputRef: PropTypes.object.isRequired,
-  // action: PropTypes.func.isRequired,
-  dispatch: PropTypes.func.isRequired
 }
 
 export default TextInputWithAction;
