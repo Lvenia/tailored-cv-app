@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 const TextInput = ({
   name,
-  type,
   label,
   inputRef,
   handler,
+  disabled
 }) => {
 
   return (
@@ -15,9 +15,10 @@ const TextInput = ({
       <label htmlFor={name}>{label}</label>
       <input
         id={name}
-        type={type}
+        type="text"
         ref={inputRef}
         onKeyDown={e => e.key === ENTER && handler(e)}
+        disabled={disabled}
       />
     </>
   )
@@ -25,7 +26,6 @@ const TextInput = ({
 
 TextInput.propTypes = {
   name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   label: PropTypes.string,
   inputRef: PropTypes.object.isRequired,
   handler: PropTypes.func.isRequired

@@ -12,6 +12,7 @@ const ItemWithActions = ({
   handleToggleSelect,
   handleEdit,
   handleDelete,
+  disabled,
   hide
 }) => {
   const { item, isSelected } = entry;
@@ -24,17 +25,20 @@ const ItemWithActions = ({
         style={isSelected ? STYLE_SLC_BTN : ''}
         label="S"
         handleClick={() => handleToggleSelect(sectionName, id)}
+        disabled={disabled}
       />}
       {handleEdit && <Button
         label="E"
         handleClick={() => {
-          hide(STYLE_HIDDEN)
+          // hide(STYLE_HIDDEN)
           handleEdit(sectionName, entry);
         }}
+        disabled={disabled}
       />}
       {handleDelete && <Button
         label="D"
         handleClick={() => {handleDelete(sectionName, id)}}
+        disabled={disabled}
       />}
       <p>{item.value}</p>
     </div>

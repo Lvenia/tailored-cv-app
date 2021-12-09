@@ -1,4 +1,5 @@
 import React from 'react';
+
 //contact information: {
 // email: ["", ""],
 // phone: ["", ""],
@@ -7,9 +8,10 @@ import React from 'react';
 // }
 
 const ContactPage = () => {
-    return (
-        <h2>Set Contact Information</h2>
-    )
+  console.count('contact page renders');
+  return (
+    <h2>Set Contact Information</h2>
+  )
 };
 
 export default ContactPage;

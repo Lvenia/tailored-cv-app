@@ -45,6 +45,29 @@ export const mockData = {
       isSelected: false
     },
   ],
+  summary: [
+    {
+      item: {
+        id: '31',
+        value: 'Dedicated web developer with five years of experience in database administration and website design. Strong creative and analytical skills. Team player with an eye for detail. MySQL, Python and Ruby on Rails.'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '32',
+        value: 'Prolific, full stack web developer with a passion for metrics and beating former "best-yets." Prototyped 25 new product features per year for Flexor, Inc. Decreased rework by 22% and costs by 15%. Consistently receive high user experience scores for all web development projects, including a 55% increase for Flexor, Inc. Passionate about building world class web applications. One of my sites received a 2015 Webby for Best Navigation and Structure. '
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '33',
+        value: 'Hard-working web developer with a flair for creating elegant solutions in the least amount of time. Developed an ecommerce webapp, customer web portal, documentary launch website, and donations webapp for a local charity. Passionate about software architecture and cloud computing. Regular attendee of web developer meetups and hackathons.'
+      },
+      isSelected: false
+    },
+  ],
   edited: {
     sectionName: null,
     entry: null,

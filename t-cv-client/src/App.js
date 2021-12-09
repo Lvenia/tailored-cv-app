@@ -30,7 +30,7 @@ import { mockData } from "./modules/resume/mockData";
 
 const initialState = mockData;
 
-export const AppContext = React.createContext({});
+export const AppContext = React.createContext(initialState);
 //TODO: move reducer and initial state to separate file
 const reducer = (state, action) => {
 
