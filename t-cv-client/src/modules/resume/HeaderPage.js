@@ -25,9 +25,7 @@ const HeaderPage = () => {
   const { state, dispatch } = useContext(AppContext);
   const nameRef = useRef("");
   const roleRef = useRef("");
-
   const editedSectionName = state.edited.sectionName;
-  // const editedValue = state.edited.entry ? state.edited.entry.value : null;
 
   useLayoutEffect(() => {
     console.count('useLayoutEffect');
@@ -58,8 +56,6 @@ const HeaderPage = () => {
           handleAction={editedSectionName === NAME ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
           editedSection={state.edited}
-          // isEdited={editedSectionName === NAME}
-          // disabled={editedSectionName === ROLE}
         />
         <TextInputWithAction
           name={ROLE}
@@ -68,8 +64,6 @@ const HeaderPage = () => {
           handleAction={editedSectionName === ROLE ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
           editedSection={state.edited}
-          // isEdited={editedSectionName === ROLE}
-          // disabled={editedSectionName === NAME}
         />
       </fieldset>
     )
@@ -82,7 +76,7 @@ const HeaderPage = () => {
       return (
         <ItemWithActions
           key={id}
-          sectionName={sectionName}
+          name={sectionName}
           entry={el}
           handleToggleSelect={toggleSelect(dispatch)}
           handleEdit={editEntry(dispatch)}

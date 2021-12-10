@@ -1,48 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from "../../components/Button";
 import {
-  STYLE_HIDDEN,
   STYLE_ENTRY,
   STYLE_SLC_BTN
 } from "./consts";
 
 const ItemWithActions = ({
-  sectionName,
+  name,
   entry,
   handleToggleSelect,
   handleEdit,
   handleDelete,
   disabled,
-  hide
 }) => {
   const { item, isSelected } = entry;
   const { id } = item;
 
   return (
     <div className={STYLE_ENTRY}>
-      {/* TODO: ONLY render buttons if correspondent handler is provided */}
       {handleToggleSelect && <Button
-        style={isSelected ? STYLE_SLC_BTN : ''}
         label="S"
-        handleClick={() => handleToggleSelect(sectionName, id)}
-        disabled={disabled}
+        handleClick={() => handleToggleSelect(name, id)}
+        cssSelector={isSelected ? STYLE_SLC_BTN : ''}
+        isDisabled={disabled}
       />}
       {handleEdit && <Button
         label="E"
-        handleClick={() => {
-          // hide(STYLE_HIDDEN)
-          handleEdit(sectionName, entry);
-        }}
-        disabled={disabled}
+        handleClick={() => handleEdit(name, entry)}
+        isDisabled={disabled}
       />}
       {handleDelete && <Button
         label="D"
-        handleClick={() => {handleDelete(sectionName, id)}}
-        disabled={disabled}
+        handleClick={() => {handleDelete(name, id)}}
+        isDisabled={disabled}
       />}
       <p>{item.value}</p>
     </div>
   )
 };
+
+ItemWithActions.propTypes = {
+  name: PropTypes.string.isRequired,
+  entry: PropTypes.object.isRequired,
+  handleToggleSelect: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+  disabled: PropTypes.bool
+}
 
 export default ItemWithActions;

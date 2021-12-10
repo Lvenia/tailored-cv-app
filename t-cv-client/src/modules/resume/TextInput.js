@@ -6,8 +6,8 @@ const TextInput = ({
   name,
   label,
   inputRef,
-  handler,
-  disabled
+  submitHandler,
+  isDisabled
 }) => {
 
   return (
@@ -17,8 +17,8 @@ const TextInput = ({
         id={name}
         type="text"
         ref={inputRef}
-        onKeyDown={e => e.key === ENTER && handler(e)}
-        disabled={disabled}
+        onKeyDown={e => e.key === ENTER && submitHandler(e)}
+        disabled={isDisabled}
       />
     </>
   )
@@ -26,9 +26,10 @@ const TextInput = ({
 
 TextInput.propTypes = {
   name: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   inputRef: PropTypes.object.isRequired,
-  handler: PropTypes.func.isRequired
+  submitHandler: PropTypes.func.isRequired,
+  isDisabled: PropTypes.bool
 }
 
 export default TextInput;
