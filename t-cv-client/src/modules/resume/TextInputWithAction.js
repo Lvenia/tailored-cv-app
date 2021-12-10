@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from "../../components/Button";
 import TextInput from "./TextInput";
@@ -12,10 +12,6 @@ const TextInputWithAction = ({
   onCancel,
   editedSection
 }) => {
-
-  // useEffect(() => {
-  //   editedSection.entry && inputRef.current.focus();
-  // }, [editedSection.entry]);
 
   const sectionIsEdited = editedSection.sectionName === name;
   const isDisabled = editedSection.sectionName !== null && !sectionIsEdited;
@@ -53,7 +49,6 @@ const TextInputWithAction = ({
   )
 }
 
-// TODO: add all
 TextInputWithAction.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,

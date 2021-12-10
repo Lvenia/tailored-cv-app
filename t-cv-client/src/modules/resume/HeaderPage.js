@@ -26,24 +26,25 @@ const HeaderPage = () => {
   const nameRef = useRef("");
   const roleRef = useRef("");
   const editedSectionName = state.edited.sectionName;
+  const editedValue = state.edited.entry && state.edited.entry.item.value;
 
   useLayoutEffect(() => {
-    console.count('useLayoutEffect');
-
     if (!editedSectionName) {
       return;
     }
 
     if (editedSectionName === NAME) {
-      nameRef.current.value = state.edited.entry.item.value;
+      nameRef.current.value = editedValue;
+      nameRef.current.focus();
       roleRef.current.value = "";
 
     }
     if (editedSectionName === ROLE) {
-      roleRef.current.value = state.edited.entry.item.value;
+      roleRef.current.value = editedValue;
+      roleRef.current.focus();
       nameRef.current.value = "";
     }
-  }, [editedSectionName]);
+  }, [editedSectionName, editedValue]);//editedSectionName === null after each save or cancel
 
   const renderTextInputs = () => {
     return (
