@@ -45,6 +45,71 @@ export const mockData = {
       isSelected: false
     },
   ],
+  email: [
+    {
+      item: {
+        id: '31',
+        value: 'short@example.com'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '32',
+        value: 'long.longlonglonglonglonglong@example.com'
+      },
+      isSelected: false
+    },
+  ],
+  phone: [
+    {
+      item: {
+        id: '41',
+        value: '88888888'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '42',
+        value: '151515151515151'
+      },
+      isSelected: false
+    },
+  ],
+  linkedinUrl: [
+    {
+      item: {
+        id: '51',
+        value: 'https://www.linkedin.com/in/iryna-kresinska-8b59ba201/'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '52',
+        value: 'https://www.linkedin.com'
+      },
+      isSelected: false
+    },
+  ],
+  githubUrl: [
+    {
+      item: {
+        id: '61',
+        value: 'https://github.com/'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '62',
+        value: 'https://github.com/Lvenia'
+      },
+      isSelected: false
+    },
+
+  ],
   summary: [
     {
       item: {
