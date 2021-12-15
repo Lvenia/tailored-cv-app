@@ -77,7 +77,7 @@ export const mockData = {
       isSelected: false
     },
   ],
-  linkedinUrl: [
+  linkedIn: [
     {
       item: {
         id: '51',
@@ -93,7 +93,7 @@ export const mockData = {
       isSelected: false
     },
   ],
-  githubUrl: [
+  gitHub: [
     {
       item: {
         id: '61',
