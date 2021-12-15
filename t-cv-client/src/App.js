@@ -21,6 +21,7 @@ import SummaryPage from "./modules/resume/SummaryPage";
 import ExperiencePage from "./modules/resume/ExperiencePage";
 import SkillsPage from "./modules/resume/SkillsPage";
 import PreviewPage from "./modules/preview/PreviewPage.js";
+import HomePage from "./modules/HomePage";
 //COMPONENTS
 import MainNavBar from "./components/MainNavBar";
 import NotFound from "./components/NotFound";
@@ -111,9 +112,7 @@ const App = () => {
         <MainNavBar/>
         <AppContext.Provider value={{ state, dispatch }}>
           <Routes>
-            <Route path="/" element={<main>
-              <section>Go through settings, then print preview</section>
-            </main>}/>
+            <Route path="/" element={<HomePage/>}/>
             <Route path="resume-settings" element={<ResumePage/>}>
               <Route path="header-settings" element={<HeaderPage/>}/>
               <Route path="summary-settings" element={<SummaryPage/>}/>
