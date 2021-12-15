@@ -22,11 +22,11 @@ import {
 
 const HeaderPage = () => {
   console.count('header page renders')
-  const { state, dispatch } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext); //[td:1] will be repeated in every page if not use customhooks
   const nameRef = useRef("");
   const roleRef = useRef("");
-  const editedSectionName = state.edited.sectionName;
-  const editedValue = state.edited.entry && state.edited.entry.item.value;
+  const editedSectionName = state.edited.sectionName;//[td:2] will be repeated in every page if not use customhooks
+  const editedValue = state?.edited?.entry?.item?.value;//[td:2] will be repeated in every page if not use customhooks
 
   useLayoutEffect(() => {
     if (!editedSectionName) {
@@ -37,7 +37,6 @@ const HeaderPage = () => {
       nameRef.current.value = editedValue;
       nameRef.current.focus();
       roleRef.current.value = "";
-
     }
     if (editedSectionName === ROLE) {
       roleRef.current.value = editedValue;
@@ -88,7 +87,7 @@ const HeaderPage = () => {
     })
   }
 
-  const { name: nameSection, role: roleSection } = state;
+  const { name: nameSection, role: roleSection } = state; //[td:1] will be repeated in every page if not use customhooks
   return (
     <>
       <article>
