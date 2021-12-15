@@ -137,4 +137,4 @@ export const mockData = {
     sectionName: null,
     entry: null,
   }
-}
+};

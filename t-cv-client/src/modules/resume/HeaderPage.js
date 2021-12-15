@@ -1,5 +1,4 @@
-import React, { useRef, useContext, useLayoutEffect } from 'react';
-import { AppContext } from "../../App";
+import React, { useRef, useLayoutEffect } from 'react';
 import TextInputWithAction from "./TextInputWithAction";
 import ItemWithActions from "./ItemWithActions";
 
@@ -19,14 +18,14 @@ import {
   NAME,
   ROLE,
 } from './consts';
+import { useEditedSection, useRelevantStateAndDispatch } from './resumeCustomHooks';
 
 const HeaderPage = () => {
   console.count('header page renders')
-  const { state, dispatch } = useContext(AppContext); //[td:1] will be repeated in every page if not use customhooks
+  const [relevantState, dispatch] = useRelevantStateAndDispatch(NAME,ROLE);
+  const [editedSectionName, editedValue] = useEditedSection();
   const nameRef = useRef("");
   const roleRef = useRef("");
-  const editedSectionName = state.edited.sectionName;//[td:2] will be repeated in every page if not use customhooks
-  const editedValue = state?.edited?.entry?.item?.value;//[td:2] will be repeated in every page if not use customhooks
 
   useLayoutEffect(() => {
     if (!editedSectionName) {
@@ -55,7 +54,7 @@ const HeaderPage = () => {
           inputRef={nameRef}
           handleAction={editedSectionName === NAME ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
-          editedSection={state.edited}
+          editedSectionName={editedSectionName}
         />
         <TextInputWithAction
           name={ROLE}
@@ -63,14 +62,14 @@ const HeaderPage = () => {
           inputRef={roleRef}
           handleAction={editedSectionName === ROLE ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
-          editedSection={state.edited}
+          editedSectionName={editedSectionName}
         />
       </fieldset>
     )
   }
 
   const renderEntries = (stateSection, sectionName) => {
-    const editMode = state.edited.sectionName !== null; //some of entries is currently edited
+    const editMode = editedSectionName !== null; //some of entries is currently edited
     return stateSection.map(el => {
       const { id } = el.item;
       return (
@@ -87,7 +86,7 @@ const HeaderPage = () => {
     })
   }
 
-  const { name: nameSection, role: roleSection } = state; //[td:1] will be repeated in every page if not use customhooks
+  const { name: nameSection, role: roleSection } = relevantState; //[td:1] will be repeated in every page if not use customhooks
   return (
     <>
       <article>

@@ -4,7 +4,7 @@ import { AppContext } from '../../App';
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
   const { state, dispatch } = useContext(AppContext);
   let relevantState = {};
-  [...params].map(entryName => {
+  [...params].forEach(entryName => {
     relevantState = { ...relevantState, [entryName]: state[entryName] };
   });
 
@@ -13,10 +13,9 @@ export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
 
 export const useEditedSection = () => {
   const { state } = useContext(AppContext);
-  const editedSection = state.edited;
-  const editedSectionName = state.edited.sectionName;
+  const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
-  return [editedSection, editedSectionName, editedValue]; // [{}, "", ""]
+  return [editedSectionName, editedValue]; // ["", ""]
 };
 
 ///todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch

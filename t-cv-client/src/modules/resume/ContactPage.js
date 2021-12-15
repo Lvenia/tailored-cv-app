@@ -30,7 +30,7 @@ const ContactPage = () => {
   //TODO: 2. custom hook for getting necessary info about the edited entries
   console.count('contact page renders');
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EMAIL, PHONE, LINKEDIN, GITHUB);
-  const [editedSection, editedSectionName, isEditedValue] = useEditedSection();
+  const [editedSectionName, isEditedValue] = useEditedSection();
 
   // const { state, dispatch } = useContext(AppContext); // [td:1]
   const emailRef = useRef('');
@@ -75,35 +75,35 @@ const ContactPage = () => {
         <legend>{CONTACT_INPUTS}</legend>
         <TextInputWithAction
           label="Email"
-          editedSection={editedSection}
           handleAction={editedSectionName === EMAIL ? saveChanges(dispatch) : addEntry(dispatch)}
           name={EMAIL}
           inputRef={emailRef}
           onCancel={handleDropChanges}
+          editedSectionName={editedSectionName}
         />
         <TextInputWithAction
           label="Phone"
-          editedSection={editedSection}
           handleAction={editedSectionName === PHONE ? saveChanges(dispatch) : addEntry(dispatch)}
           name={PHONE}
           inputRef={phoneRef}
           onCancel={handleDropChanges}
+          editedSectionName={editedSectionName}
         />
         <TextInputWithAction
           label="LinkedIn"
-          editedSection={editedSection}
           handleAction={editedSectionName === LINKEDIN ? saveChanges(dispatch) : addEntry(dispatch)}
           name={LINKEDIN}
           inputRef={linkedInRef}
           onCancel={handleDropChanges}
+          editedSectionName={editedSectionName}
         />
         <TextInputWithAction
           label="GitHub"
-          editedSection={editedSection}
           handleAction={editedSectionName === GITHUB ? saveChanges(dispatch) : addEntry(dispatch)}
           name={GITHUB}
           inputRef={gitHubRef}
           onCancel={handleDropChanges}
+          editedSectionName={editedSectionName}
         />
       </fieldset>
     );

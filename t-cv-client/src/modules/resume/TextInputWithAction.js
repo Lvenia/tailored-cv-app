@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from "../../components/Button";
-import TextInput from "./TextInput";
-import { STYLE_ADD, STYLE_EDIT } from "./consts";
+import Button from '../../components/Button';
+import TextInput from './TextInput';
+import { STYLE_ADD, STYLE_EDIT } from './consts';
 
 const TextInputWithAction = ({
   name,
@@ -10,23 +10,23 @@ const TextInputWithAction = ({
   inputRef,
   handleAction,
   onCancel,
-  editedSection
+  editedSectionName
 }) => {
 
-  const sectionIsEdited = editedSection.sectionName === name;
-  const isDisabled = editedSection.sectionName !== null && !sectionIsEdited;
+  const sectionIsEdited = editedSectionName === name;
+  const isDisabled = editedSectionName !== null && !sectionIsEdited;
 
   const handleSubmit = (e) => {
     e?.preventDefault(); //prevent page refresh
     handleAction(name, inputRef.current.value);
-    inputRef.current.value = "";
+    inputRef.current.value = '';
     inputRef.current.blur();
   };
 
   const handleCancel = (e) => {
     e?.preventDefault(); //prevent page refresh
     onCancel();
-    inputRef.current.value = "";
+    inputRef.current.value = '';
     inputRef.current.blur();
   };
 
@@ -44,18 +44,18 @@ const TextInputWithAction = ({
         handleClick={handleSubmit}
         isDisabled={isDisabled}
       />
-      {sectionIsEdited && <Button label='Cancel' handleClick={handleCancel}/>}
+      {sectionIsEdited && <Button label="Cancel" handleClick={handleCancel}/>}
     </div>
-  )
-}
+  );
+};
 
 TextInputWithAction.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   inputRef: PropTypes.object.isRequired,
   handleAction: PropTypes.func.isRequired,
-  onCancel: PropTypes.func,
-  editedSection: PropTypes.object.isRequired
-}
+  onCancel: PropTypes.func.isRequired,
+  editedSectionName: PropTypes.string.isRequired
+};
 
 export default TextInputWithAction;
