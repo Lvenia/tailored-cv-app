@@ -133,6 +133,84 @@ export const mockData = {
       isSelected: false
     },
   ],
+  education: [
+    {
+      item: {
+        id: '41',
+        value: {
+          startDate: '10/2019',
+          endDate: '09/2021',
+          header1: 'Politechnika Poznańska',
+          header2: 'Master in Chemical Technology',
+          bulletPoints: ''
+        }
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '42',
+        value: {
+          startDate: '10/2015',
+          endDate: '03/2019',
+          header1: 'Politechnika Poznańska',
+          header2: 'Engineer in Chemical and Process Engineering',
+          bulletPoints: ''
+        }
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '43',
+        value: {
+          startDate: '09/2009',
+          endDate: '06/2012',
+          header1: 'Chortkiv State Medical College',
+          header2: 'Pharmacist',
+          bulletPoints: ''
+        }
+      },
+      isSelected: false
+    },
+  ],
+  skills: [
+    {
+      item: {
+        id: '61',
+        value: 'HTML'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '62',
+        value: 'CSS'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '63',
+        value: 'JavaScript'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '63',
+        value: 'React'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '63',
+        value: 'Agile'
+      },
+      isSelected: false
+    },
+  ],
   edited: {
     sectionName: null,
     entry: null,

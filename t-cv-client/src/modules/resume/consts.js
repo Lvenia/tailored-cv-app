@@ -22,6 +22,13 @@ export const GITHUB_ENTRY_CONTROL = 'GitHub Entry Control';
 
 export const SUMMARY_INPUTS = 'Resume Summary';
 export const SUMMARY_ENTRY_CONTROL = 'Summary Entry Control';
+export const EDUCATION_INPUTS = 'Education Entry Control';
+export const EDU_ENTRY_CONTROL = 'Education Entry Control';
+
+
+export const SKILLS_INPUTS = 'Skills';
+export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
+
 //TODO: gather strings relative to inputs in mutual object - will allow to DRY code
 
 // const INPUTS_DEFINITIONS = {
@@ -44,6 +51,14 @@ export const PHONE = 'phone';
 export const LINKEDIN = 'linkedIn';
 export const GITHUB = 'gitHub';
 export const SUMMARY = 'summary';
+export const EDUCATION = 'education';
+export const EDU_START = 'edu_start';
+export const EDU_END = 'edu_end';
+export const EDU_HEADER1 = 'edu_header1';
+export const EDU_HEADER2 = 'edu_header2';
+export const EDU_BULLETS = 'edu_bullets';
+export const SKILLS = 'skills';
+
 
 
 
