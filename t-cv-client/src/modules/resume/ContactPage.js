@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef } from 'react';
 import {
   CONTACT_INPUTS,
   EMAIL,
@@ -22,48 +22,26 @@ import {
 import ItemWithActions from './ItemWithActions';
 import {
   useRelevantStateAndDispatch,
-  useEditedSection
+  useEditedSection,
+  useHandleRefs
 } from './resumeCustomHooks';
 
 const ContactPage = () => {
-  //TODO: 1. consider custom hook on getting just a required sections of the state and dispatch
-  //TODO: 2. custom hook for getting necessary info about the edited entries
   console.count('contact page renders');
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EMAIL, PHONE, LINKEDIN, GITHUB);
-  const [editedSectionName, isEditedValue] = useEditedSection();
-
-  // const { state, dispatch } = useContext(AppContext); // [td:1]
+  const editedSectionName = useEditedSection();
   const emailRef = useRef('');
   const phoneRef = useRef('');
   const linkedInRef = useRef('');
   const gitHubRef = useRef('');
+  const pageRefs = [
+    { ref: emailRef, name: EMAIL },
+    { ref: phoneRef, name: PHONE },
+    { ref: linkedInRef, name: LINKEDIN },
+    { ref: gitHubRef, name: GITHUB },
+  ];
 
-//   const editedSectionName = state.edited.sectionName; // [td:2]
-//   const isEditedValue = state.edited.entry && state.edited.entry.item.value;// [td:2]
-//TODO:  useEntryRef custom hook
-
-  useLayoutEffect(() => {
-    if (!editedSectionName) {
-      return;
-    }
-
-    if (editedSectionName === EMAIL) {
-      emailRef.current.value = isEditedValue;
-      emailRef.current.focus();
-    }
-    if (editedSectionName === PHONE) {
-      phoneRef.current.value = isEditedValue;
-      phoneRef.current.focus();
-    }
-    if (editedSectionName === LINKEDIN) {
-      linkedInRef.current.value = isEditedValue;
-      linkedInRef.current.focus();
-    }
-    if (editedSectionName === GITHUB) {
-      gitHubRef.current.value = isEditedValue;
-      gitHubRef.current.focus();
-    }
-  }, [editedSectionName, isEditedValue]);
+  useHandleRefs(pageRefs);
 
   const handleDropChanges = () => {
     return dropChanges(dispatch);

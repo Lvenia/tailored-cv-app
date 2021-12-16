@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext, useLayoutEffect } from 'react';
 import { AppContext } from '../../App';
 
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
@@ -13,9 +13,27 @@ export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
 
 export const useEditedSection = () => {
   const { state } = useContext(AppContext);
+  return state?.edited?.sectionName;
+};
+
+// [{ref: emailRef, name: 'email'}, {ref: roleRef, name: 'role'}]
+export const useHandleRefs = (arr) => {
+  const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
-  return [editedSectionName, editedValue]; // ["", ""]
+
+  useLayoutEffect(() => {
+    if (!editedSectionName) {
+      return;
+    }
+
+    arr.forEach(({ ref, name }) => {
+      if (editedSectionName === name) {
+        ref.current.value = editedValue;
+        ref.current.focus();
+      }
+    });
+  }, [editedSectionName, editedValue, arr]);
 };
 
 ///todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
