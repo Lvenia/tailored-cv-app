@@ -79,7 +79,7 @@ const HeaderPage = () => {
     });
   };
 
-  const { name: nameSection, role: roleSection } = relevantState; //[td:1] will be repeated in every page if not use customhooks
+  const { name: nameSection, role: roleSection } = relevantState;
   return (
     <>
       <article>
