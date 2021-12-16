@@ -71,7 +71,6 @@ const SummaryPage = () => {
 
   const { summary: summarySection } = relevantState;
 
-  //todo: useGetSectionsToBeRendered will return Array of Sections based on array of sectionNames
   return (
     <>
       <article>
