@@ -20,6 +20,8 @@ export const PHONE_ENTRY_CONTROL = 'Phone Entry Control';
 export const LINKEDIN_ENTRY_CONTROL = 'LinkedIn Entry Control';
 export const GITHUB_ENTRY_CONTROL = 'GitHub Entry Control';
 
+export const SUMMARY_INPUTS = 'Resume Summary';
+export const SUMMARY_ENTRY_CONTROL = 'Summary Entry Control';
 //TODO: gather strings relative to inputs in mutual object - will allow to DRY code
 
 // const INPUTS_DEFINITIONS = {
@@ -41,6 +43,8 @@ export const EMAIL = 'email';
 export const PHONE = 'phone';
 export const LINKEDIN = 'linkedIn';
 export const GITHUB = 'gitHub';
+export const SUMMARY = 'summary';
+
 
 
 //CSS CLASS NAMES
