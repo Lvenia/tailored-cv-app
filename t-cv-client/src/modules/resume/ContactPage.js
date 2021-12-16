@@ -52,7 +52,7 @@ const ContactPage = () => {
       <fieldset>
         <legend>{CONTACT_INPUTS}</legend>
         <TextInputWithAction
-          label="Email"
+          label="Email:"
           handleAction={editedSectionName === EMAIL ? saveChanges(dispatch) : addEntry(dispatch)}
           name={EMAIL}
           inputRef={emailRef}
@@ -60,7 +60,7 @@ const ContactPage = () => {
           editedSectionName={editedSectionName}
         />
         <TextInputWithAction
-          label="Phone"
+          label="Phone:"
           handleAction={editedSectionName === PHONE ? saveChanges(dispatch) : addEntry(dispatch)}
           name={PHONE}
           inputRef={phoneRef}
@@ -68,7 +68,7 @@ const ContactPage = () => {
           editedSectionName={editedSectionName}
         />
         <TextInputWithAction
-          label="LinkedIn"
+          label="LinkedIn:"
           handleAction={editedSectionName === LINKEDIN ? saveChanges(dispatch) : addEntry(dispatch)}
           name={LINKEDIN}
           inputRef={linkedInRef}
@@ -76,7 +76,7 @@ const ContactPage = () => {
           editedSectionName={editedSectionName}
         />
         <TextInputWithAction
-          label="GitHub"
+          label="GitHub:"
           handleAction={editedSectionName === GITHUB ? saveChanges(dispatch) : addEntry(dispatch)}
           name={GITHUB}
           inputRef={gitHubRef}
