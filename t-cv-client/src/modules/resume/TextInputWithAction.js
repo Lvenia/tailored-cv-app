@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import Button from '../../components/Button';
 import TextInput from './TextInput';
 import { STYLE_ADD, STYLE_EDIT } from './consts';
+import TextArea from './TextArea';
 
 const TextInputWithAction = ({
+  textarea,
   name,
   label,
   inputRef,
@@ -32,13 +34,22 @@ const TextInputWithAction = ({
 
   return (
     <div className={sectionIsEdited ? STYLE_EDIT : STYLE_ADD}>
-      <TextInput
-        label={label}
-        name={name}
-        inputRef={inputRef}
-        submitHandler={handleSubmit}
-        isDisabled={isDisabled}
-      />
+      {textarea ?
+        <TextArea
+          label={label}
+          name={name}
+          inputRef={inputRef}
+          submitHandler={handleSubmit}
+          isDisabled={isDisabled}
+        />
+        :
+        <TextInput
+          label={label}
+          name={name}
+          inputRef={inputRef}
+          submitHandler={handleSubmit}
+          isDisabled={isDisabled}
+        />}
       <Button
         label={sectionIsEdited ? 'Save' : 'Add'}
         handleClick={handleSubmit}

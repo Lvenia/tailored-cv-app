@@ -1,194 +1,200 @@
 section {
-  width: 100%;
-  padding: 1rem;
+    width: 100%;
+    padding: 1rem;
 }
 
 .selected-btn {
-  background-color: mediumspringgreen;
+    background-color: mediumspringgreen;
 }
+
 /*TEMPORARY FORM STYLES*/
 
 fieldset, .entry-control-box {
-  margin: 1rem auto;
-  padding: 1rem;
-  box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(252, 190, 190, 0.3);
+    margin: 1rem auto;
+    padding: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(252, 190, 190, 0.3);
 }
 
 fieldset div {
-  display: grid;
-  align-items: center;
+    display: grid;
+    align-items: center;
 }
 
 label {
-  width: 60px;
+    width: 60px;
 }
 
 legend, .entry-control-box h5 {
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  color: orangered;
-  background-color: white;
-  width: max-content;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    color: orangered;
+    background-color: white;
+    width: max-content;
 }
 
-input, button, .entry p {
-  padding: 0.5rem;
+input, button, textarea, .entry p {
+    padding: 0.5rem;
 }
 
-input {
-  margin: 0.5rem
+input, textarea {
+    margin: 0.5rem 0.5rem 0.5rem 1.5rem
 }
 
 .add {
-  grid-template-columns: 1fr 8fr 2fr;
+    grid-template-columns: 1fr 8fr 2fr;
 }
 
 .edit {
-  grid-template-columns: 1fr 8fr 1fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr 1fr;
 }
 
 .hidden {
-  position: absolute;
-  visibility: hidden;
+    position: absolute;
+    visibility: hidden;
+}
+
+textarea {
+    height: 6rem;
 }
 
 /*TEMPORARY ENTRY CONTROL STYLES */
 .entry-control-box {
-  position: relative;
-  border-width: 2px;
-  border-style: groove;
-  border-color: threedface;
+    position: relative;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
 }
 
 .entry-control-box h5 {
-  position: absolute;
-  top: -1.2rem;
-  font-weight: normal;
+    position: absolute;
+    top: -1.2rem;
+    font-weight: normal;
 }
+
 .entry {
-  display: grid;
-  margin-top: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 15fr;
+    display: grid;
+    margin-top: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 15fr;
 }
 
 .edited-entry {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 .entry p {
-  border: 1px solid #767676;
-  border-radius: 2px;
+    border: 1px solid #767676;
+    border-radius: 2px;
 }
 
 /*TEMPORARY LIST STYLES*/
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 li span {
-  margin: 0 0.5rem;
+    margin: 0 0.5rem;
 }
 
 
 h1 {
-  font-size: 2em;
-  font-weight: normal;
+    font-size: 2em;
+    font-weight: normal;
 }
 
 h2 {
-  font-size: 1.2em;
-  font-weight: normal;
+    font-size: 1.2em;
+    font-weight: normal;
 }
 
 article h2 {
-  border-bottom: 1px solid lightsteelblue;
+    border-bottom: 1px solid lightsteelblue;
 }
 
 header, article {
-  margin: 1px
+    margin: 1px
 }
 
 ul {
-  padding-left: 2em;
+    padding-left: 2em;
 }
 
 /*TEMPORARY NAVIGATION STYLES*/
 
 nav {
-  padding: 1rem;
-  border: 1px dashed blue;
-  display: flex;
+    padding: 1rem;
+    border: 1px dashed blue;
+    display: flex;
 }
 
 nav a {
-  text-decoration: none;
-  padding: 0.5rem;
-  border: 1px solid red
+    text-decoration: none;
+    padding: 0.5rem;
+    border: 1px solid red
 }
 
 .main-nav {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 .resume-nav {
-  flex-direction: column;
-  width: 25%;
+    flex-direction: column;
+    width: 25%;
 }
 
 /*TEMPORARY RESUME PAGE STYLES*/
 .resume-main {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .resume-main section {
-  width: 75%;
+    width: 75%;
 }
 
 .resume-main article {
-  width: 70%;
-  margin: 2rem auto;
+    width: 70%;
+    margin: 2rem auto;
 }
 
 /*TEMPORARY PREVIEW PAGE STYLES*/
 .preview-container {
-  height: var(--preview-container-heigth); /*ADJUST INCLUDING BORDERS WHEN SETTLED */
-  width: var(--preview-container-width);
-  margin: auto;
-  border: 1px dotted red;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  font-size: var(--basic-font-size);
-  line-height: var(--text-line-heihth);
+    height: var(--preview-container-heigth); /*ADJUST INCLUDING BORDERS WHEN SETTLED */
+    width: var(--preview-container-width);
+    margin: auto;
+    border: 1px dotted red;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: var(--basic-font-size);
+    line-height: var(--text-line-heihth);
 }
 
 .cv-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100%;
 }
 
 .item {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
 }
 
 .contact-information {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .contact-information > div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

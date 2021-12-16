@@ -35,22 +35,6 @@ const SummaryPage = () => {
     return dropChanges(dispatch);
   };
 
-  const renderInputs = () => {
-    return (
-      <fieldset>
-        <legend>{SUMMARY_INPUTS}</legend>
-        <TextInputWithAction
-          label="Summary"
-          handleAction={editedSectionName === SUMMARY ? saveChanges(dispatch) : addEntry(dispatch)}
-          name={SUMMARY}
-          inputRef={summaryRef}
-          onCancel={handleDropChanges}
-          editedSectionName={editedSectionName}
-        />
-      </fieldset>
-    );
-  };
-
   const renderEntries = (stateSection, sectionName) => {
     const editMode = editedSectionName !== null; //some of entries is currently edited
     return stateSection.map(el => {
@@ -74,7 +58,18 @@ const SummaryPage = () => {
   return (
     <>
       <article>
-        {renderInputs()}
+        <fieldset>
+          <legend>{SUMMARY_INPUTS}</legend>
+          <TextInputWithAction
+            textarea={true}
+            label="Summary:"
+            handleAction={editedSectionName === SUMMARY ? saveChanges(dispatch) : addEntry(dispatch)}
+            name={SUMMARY}
+            inputRef={summaryRef}
+            onCancel={handleDropChanges}
+            editedSectionName={editedSectionName}
+          />
+        </fieldset>
       </article>
       <article className="entry-control-box">
         <h5>{SUMMARY_ENTRY_CONTROL}</h5>
