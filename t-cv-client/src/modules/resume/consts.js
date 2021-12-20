@@ -8,7 +8,6 @@ export const SAVE_CHANGES = 'SAVE_CHANGES';
 export const DROP_CHANGES = 'DROP_CHANGES';
 export const TOGGLE_SELECT = 'TOGGLE_SELECT';
 
-
 //fieldset legend
 export const HEADER_INPUTS = 'Resume Header';
 export const NAME_ENTRY_CONTROL = 'Name Entry Control';
@@ -22,26 +21,14 @@ export const GITHUB_ENTRY_CONTROL = 'GitHub Entry Control';
 
 export const SUMMARY_INPUTS = 'Resume Summary';
 export const SUMMARY_ENTRY_CONTROL = 'Summary Entry Control';
-export const EDUCATION_INPUTS = 'Education Entry Control';
-export const EDU_ENTRY_CONTROL = 'Education Entry Control';
-
+export const EDUCATION_INPUTS = 'Education';
 
 export const SKILLS_INPUTS = 'Skills';
 export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
 
-//TODO: gather strings relative to inputs in mutual object - will allow to DRY code
-
-// const INPUTS_DEFINITIONS = {
-//   email: {
-//     label: 'Email',
-//     title: 'Email Entry Control',
-//     name: 'email',
-//   }
-// }
-
 export const generateId = () => {
   return new Date().getTime().toString(); //temporary solution
-}
+};
 
 //ENTRY GROUP NAMES
 export const NAME = 'name';
@@ -54,18 +41,61 @@ export const SUMMARY = 'summary';
 export const EDUCATION = 'education';
 export const EDU_START = 'edu_start';
 export const EDU_END = 'edu_end';
-export const EDU_HEADER1 = 'edu_header1';
-export const EDU_HEADER2 = 'edu_header2';
+export const EDU_HEADER = 'edu_header';
+export const EDU_SUBHEADER = 'edu_subheader';
 export const EDU_BULLETS = 'edu_bullets';
 export const SKILLS = 'skills';
 
-
-
-
 //CSS CLASS NAMES
-export const STYLE_HIDDEN = "hidden";
-export const STYLE_ADD = "add";
-export const STYLE_EDIT = "edit";
-export const STYLE_ENTRY = "entry";
-export const STYLE_SLC_BTN = "selected-btn"
+export const STYLE_ADD = 'add';
+export const STYLE_EDIT = 'edit';
+export const STYLE_ENTRY = 'entry';
+export const STYLE_ENTRY_GROUP = 'group-entry';
+export const STYLE_SLC_BTN = 'selected-btn';
+export const STYLE_BTN_COL = 'btn-col';
+
+//TODO: gather strings relative to inputs in mutual object - will allow to DRY code
+
+// const INPUTS_DEFINITIONS = {
+//   email: {
+//     label: 'Email',
+//     title: 'Email Entry Control',
+//     name: 'email',
+//   }
+// }
+
+export const INPUT_DEFINITIONS = {
+  education: {
+    name: 'education',
+    fieldsetLabel: 'Education',
+    inputs: {
+      start: {
+        label: 'Start date:',
+        name: 'edu_start',
+        ref: null
+      },
+      end: {
+        label: 'End date:',
+        name: 'edu_end',
+        ref: null
+      },
+      header: {
+        label: 'Header:',
+        name: 'edu_header',
+        ref: null
+      },
+      subheader: {
+        label: 'Subheader:',
+        name: 'edu_subheader',
+        ref: null
+      },
+      bullets: {
+        label: 'Details:',
+        name: 'edu_bullets',
+        ref: null
+      }
+    },
+    entryControl: 'Education Entry Control'
+  }
+};
 
