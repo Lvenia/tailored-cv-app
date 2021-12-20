@@ -36,4 +36,22 @@ export const useHandleRefs = (arr) => {
   }, [editedSectionName, editedValue, arr]);
 };
 
+export const useTest = (...names) => { //"role", "name", "education"
+  const { state } = useContext(AppContext);
+  const editedSectionName = state?.edited?.sectionName;
+  const editedValue = state?.edited?.entry?.item?.value;
+
+  useLayoutEffect(() => {
+    if (!editedSectionName) {
+      return;
+    }
+
+    // [...names].forEach((sectionName) => {
+    //   if (editedSectionName === sectionName) {
+    //     ref.current.value = editedValue;
+    //     ref.current.focus();
+    //   }
+    // });
+  }, [editedSectionName, editedValue, ...names]);
+};
 ///todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch

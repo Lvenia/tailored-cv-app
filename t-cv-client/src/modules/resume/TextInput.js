@@ -29,7 +29,7 @@ TextInput.propTypes = {
   label: PropTypes.string.isRequired,
   inputRef: PropTypes.object.isRequired,
   submitHandler: PropTypes.func.isRequired,
-  isDisabled: PropTypes.bool.isRequired
+  isDisabled: PropTypes.bool
 }
 
 export default TextInput;

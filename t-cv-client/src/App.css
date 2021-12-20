@@ -20,8 +20,12 @@ fieldset div {
     align-items: center;
 }
 
+.group-input {
+    grid-template-columns: 1fr 10fr;
+}
+
 label {
-    width: 60px;
+    width: 80px;
 }
 
 legend, .entry-control-box h5 {
@@ -46,11 +50,6 @@ input, textarea {
 
 .edit {
     grid-template-columns: 1fr 8fr 1fr 1fr;
-}
-
-.hidden {
-    position: absolute;
-    visibility: hidden;
 }
 
 textarea {
@@ -84,6 +83,35 @@ textarea {
 .entry p {
     border: 1px solid #767676;
     border-radius: 2px;
+}
+
+/*TEMPORARY ENTRY GROUP CONTROL STYLES */
+.group-entry {
+    display: grid;
+    grid-template-columns: 1fr 17fr;
+    padding: 1rem 0rem;
+}
+
+.group ul {
+    padding: 0;
+}
+
+.group li {
+    padding: 0.5rem;
+    border-left: 1px solid #767676;
+}
+
+.group .header, .group .subheader {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin: 0.5rem 0;
+}
+
+.btn-col {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+    justify-content: space-around;
 }
 
 /*TEMPORARY LIST STYLES*/

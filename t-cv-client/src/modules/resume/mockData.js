@@ -140,9 +140,31 @@ export const mockData = {
         value: {
           startDate: '10/2019',
           endDate: '09/2021',
-          header1: 'Politechnika Poznańska',
-          header2: 'Master in Chemical Technology',
-          bulletPoints: ''
+          header: 'Politechnika Poznańska',
+          subheader: 'Master in Chemical Technology',
+          bulletPoints: [
+            {
+              item: {
+                id: '411',
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+              },
+              isSelected: true
+            },
+            {
+              item: {
+                id: '412',
+                value: 'Mauris iaculis quam varius urna hendrerit vehicula.\n'
+              },
+              isSelected: true
+            },
+            {
+              item: {
+                id: '413',
+                value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
+              },
+              isSelected: true
+            },
+          ]
         }
       },
       isSelected: true
@@ -153,9 +175,31 @@ export const mockData = {
         value: {
           startDate: '10/2015',
           endDate: '03/2019',
-          header1: 'Politechnika Poznańska',
-          header2: 'Engineer in Chemical and Process Engineering',
-          bulletPoints: ''
+          header: 'Politechnika Poznańska',
+          subheader: 'Engineer in Chemical and Process Engineering',
+          bulletPoints: [
+            {
+              item: {
+                id: '421',
+                value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
+              },
+              isSelected: true
+            },
+            {
+              item: {
+                id: '422',
+                value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
+              },
+              isSelected: true
+            },
+            {
+              item: {
+                id: '423',
+                value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
+              },
+              isSelected: true
+            },
+          ]
         }
       },
       isSelected: true
@@ -166,9 +210,9 @@ export const mockData = {
         value: {
           startDate: '09/2009',
           endDate: '06/2012',
-          header1: 'Chortkiv State Medical College',
-          header2: 'Pharmacist',
-          bulletPoints: ''
+          header: 'Chortkiv State Medical College',
+          subheader: 'Pharmacist',
+          bulletPoints: []
         }
       },
       isSelected: false
@@ -198,14 +242,14 @@ export const mockData = {
     },
     {
       item: {
-        id: '63',
+        id: '64',
         value: 'React'
       },
       isSelected: true
     },
     {
       item: {
-        id: '63',
+        id: '65',
         value: 'Agile'
       },
       isSelected: false
