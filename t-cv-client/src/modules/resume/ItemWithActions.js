@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from "../../components/Button";
+import Button from '../../components/Button';
 import {
   STYLE_ENTRY,
   STYLE_SLC_BTN
-} from "./consts";
+} from './consts';
 
 const ItemWithActions = ({
   name,
@@ -20,24 +20,27 @@ const ItemWithActions = ({
   return (
     <div className={STYLE_ENTRY}>
       {handleToggleSelect && <Button
+        title="Select"
         label="S"
         handleClick={() => handleToggleSelect(name, id)}
         cssSelector={isSelected ? STYLE_SLC_BTN : ''}
         isDisabled={disabled}
       />}
       {handleEdit && <Button
+        title="Edit"
         label="E"
         handleClick={() => handleEdit(name, entry)}
         isDisabled={disabled}
       />}
       {handleDelete && <Button
+        title="Delete"
         label="D"
         handleClick={() => {handleDelete(name, id)}}
         isDisabled={disabled}
       />}
       <p>{item.value}</p>
     </div>
-  )
+  );
 };
 
 ItemWithActions.propTypes = {
@@ -47,6 +50,6 @@ ItemWithActions.propTypes = {
   handleEdit: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
   disabled: PropTypes.bool
-}
+};
 
 export default ItemWithActions;
