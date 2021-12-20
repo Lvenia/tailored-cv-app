@@ -1,6 +1,6 @@
 import React from 'react';
 import TextInput from './TextInput';
-import { INPUT_DEFINITIONS } from './consts';
+import { generateId, getKeys, INPUT_DEFINITIONS } from './consts';
 import Button from '../../components/Button';
 
 /*// TODO:InputGroupWithActions
@@ -10,44 +10,37 @@ import Button from '../../components/Button';
 
 
 const InputGroupWithActions = ({
-  name, //"education", sectionName
-  inputRef,
+  name,
+  editedSectionName
 }) => {
-  const groupIsEdited = false; //temporary value
 
-  const groupInputDefinitions = INPUT_DEFINITIONS[name];
+  const groupIsEdited = editedSectionName === name;
+  const { fieldsetLabel } = INPUT_DEFINITIONS[name];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { //todo
     console.log('define submit on ENTER and submit button');
   };
-  const handleCancel = (e) => {
+  const handleCancel = (e) => { //todo
     console.log('define drop changes');
   };
 
-  const getInputKeys = (sectionName) => {
-    const keys = [];
-    for (let input in INPUT_DEFINITIONS[sectionName].inputs) {
-      keys.push(input);
-    }
-    return keys;
-  };
-
-  const inputKeys = getInputKeys('education');
+  const renderInputGroup = (sectionName) => {
+    const keys = getKeys(INPUT_DEFINITIONS[sectionName].inputs);
+    return keys.map(key => {
+      let { ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
+      let { label } = INPUT_DEFINITIONS[sectionName].inputs[key];
+      let { name } = INPUT_DEFINITIONS[sectionName].inputs[key];
+      return (
+        <TextInput key={name} inputRef={ref}  label={label} name={name}/>
+      )
+    })
+  }
 
   return (
     <fieldset>
-      <legend>{groupInputDefinitions.fieldsetLabel}</legend>
+      <legend>{fieldsetLabel}</legend>
       <div className="group-input">
-        {inputKeys.map(key => {
-          const educationInputs = INPUT_DEFINITIONS.education.inputs;
-          return (
-            <TextInput
-              name={educationInputs[key].name}
-              inputRef={educationInputs[key].inputRef}
-              label={educationInputs[key].label}
-            />
-          );
-        })}
+        {renderInputGroup(name)}
       </div>
       <div>
         <Button handleClick={handleSubmit} label={groupIsEdited ? 'Save' : 'Add'}/>

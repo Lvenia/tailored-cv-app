@@ -30,6 +30,15 @@ export const generateId = () => {
   return new Date().getTime().toString(); //temporary solution
 };
 
+export const getKeys = (obj) => {
+  const keys = [];
+  for (let key in obj) {
+    keys.push(key);
+  }
+
+  return keys;
+};
+
 //ENTRY GROUP NAMES
 export const NAME = 'name';
 export const ROLE = 'role';
@@ -69,12 +78,12 @@ export const INPUT_DEFINITIONS = {
     name: 'education',
     fieldsetLabel: 'Education',
     inputs: {
-      start: {
+      startDate: {
         label: 'Start date:',
         name: 'edu_start',
         ref: null
       },
-      end: {
+      endDate: {
         label: 'End date:',
         name: 'edu_end',
         ref: null
@@ -89,7 +98,7 @@ export const INPUT_DEFINITIONS = {
         name: 'edu_subheader',
         ref: null
       },
-      bullets: {
+      bulletPoints: {
         label: 'Details:',
         name: 'edu_bullets',
         ref: null

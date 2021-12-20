@@ -3,31 +3,31 @@ import {
   BrowserRouter,
   Routes,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 import {
   ADD_ENTRY,
   TOGGLE_SELECT,
   DELETE_ENTRY,
   EDIT_ENTRY, SAVE_CHANGES, DROP_CHANGES,
-} from './modules/resume/consts'
+} from './modules/resume/consts';
 // MODULES
-import ResumePage from "./modules/resume/ResumePage";
-import HeaderPage from "./modules/resume/HeaderPage";
-import CertificatesPage from "./modules/resume/CertificatesPage";
-import ContactPage from "./modules/resume/ContactPage";
-import EducationPage from "./modules/resume/EducationPage";
-import SummaryPage from "./modules/resume/SummaryPage";
-import ExperiencePage from "./modules/resume/ExperiencePage";
-import SkillsPage from "./modules/resume/SkillsPage";
-import PreviewPage from "./modules/preview/PreviewPage.js";
-import HomePage from "./modules/HomePage";
+import ResumePage from './modules/resume/ResumePage';
+import HeaderPage from './modules/resume/HeaderPage';
+import CertificatesPage from './modules/resume/CertificatesPage';
+import ContactPage from './modules/resume/ContactPage';
+import EducationPage from './modules/resume/EducationPage';
+import SummaryPage from './modules/resume/SummaryPage';
+import ExperiencePage from './modules/resume/ExperiencePage';
+import SkillsPage from './modules/resume/SkillsPage';
+import PreviewPage from './modules/preview/PreviewPage.js';
+import HomePage from './modules/HomePage';
 //COMPONENTS
-import MainNavBar from "./components/MainNavBar";
-import NotFound from "./components/NotFound";
+import MainNavBar from './components/MainNavBar';
+import NotFound from './components/NotFound';
 //STYLES
-import "./App.css";
-import { mockData } from "./modules/resume/mockData";
+import './App.css';
+import { mockData } from './modules/resume/mockData';
 
 const initialState = mockData;
 
@@ -54,7 +54,7 @@ const reducer = (state, action) => {
           entry.isSelected = !entry.isSelected;
         }
         return entry;
-      })
+      });
       return {
         ...state,
         [sectionName]: afterToggle
@@ -63,7 +63,7 @@ const reducer = (state, action) => {
       const editedEntry = {
         sectionName,
         entry
-      }
+      };
       return {
         ...state,
         edited: editedEntry,
@@ -76,7 +76,7 @@ const reducer = (state, action) => {
           entry.item.value = value;
         }
         return entry;
-      })
+      });
       return {
         ...state,
         [sectionName]: afterSave,
@@ -92,17 +92,17 @@ const reducer = (state, action) => {
           sectionName: null,
           entry: null,
         }
-      }
+      };
     case DELETE_ENTRY:
-      const afterDelete = state[sectionName].filter(entry => entry.item.id !== id)
+      const afterDelete = state[sectionName].filter(entry => entry.item.id !== id);
       return {
         ...state,
         [sectionName]: afterDelete
       };
     default:
-      throw new Error("========Error from reducer=====")
+      throw new Error('========Error from reducer=====');
   }
-}
+};
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -128,7 +128,7 @@ const App = () => {
         </AppContext.Provider>
       </BrowserRouter>
     </React.StrictMode>
-  )
-}
+  );
+};
 
 export default App;

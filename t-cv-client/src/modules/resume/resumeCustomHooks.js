@@ -1,5 +1,6 @@
 import { useContext, useLayoutEffect } from 'react';
 import { AppContext } from '../../App';
+import { EDUCATION, getKeys, INPUT_DEFINITIONS } from './consts';
 
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
   const { state, dispatch } = useContext(AppContext);
@@ -16,7 +17,7 @@ export const useEditedSection = () => {
   return state?.edited?.sectionName;
 };
 
-// [{ref: emailRef, name: 'email'}, {ref: roleRef, name: 'role'}]
+//TODO: after INPUT_DEFINITIONS is done adjust useHandleRefs
 export const useHandleRefs = (arr) => {
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
@@ -36,22 +37,24 @@ export const useHandleRefs = (arr) => {
   }, [editedSectionName, editedValue, arr]);
 };
 
-export const useTest = (...names) => { //"role", "name", "education"
+export const useHandleGroupRef = (name) => { //"role", "name", "education"
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
+  const { inputs } = INPUT_DEFINITIONS[name];
+  const keys = getKeys(inputs);
 
   useLayoutEffect(() => {
     if (!editedSectionName) {
       return;
     }
 
-    // [...names].forEach((sectionName) => {
-    //   if (editedSectionName === sectionName) {
-    //     ref.current.value = editedValue;
-    //     ref.current.focus();
-    //   }
-    // });
-  }, [editedSectionName, editedValue, ...names]);
+    if (editedSectionName === name)
+      keys.forEach(subSectionName => {
+        const { ref } = inputs[subSectionName];
+        ref.current.value = editedValue[subSectionName];
+      });
+  }, [editedSectionName, editedValue, name]);
 };
-///todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
+
+//todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch

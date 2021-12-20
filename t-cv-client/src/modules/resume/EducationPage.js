@@ -9,8 +9,8 @@ import {
   EDUCATION_INPUTS, INPUT_DEFINITIONS,
 } from './consts';
 import TextInput from './TextInput';
-import { addEntry, dropChanges, saveChanges } from './actionHandlers';
-import { useEditedSection, useHandleRefs, useRelevantStateAndDispatch } from './resumeCustomHooks';
+import { addEntry, deleteEntry, dropChanges, editEntry, saveChanges, toggleSelect } from './actionHandlers';
+import { useEditedSection, useHandleGroupRef, useHandleRefs, useRelevantStateAndDispatch } from './resumeCustomHooks';
 import Button from '../../components/Button';
 import InputGroupWithActions from './InputGroupWithActions';
 import ItemWithActions from './ItemWithActions';
@@ -23,16 +23,17 @@ const EducationPage = () => {
   const endRef = useRef('');
   const headerRef = useRef('');
   const subheaderRef = useRef('');
-  const bulletRef = useRef('HELLO');
+  const bulletRef = useRef('');
   const { inputs } = INPUT_DEFINITIONS.education;
-  inputs.start.ref = startRef;
-  inputs.end.ref = endRef;
+  inputs.startDate.ref = startRef;
+  inputs.endDate.ref = endRef;
   inputs.header.ref = headerRef;
   inputs.subheader.ref = subheaderRef;
-  inputs.bullets.ref = bulletRef;
+  inputs.bulletPoints.ref = bulletRef;
 
   // useHandleRefs(pageRefs);
   //todo: useTest(...education)
+  useHandleGroupRef(EDUCATION);
 
   // const handleSubmit = (e) => {
   //   e?.preventDefault(); //prevent page refresh
@@ -45,16 +46,19 @@ const EducationPage = () => {
   return (
     <>
       <article>
-        <InputGroupWithActions name="education"/>
+        <InputGroupWithActions name="education" editedSectionName={editedSectionName}/>
       </article>
       {educationSection?.map(el => {
+        let isDisabled = editedSectionName !== null;
         return (
-          <article className="entry-control-box">
+          <article key={el.item.id} className="entry-control-box">
             <ItemGroupWithActions
+              name={EDUCATION}
               entry={el}
-              handleToggleSelect={() => console.log('handleToggleSelect')}//todo
-              handleEdit={() => console.log('handleEdit')}//todo
-              handleDelete={() => console.log('handleDelete')}//todo
+              handleToggleSelect={toggleSelect(dispatch)}
+              handleEdit={editEntry(dispatch)}
+              handleDelete={deleteEntry(dispatch)}
+              disabled={isDisabled}
             />
           </article>
         );
