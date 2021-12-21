@@ -72,9 +72,6 @@ input, textarea {
     grid-template-columns: 1fr 8fr 2fr;
 }
 
-.add textarea {
-    height: auto;
-}
 
 .edit {
     grid-template-columns: 1fr 8fr 1fr 1fr;
@@ -150,6 +147,25 @@ textarea {
 .btn-row {
     display: flex;
     justify-content: center;
+}
+
+.btn-row span {
+    padding: 0.3rem;
+    border: 1px solid #767676;
+    line-height: 1rem;
+    width: 1.7rem;
+    border-radius: 20%;
+}
+
+.btn-row span:hover {
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: rgba(255, 255, 0, 0.3);
+}
+.remove-btn:hover {
+    background-color: rgba(255, 0, 0, 0.3);
 }
 
 /*TEMPORARY LIST STYLES*/

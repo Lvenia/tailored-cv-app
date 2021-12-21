@@ -3,7 +3,6 @@ import TextInput from './TextInput';
 import { generateId, getKeys, INPUT_DEFINITIONS } from './consts';
 import Button from '../../components/Button';
 import TextInputWithAction from './TextInputWithAction';
-import { addEntry } from './actionHandlers';
 
 const InputGroupWithActions = ({
   name,
@@ -12,28 +11,53 @@ const InputGroupWithActions = ({
   handleAction
 }) => {
   const [bullets, setBullets] = useState([]);
-  console.log(bullets);
 
   const groupIsEdited = editedSectionName === name;
   const { fieldsetLabel, inputs } = INPUT_DEFINITIONS[name];
-  const { bulletPoints } = inputs;
+  const { ref: bulletsRef } = inputs.bulletPoints;
 
   const addBulletPoint = (name, value) => {
-    const item = {
-      id: generateId(),
-      value: value
+    const bullet = {
+      item: {
+        id: generateId(),
+        value: value
+      },
+      isSelected: false
     };
-    setBullets(prev => prev.concat(item));
+    setBullets(prev => prev.concat(bullet));
   };
+
+  const handleEditBullet = (e, id, value) => {
+//todo
+    /*1. prevent default
+    * 2. save what entry is changing
+    * */
+    e.preventDefault();
+    bulletsRef.current.value = value;
+    // setBullets(prev => prev.filter(el => el.item.id !== id));
+    // bulletsRef.current.focus();
+    // ;
+    //
+    // // const editedBullet = bullets.find()
+    // console.log(bulletsRef, id, value);
+    // //set value into textInput
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const currentValues = {};
     const keys = getKeys(inputs);
     keys.forEach(key => {
-      currentValues[key] = inputs[key].ref.current.value;
-      inputs[key].ref.current.value = '';
-      inputs[key].ref.current.blur();
+      if (key === 'bulletPoints') {
+        currentValues[key] = [...bullets];
+        setBullets([]);
+      } else {
+        currentValues[key] = inputs[key].ref.current.value;
+        inputs[key].ref.current.value = '';
+        inputs[key].ref.current.blur();
+      }
+
     });
     handleAction(name, currentValues);
   };
@@ -85,13 +109,18 @@ const InputGroupWithActions = ({
                 {bullets.length > 0 && (
                   <ul>
                     {bullets.map(bullet => {
+                      const { id, value } = bullet.item;
                       return (
-                        <li key={bullet.id}>
-                          <p>{bullet.value}</p>
+                        <li key={id}>
+                          <p>{value}</p>
                           <div className="btn-row">
-                            <button>+</button>
-                            <button>E</button>
-                            <button>-</button>
+                            <span
+                              className="edit-btn"
+                              onClick={(e) => handleEditBullet(e, id, value)}
+                            >
+                              &#9998;
+                            </span>
+                            <span className="remove-btn">&#10539;</span>
                           </div>
                         </li>
                       );
