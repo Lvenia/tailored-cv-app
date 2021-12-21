@@ -21,7 +21,6 @@ export const GITHUB_ENTRY_CONTROL = 'GitHub Entry Control';
 
 export const SUMMARY_INPUTS = 'Resume Summary';
 export const SUMMARY_ENTRY_CONTROL = 'Summary Entry Control';
-export const EDUCATION_INPUTS = 'Education';
 
 export const SKILLS_INPUTS = 'Skills';
 export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
@@ -47,12 +46,6 @@ export const PHONE = 'phone';
 export const LINKEDIN = 'linkedIn';
 export const GITHUB = 'gitHub';
 export const SUMMARY = 'summary';
-export const EDUCATION = 'education';
-export const EDU_START = 'edu_start';
-export const EDU_END = 'edu_end';
-export const EDU_HEADER = 'edu_header';
-export const EDU_SUBHEADER = 'edu_subheader';
-export const EDU_BULLETS = 'edu_bullets';
 export const SKILLS = 'skills';
 
 //CSS CLASS NAMES
@@ -62,6 +55,8 @@ export const STYLE_ENTRY = 'entry';
 export const STYLE_ENTRY_GROUP = 'group-entry';
 export const STYLE_SLC_BTN = 'selected-btn';
 export const STYLE_BTN_COL = 'btn-col';
+export const ENTRY_CONTROL = 'entry-control-box';
+
 
 //TODO: gather strings relative to inputs in mutual object - will allow to DRY code
 

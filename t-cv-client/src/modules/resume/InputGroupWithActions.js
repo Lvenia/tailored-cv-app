@@ -1,35 +1,38 @@
 import React from 'react';
 import TextInput from './TextInput';
-import { generateId, getKeys, INPUT_DEFINITIONS } from './consts';
+import { getKeys, INPUT_DEFINITIONS } from './consts';
 import Button from '../../components/Button';
-
-/*// TODO:InputGroupWithActions
-* [] handle actions
-* [] refs should be available after useHandleRefs is called in parent, verify that
-* */
-
 
 const InputGroupWithActions = ({
   name,
   editedSectionName,
-  onCancel
+  onCancel,
+  handleAction
 }) => {
 
   const groupIsEdited = editedSectionName === name;
-  const { fieldsetLabel } = INPUT_DEFINITIONS[name];
+  const { fieldsetLabel, inputs } = INPUT_DEFINITIONS[name];
 
-  const handleSubmit = (e) => { //todo
-    console.log('define submit on ENTER and submit button');
-  };
-
-  const handleCancel = (e, sectionName) => {
-    e?.preventDefault();
-    onCancel();
-    const { inputs } = INPUT_DEFINITIONS[sectionName];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const currentValues = {};
     const keys = getKeys(inputs);
     keys.forEach(key => {
-      inputs[key].ref.current.value = "";
-    })
+      currentValues[key] = inputs[key].ref.current.value;
+      inputs[key].ref.current.value = '';
+      inputs[key].ref.current.blur();
+    });
+    handleAction(name, currentValues);
+  };
+
+  const handleCancel = (e) => {
+    e?.preventDefault();
+    onCancel();
+    const { inputs } = INPUT_DEFINITIONS[name];
+    const keys = getKeys(inputs);
+    keys.forEach(key => {
+      inputs[key].ref.current.value = '';
+    });
   };
 
   const renderInputGroup = (sectionName) => {
@@ -39,7 +42,13 @@ const InputGroupWithActions = ({
       let { label } = INPUT_DEFINITIONS[sectionName].inputs[key];
       let { name } = INPUT_DEFINITIONS[sectionName].inputs[key];
       return (
-        <TextInput key={name} inputRef={ref} label={label} name={name}/>
+        <TextInput
+          key={name}
+          inputRef={ref}
+          label={label}
+          name={name}
+          submitHandler={handleSubmit}
+        />
       );
     });
   };
@@ -52,10 +61,15 @@ const InputGroupWithActions = ({
       </div>
       <div className="btn-row">
         <Button handleClick={handleSubmit} label={groupIsEdited ? 'Save' : 'Add'}/>
-        {groupIsEdited && <Button handleClick={(e) => handleCancel(e, name)} label={'Cancel'}/>}
+        {groupIsEdited && <Button handleClick={handleCancel} label={'Cancel'}/>}
       </div>
     </fieldset>
   );
 };
 
+
 export default InputGroupWithActions;
+
+//TODO [] add proptypes, name is required
+//TODO [] change datatype for date email and so on
+//TODO Q should I pass components prop as an argument into handler?

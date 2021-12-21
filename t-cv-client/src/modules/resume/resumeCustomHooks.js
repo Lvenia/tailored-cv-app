@@ -1,6 +1,6 @@
 import { useContext, useLayoutEffect } from 'react';
 import { AppContext } from '../../App';
-import { EDUCATION, getKeys, INPUT_DEFINITIONS } from './consts';
+import { getKeys, INPUT_DEFINITIONS } from './consts';
 
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
   const { state, dispatch } = useContext(AppContext);
@@ -55,7 +55,7 @@ export const useHandleGroupRef = (name) => { //"role", "name", "education"
         const { ref } = inputs[subSectionName];
         ref.current.value = editedValue[subSectionName];
       });
-  }, [editedSectionName, editedValue, name]);
+  }, [editedSectionName, name, editedValue,  inputs, keys]);
 };
 
 //todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
