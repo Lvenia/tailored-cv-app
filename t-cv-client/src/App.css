@@ -113,7 +113,13 @@ textarea {
     margin-right: 2rem;
     justify-content: space-around;
 }
-
+.btn-row button {
+    width: 50%;
+}
+.btn-row {
+    display: flex;
+    justify-content: center;
+}
 /*TEMPORARY LIST STYLES*/
 
 ul {

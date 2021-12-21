@@ -46,7 +46,11 @@ const EducationPage = () => {
   return (
     <>
       <article>
-        <InputGroupWithActions name="education" editedSectionName={editedSectionName}/>
+        <InputGroupWithActions
+          name="education"
+          editedSectionName={editedSectionName}
+          onCancel={() => dropChanges(dispatch)}
+        />
       </article>
       {educationSection?.map(el => {
         let isDisabled = editedSectionName !== null;

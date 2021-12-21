@@ -11,7 +11,8 @@ import Button from '../../components/Button';
 
 const InputGroupWithActions = ({
   name,
-  editedSectionName
+  editedSectionName,
+  onCancel
 }) => {
 
   const groupIsEdited = editedSectionName === name;
@@ -20,8 +21,15 @@ const InputGroupWithActions = ({
   const handleSubmit = (e) => { //todo
     console.log('define submit on ENTER and submit button');
   };
-  const handleCancel = (e) => { //todo
-    console.log('define drop changes');
+
+  const handleCancel = (e, sectionName) => {
+    e?.preventDefault();
+    onCancel();
+    const { inputs } = INPUT_DEFINITIONS[sectionName];
+    const keys = getKeys(inputs);
+    keys.forEach(key => {
+      inputs[key].ref.current.value = "";
+    })
   };
 
   const renderInputGroup = (sectionName) => {
@@ -31,10 +39,10 @@ const InputGroupWithActions = ({
       let { label } = INPUT_DEFINITIONS[sectionName].inputs[key];
       let { name } = INPUT_DEFINITIONS[sectionName].inputs[key];
       return (
-        <TextInput key={name} inputRef={ref}  label={label} name={name}/>
-      )
-    })
-  }
+        <TextInput key={name} inputRef={ref} label={label} name={name}/>
+      );
+    });
+  };
 
   return (
     <fieldset>
@@ -42,9 +50,9 @@ const InputGroupWithActions = ({
       <div className="group-input">
         {renderInputGroup(name)}
       </div>
-      <div>
+      <div className="btn-row">
         <Button handleClick={handleSubmit} label={groupIsEdited ? 'Save' : 'Add'}/>
-        {groupIsEdited && <Button handleClick={handleCancel} label={'Cancel'}/>}
+        {groupIsEdited && <Button handleClick={(e) => handleCancel(e, name)} label={'Cancel'}/>}
       </div>
     </fieldset>
   );
