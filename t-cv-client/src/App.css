@@ -24,6 +24,30 @@ fieldset div {
     grid-template-columns: 1fr 10fr;
 }
 
+.add-bullets {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.bullets {
+    grid-column-start: 2;
+}
+
+.bullets li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bullets ul {
+    padding-left: 1.5rem;
+}
+
+.bullets p {
+    border-left: 1px solid #767676;
+    padding: 1rem;
+    margin: 0.5rem 0;
+}
+
 label {
     width: 80px;
 }
@@ -46,6 +70,10 @@ input, textarea {
 
 .add {
     grid-template-columns: 1fr 8fr 2fr;
+}
+
+.add textarea {
+    height: auto;
 }
 
 .edit {
@@ -113,13 +141,17 @@ textarea {
     margin-right: 2rem;
     justify-content: space-around;
 }
+
 .btn-row button {
     width: 50%;
+    width: 50%;
 }
+
 .btn-row {
     display: flex;
     justify-content: center;
 }
+
 /*TEMPORARY LIST STYLES*/
 
 ul {
