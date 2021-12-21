@@ -50,6 +50,7 @@ export const useHandleGroupRef = (name) => { //"role", "name", "education"
     }
 
     if (editedSectionName === name)
+      inputs[keys[0]].ref.current.focus();
       keys.forEach(subSectionName => {
         const { ref } = inputs[subSectionName];
         ref.current.value = editedValue[subSectionName];
