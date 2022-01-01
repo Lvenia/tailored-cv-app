@@ -21,7 +21,7 @@ A tool for fast resume modification. Intended as an opportunity to improve knowl
 
   * project setup: create-react-app;
   * build based on functional components to learn better React hooks;
-  * learn React Router v6, implement nested routs;
+  * learn React Router v6, implement nested routes;
   * add complexity carefully, only if necessary:
     * state logic with useReducer instead of state management library as Redux;
     * initial state passed to useReducer is a single source of truth;
@@ -84,4 +84,4 @@ Goal: combine front and back, deploy as web app
 
 ---
 ###### Stage 5.
-Goal: make prettier with MATERIAL-UI, add lending page 
+Goal: make prettier with MATERIAL-UI, add landing page 
