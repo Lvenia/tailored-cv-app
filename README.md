@@ -72,6 +72,7 @@ Goal: deploy front end
 * [ ] add basic validation for inputs
 * [ ] fix crud buttons' display
 * [ ] move state to local storage
+* [ ] add readme to client
 * [ ] deploy as web page
 
 ---
