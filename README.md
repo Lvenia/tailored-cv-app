@@ -1,6 +1,6 @@
 # Web Application "Tailored CV" 
 
-A tool for fast resume modification. Intended as an opportunity to improve knowledge of React Ecosystem and learn the basics of backend development with Node.js and Express.js. 
+A tool for fast resume modification. Intended as an opportunity to improve knowledge of React Ecosystem, learn and improve backend development skills with Node.js, Express.js, etc. 
 
 ---
 ### Technical Keys
