@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import TextInput from './TextInput';
 import { generateId, getKeys, INPUT_DEFINITIONS } from './consts';
 import Button from '../../components/Button';
@@ -7,10 +7,15 @@ import TextInputWithAction from './TextInputWithAction';
 const InputGroupWithActions = ({
   name,
   editedSectionName,
+  bulletsArr,
   onCancel,
   handleAction
 }) => {
+
   const [bullets, setBullets] = useState([]);
+  useEffect(() => {
+      setBullets(bulletsArr);
+  },[bulletsArr])
 
   const groupIsEdited = editedSectionName === name;
   const { fieldsetLabel, inputs } = INPUT_DEFINITIONS[name];
@@ -57,7 +62,6 @@ const InputGroupWithActions = ({
         inputs[key].ref.current.value = '';
         inputs[key].ref.current.blur();
       }
-
     });
     handleAction(name, currentValues);
   };
@@ -106,7 +110,7 @@ const InputGroupWithActions = ({
                 />
               </div>
               <div className="bullets">
-                {bullets.length > 0 && (
+                {bullets?.length > 0 && (
                   <ul>
                     {bullets.map(bullet => {
                       const { id, value } = bullet.item;

@@ -16,14 +16,14 @@ import {
 import ItemWithActions from './ItemWithActions';
 import {
   useRelevantStateAndDispatch,
-  useEditedSection,
+  useGetEditedSection,
   useHandleRefs
 } from './resumeCustomHooks';
 
 const SummaryPage = () => {
   console.count('summary page renders');
   const [relevantState, dispatch] = useRelevantStateAndDispatch(SUMMARY);
-  const editedSectionName = useEditedSection();
+  const { editedSectionName } = useGetEditedSection();
   const summaryRef = useRef('');
   const pageRefs = [
     { ref: summaryRef, name: SUMMARY },

@@ -14,7 +14,7 @@ import {
 import { ENTRY_CONTROL, INPUT_DEFINITIONS } from './consts';
 
 import {
-  useEditedSection,
+  useGetEditedSection,
   useHandleGroupRef,
   useRelevantStateAndDispatch
 } from './resumeCustomHooks';
@@ -23,7 +23,7 @@ const {name: EDUCATION} = INPUT_DEFINITIONS.education;
 
 const EducationPage = () => {
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EDUCATION);//[{},{}], func
-  const editedSectionName = useEditedSection();
+  const { editedSectionName, editedSectionValues } = useGetEditedSection();
   const startRef = useRef('');
   const endRef = useRef('');
   const headerRef = useRef('');
@@ -64,6 +64,7 @@ const EducationPage = () => {
         <InputGroupWithActions
           name={EDUCATION}
           editedSectionName={editedSectionName}
+          bulletsArr={editedSectionValues?.item.value.bulletPoints}
           onCancel={() => dropChanges(dispatch)}
           handleAction={editedSectionName === EDUCATION ? saveChanges(dispatch) : addEntry(dispatch)}
         />

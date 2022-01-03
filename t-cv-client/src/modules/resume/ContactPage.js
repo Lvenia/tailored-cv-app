@@ -22,14 +22,14 @@ import {
 import ItemWithActions from './ItemWithActions';
 import {
   useRelevantStateAndDispatch,
-  useEditedSection,
+  useGetEditedSection,
   useHandleRefs
 } from './resumeCustomHooks';
 
 const ContactPage = () => {
   console.count('contact page renders');
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EMAIL, PHONE, LINKEDIN, GITHUB);
-  const editedSectionName = useEditedSection();
+  const { editedSectionName } = useGetEditedSection();
   const emailRef = useRef('');
   const phoneRef = useRef('');
   const linkedInRef = useRef('');

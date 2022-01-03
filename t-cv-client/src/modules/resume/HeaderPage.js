@@ -19,7 +19,7 @@ import {
   ROLE,
 } from './consts';
 import {
-  useEditedSection,
+  useGetEditedSection,
   useHandleRefs,
   useRelevantStateAndDispatch
 } from './resumeCustomHooks';
@@ -27,7 +27,7 @@ import {
 const HeaderPage = () => {
   console.count('header page renders');
   const [relevantState, dispatch] = useRelevantStateAndDispatch(NAME, ROLE);
-  const editedSectionName = useEditedSection();
+  const { editedSectionName } = useGetEditedSection();
   const nameRef = useRef('');
   const roleRef = useRef('');
   const pageRefs = [

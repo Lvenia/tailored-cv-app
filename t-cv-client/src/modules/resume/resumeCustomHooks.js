@@ -5,16 +5,16 @@ import { getKeys, INPUT_DEFINITIONS } from './consts';
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
   const { state, dispatch } = useContext(AppContext);
   let relevantState = {};
-  [...params].forEach(entryName => {
+  [...params].forEach(entryName => { //todo: remove [...] params.forEach is ok
     relevantState = { ...relevantState, [entryName]: state[entryName] };
   });
 
   return [relevantState, dispatch]; //[{}, func]
 };
 
-export const useEditedSection = () => {
+export const useGetEditedSection = () => {
   const { state } = useContext(AppContext);
-  return state?.edited?.sectionName;
+  return { editedSectionName: state.edited?.sectionName, editedSectionValues: state.edited?.entry };
 };
 
 //TODO: after INPUT_DEFINITIONS is done adjust useHandleRefs
@@ -50,12 +50,18 @@ export const useHandleGroupRef = (name) => { //"role", "name", "education"
     }
 
     if (editedSectionName === name)
-      inputs[keys[0]].ref.current.focus();
-      keys.forEach(subSectionName => {
-        const { ref } = inputs[subSectionName];
+      inputs[keys[0]].ref.current.focus(); //focus first input field
+
+    keys.forEach(subSectionName => {
+      const { ref } = inputs[subSectionName];
+      if(subSectionName === 'bulletPoints'){
+        ref.current.value = '';
+      } else {
         ref.current.value = editedValue[subSectionName];
-      });
-  }, [editedSectionName, name, editedValue,  inputs, keys]);
+      }
+
+    });
+  }, [editedSectionName, name, editedValue, inputs, keys]);
 };
 
 //todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
