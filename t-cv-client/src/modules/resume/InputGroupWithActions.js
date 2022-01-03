@@ -13,8 +13,11 @@ const InputGroupWithActions = ({
 }) => {
 
   const [bullets, setBullets] = useState([]);
+
   useEffect(() => {
+    if(bulletsArr) {
       setBullets(bulletsArr);
+    }
   },[bulletsArr])
 
   const groupIsEdited = editedSectionName === name;
@@ -29,7 +32,7 @@ const InputGroupWithActions = ({
       },
       isSelected: false
     };
-    setBullets(prev => prev.concat(bullet));
+    setBullets( prev => prev.concat(bullet));
   };
 
   const handleEditBullet = (e, id, value) => {
