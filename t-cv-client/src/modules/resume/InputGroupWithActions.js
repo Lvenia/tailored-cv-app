@@ -35,20 +35,17 @@ const InputGroupWithActions = ({
     setBullets(prev => prev.concat(bullet));
   };
 
+  const removeBulletPoint = (id) => {
+    const reducedList = bullets.filter(bullet => bullet.item.id !== id);
+    setBullets(reducedList);
+  };
+
   const handleEditBullet = (e, id, value) => {
-//todo
-    /*1. prevent default
-    * 2. save what entry is changing
-    * */
     e.preventDefault();
+    //set inputs value with the bullets content
     bulletsRef.current.value = value;
-    // setBullets(prev => prev.filter(el => el.item.id !== id));
-    // bulletsRef.current.focus();
-    // ;
-    //
-    // // const editedBullet = bullets.find()
-    // console.log(bulletsRef, id, value);
-    // //set value into textInput
+    //remove bullet form local state
+    removeBulletPoint(id);
   };
 
   const handleSubmit = (e) => {
@@ -99,7 +96,12 @@ const InputGroupWithActions = ({
                           >
                             &#9998;
                           </span>
-                    <span className="remove-btn">&#10539;</span>
+                    <span
+                      className="remove-btn"
+                      onClick={() => removeBulletPoint(id)}
+                    >
+                      &#10539;
+                    </span>
                   </div>
                 </li>
               );
@@ -158,7 +160,6 @@ const InputGroupWithActions = ({
     </fieldset>
   );
 };
-
 
 export default InputGroupWithActions;
 

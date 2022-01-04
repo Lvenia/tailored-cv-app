@@ -81,7 +81,7 @@ export default EducationPage;
 //TODO: turn off autofill [x]
 //TODO: make details field active on edit [x] => instead save/cancel btn pair show add btn [x]
 //TODO: bullet add [x]
-//TODO: bullet edit []
-//TODO: bullet delete []
+//TODO: bullet edit [x]
+//TODO: bullet delete [x]
 //TODO: remove bullets list on cancel [x]
 
