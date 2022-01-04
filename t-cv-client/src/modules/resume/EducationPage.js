@@ -19,11 +19,12 @@ import {
   useRelevantStateAndDispatch
 } from './resumeCustomHooks';
 
-const {name: EDUCATION} = INPUT_DEFINITIONS.education;
+const { name: EDUCATION } = INPUT_DEFINITIONS.education;
 
 const EducationPage = () => {
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EDUCATION);//[{},{}], func
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
+  const bulletPoints = editedSectionValues?.item.value.bulletPoints;
   const startRef = useRef('');
   const endRef = useRef('');
   const headerRef = useRef('');
@@ -42,12 +43,12 @@ const EducationPage = () => {
 
   const renderEntries = () => {
     return educationSection.map(el => {
-      let isDisabled = editedSectionName !== null;
+      let isDisabled = editedSectionName !== null; //true if state.edited.sectionName is any string
       return (
         <article key={el.item.id} className={ENTRY_CONTROL}>
           <ItemGroupWithActions
             name={EDUCATION}
-            entry={el}
+            entry={el} //{item:{id, value}, isSelected}
             handleToggleSelect={toggleSelect(dispatch)}
             handleEdit={editEntry(dispatch)}
             handleDelete={deleteEntry(dispatch)}
@@ -55,8 +56,8 @@ const EducationPage = () => {
           />
         </article>
       );
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -64,7 +65,7 @@ const EducationPage = () => {
         <InputGroupWithActions
           name={EDUCATION}
           editedSectionName={editedSectionName}
-          bulletsArr={editedSectionValues?.item.value.bulletPoints}
+          bulletsArr={bulletPoints}
           onCancel={() => dropChanges(dispatch)}
           handleAction={editedSectionName === EDUCATION ? saveChanges(dispatch) : addEntry(dispatch)}
         />
@@ -78,7 +79,9 @@ export default EducationPage;
 
 //4/01/2022
 //TODO: turn off autofill [x]
-//TODO: make details field active on edit []
-//TODO: bullet add []
+//TODO: make details field active on edit [x] => instead save/cancel btn pair show add btn [x]
+//TODO: bullet add [x]
 //TODO: bullet edit []
 //TODO: bullet delete []
+//TODO: remove bullets list on cancel [x]
+

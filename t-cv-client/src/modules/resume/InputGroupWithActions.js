@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TextInput from './TextInput';
 import { generateId, getKeys, INPUT_DEFINITIONS } from './consts';
 import Button from '../../components/Button';
@@ -15,10 +15,10 @@ const InputGroupWithActions = ({
   const [bullets, setBullets] = useState([]);
 
   useEffect(() => {
-    if(bulletsArr) {
+    if (bulletsArr) {
       setBullets(bulletsArr);
     }
-  },[bulletsArr])
+  }, [bulletsArr]);
 
   const groupIsEdited = editedSectionName === name;
   const { fieldsetLabel, inputs } = INPUT_DEFINITIONS[name];
@@ -32,7 +32,7 @@ const InputGroupWithActions = ({
       },
       isSelected: false
     };
-    setBullets( prev => prev.concat(bullet));
+    setBullets(prev => prev.concat(bullet));
   };
 
   const handleEditBullet = (e, id, value) => {
@@ -50,7 +50,6 @@ const InputGroupWithActions = ({
     // console.log(bulletsRef, id, value);
     // //set value into textInput
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,75 +70,79 @@ const InputGroupWithActions = ({
 
   const handleCancel = (e) => {
     e?.preventDefault();
+    //set state.edited with {sectionName: null, entry: null}
     onCancel();
+    //set all inputs with value of empty string
     const { inputs } = INPUT_DEFINITIONS[name];
     const keys = getKeys(inputs);
     keys.forEach(key => {
       inputs[key].ref.current.value = '';
     });
+    //remove bullets list if bullets array is not empty
+    setBullets([]);
+  };
+
+  const renderBullets = () => {
+    if (bullets?.length > 0) {
+      return (
+        <div className="bullets">
+          <ul>
+            {bullets.map(bullet => {
+              const { id, value } = bullet.item;
+              return (
+                <li key={id}>
+                  <p>{value}</p>
+                  <div className="btn-row">
+                          <span
+                            className="edit-btn"
+                            onClick={(e) => handleEditBullet(e, id, value)}
+                          >
+                            &#9998;
+                          </span>
+                    <span className="remove-btn">&#10539;</span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
   };
 
   const renderInputGroup = (sectionName) => {
-    const keys = getKeys(INPUT_DEFINITIONS[sectionName].inputs);
+    const keys = getKeys(INPUT_DEFINITIONS[sectionName].inputs); //['startDate', 'endDate','header', 'subheader', 'bulletPoints']
     return keys.map(key => {
-        if (key !== 'bulletPoints') {
-          let { ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
-          let { label } = INPUT_DEFINITIONS[sectionName].inputs[key];
-          let { name } = INPUT_DEFINITIONS[sectionName].inputs[key];
-          return (
-            <TextInput
-              key={name}
-              inputRef={ref}
-              label={label}
-              name={name}
-              submitHandler={handleSubmit}
-            />
-          );
-        }
-
-        if (key === 'bulletPoints') {
-          const { label, name, ref } = INPUT_DEFINITIONS[sectionName].inputs.bulletPoints;
-          return (
-            <>
-              <div className="add-bullets">
-                <TextInputWithAction
-                  textarea={true}
-                  name={name}
-                  label={label}
-                  inputRef={ref}
-                  handleAction={addBulletPoint}
-                  // onCancel={handleCancel}
-                  editedSectionName={editedSectionName}
-                />
-              </div>
-              <div className="bullets">
-                {bullets?.length > 0 && (
-                  <ul>
-                    {bullets.map(bullet => {
-                      const { id, value } = bullet.item;
-                      return (
-                        <li key={id}>
-                          <p>{value}</p>
-                          <div className="btn-row">
-                            <span
-                              className="edit-btn"
-                              onClick={(e) => handleEditBullet(e, id, value)}
-                            >
-                              &#9998;
-                            </span>
-                            <span className="remove-btn">&#10539;</span>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </div>
-            </>
-          );
-        }
+      let { label, name, ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
+      if (key === 'bulletPoints') {
+        return (
+          <>
+            <div className="add-bullets">
+              <TextInputWithAction
+                textarea={true}
+                name={name}
+                label={label}
+                inputRef={ref}
+                handleAction={addBulletPoint}
+                editedSectionName={editedSectionName}
+                sectionName={sectionName}
+              />
+            </div>
+            {renderBullets()}
+          </>
+        );
+      } else {
+        return (
+          <TextInput
+            key={name}
+            inputRef={ref}
+            label={label}
+            name={name}
+            submitHandler={handleSubmit}
+          />
+        );
       }
-    );
+    });
   };
 
   return (

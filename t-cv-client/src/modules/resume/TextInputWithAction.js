@@ -12,10 +12,11 @@ const TextInputWithAction = ({
   inputRef,
   handleAction,
   onCancel,
-  editedSectionName
+  editedSectionName,
+  sectionName //passed only if name is equal to input sub name like "edu_bullets"
 }) => {
 
-  const sectionIsEdited = editedSectionName === name;
+  const sectionIsEdited = editedSectionName === sectionName || editedSectionName === name; //case for input sub name like "edu_bullets" || case fot input name like "education"
   const isDisabled = editedSectionName !== null && !sectionIsEdited;
 
   const handleSubmit = (e) => {
@@ -51,11 +52,11 @@ const TextInputWithAction = ({
           isDisabled={isDisabled}
         />}
       <Button
-        label={sectionIsEdited ? 'Save' : 'Add'}
+        label={sectionIsEdited && !sectionName ? 'Save' : 'Add'}
         handleClick={handleSubmit}
         isDisabled={isDisabled}
       />
-      {sectionIsEdited && <Button label="Cancel" handleClick={handleCancel}/>}
+      {sectionIsEdited && !sectionName && <Button label="Cancel" handleClick={handleCancel}/>}
     </div>
   );
 };
@@ -66,7 +67,8 @@ TextInputWithAction.propTypes = {
   inputRef: PropTypes.object.isRequired,
   handleAction: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-  editedSectionName: PropTypes.string
+  editedSectionName: PropTypes.string,
+  sectionName: PropTypes.string
 };
 
 export default TextInputWithAction;
