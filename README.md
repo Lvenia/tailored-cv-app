@@ -54,13 +54,14 @@ Goal: able to print resume even though the information is collected in mockData 
     * [ ] initial Education section (one entry = multiple inputs);
       * [X] state structure 
       * [X] add new entry
-      * [ ] edit/delete bullets before submit
+      * [X] edit/delete bullets before submit
       * [x] select/unselect entry
+      * [ ] select/unselect bullets
       * [x] delete entry
       * [x] render entries
       * [ ] edit entries:
         * [x] edit single inputs
-        * [ ] edit bullets
+        * [X] edit bullets
     * [ ] initial Experience section based on Education section;
     * [ ] initial Certificates section;
     * [ ] initial Skills section;

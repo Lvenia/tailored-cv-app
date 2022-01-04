@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../components/Button';
 import {
+  STYLE_BULLET_ENTRY,
   STYLE_ENTRY,
   STYLE_SLC_BTN
 } from './consts';
 
 const ItemWithActions = ({
   name,
-  entry,
+  entry,// section entry or single bullet
   handleToggleSelect,
   handleEdit,
   handleDelete,
@@ -18,7 +19,7 @@ const ItemWithActions = ({
   const { id } = item;
 
   return (
-    <div className={STYLE_ENTRY}>
+    <div className={typeof item.value === 'object' ? STYLE_ENTRY : STYLE_BULLET_ENTRY}>
       {handleToggleSelect && <Button
         title="Select"
         label="S"

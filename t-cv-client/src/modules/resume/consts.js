@@ -7,6 +7,7 @@ export const EDIT_ENTRY = 'EDIT_ENTRY';
 export const SAVE_CHANGES = 'SAVE_CHANGES';
 export const DROP_CHANGES = 'DROP_CHANGES';
 export const TOGGLE_SELECT = 'TOGGLE_SELECT';
+export const TOGGLE_BULLET_SELECT = 'TOGGLE_BULLET_SELECT';
 
 //fieldset legend
 export const HEADER_INPUTS = 'Resume Header';
@@ -52,6 +53,7 @@ export const SKILLS = 'skills';
 export const STYLE_ADD = 'add';
 export const STYLE_EDIT = 'edit';
 export const STYLE_ENTRY = 'entry';
+export const STYLE_BULLET_ENTRY = 'bullet-entry';
 export const STYLE_ENTRY_GROUP = 'group-entry';
 export const STYLE_SLC_BTN = 'selected-btn';
 export const STYLE_BTN_COL = 'btn-col';

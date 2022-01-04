@@ -6,6 +6,7 @@ import {
   STYLE_ENTRY_GROUP,
   STYLE_SLC_BTN
 } from './consts';
+import ItemWithActions from './ItemWithActions';
 
 const ItemGroupWithActions = ({
   name,
@@ -14,6 +15,7 @@ const ItemGroupWithActions = ({
   handleEdit,
   handleDelete,
   disabled,
+  handleBulletToggle
 }) => {
   const { item, isSelected } = entry;
   const { id, value } = item;
@@ -23,7 +25,18 @@ const ItemGroupWithActions = ({
       return (
         <ul>
           {bullets.map(bullet => {
-            return <li key={bullet.item.id}>{bullet.item.value}</li>;
+            return (
+              <>
+                <ItemWithActions
+                  entry={bullet}
+                  handleToggleSelect={handleBulletToggle(id)}
+                  name={name}
+                  // handleDelete={}
+                  // handleEdit={}
+                >
+                </ItemWithActions>
+              </>
+            );
           })}
         </ul>
       );

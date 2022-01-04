@@ -9,7 +9,7 @@ import {
   ADD_ENTRY,
   TOGGLE_SELECT,
   DELETE_ENTRY,
-  EDIT_ENTRY, SAVE_CHANGES, DROP_CHANGES,
+  EDIT_ENTRY, SAVE_CHANGES, DROP_CHANGES, TOGGLE_BULLET_SELECT,
 } from './modules/resume/consts';
 // MODULES
 import ResumePage from './modules/resume/ResumePage';
@@ -35,7 +35,7 @@ export const AppContext = React.createContext(initialState);
 //TODO: move reducer and initial state to separate file
 const reducer = (state, action) => {
 
-  const { item, isSelected, sectionName, id, entry, value } = action.payload;
+  const { item, isSelected, sectionName, id, entry, value, bulletId } = action.payload;
 
   switch (action.type) {
     case ADD_ENTRY:
@@ -59,6 +59,27 @@ const reducer = (state, action) => {
         ...state,
         [sectionName]: afterToggle
       };
+    case TOGGLE_BULLET_SELECT:
+      //replace entries bulletPoints with new value after toggle
+      let targetEntry = state[sectionName]?.find(entry => entry.item.id === id);
+      targetEntry.item.value.bulletPoints.forEach(bullet => {
+        if (bullet.item.id === bulletId) {
+          bullet.isSelected = !bullet.isSelected;
+        }
+      });
+      //replace entry with new value (bullets toggled)
+      const afterBulletToggle = state[sectionName].map(entry => {
+        if (entry.item.id === id) {
+          entry = targetEntry;
+        }
+        return entry;
+      });
+      //return entries array to state
+      return {
+        ...state,
+        [sectionName]: afterBulletToggle
+      };
+
     case EDIT_ENTRY:
       const editedEntry = {
         sectionName,

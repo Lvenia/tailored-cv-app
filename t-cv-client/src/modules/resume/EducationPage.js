@@ -7,7 +7,7 @@ import {
   deleteEntry,
   dropChanges,
   editEntry,
-  saveChanges,
+  saveChanges, toggleBulletSelect,
   toggleSelect
 } from './actionHandlers';
 
@@ -50,6 +50,7 @@ const EducationPage = () => {
             name={EDUCATION}
             entry={el} //{item:{id, value}, isSelected}
             handleToggleSelect={toggleSelect(dispatch)}
+            handleBulletToggle={toggleBulletSelect(dispatch)}
             handleEdit={editEntry(dispatch)}
             handleDelete={deleteEntry(dispatch)}
             disabled={isDisabled}
@@ -84,4 +85,5 @@ export default EducationPage;
 //TODO: bullet edit [x]
 //TODO: bullet delete [x]
 //TODO: remove bullets list on cancel [x]
+//TODO: select/unselect bullets [X], show select/edit/delete buttons []
 
