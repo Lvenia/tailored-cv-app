@@ -76,7 +76,9 @@ const EducationPage = () => {
 
 export default EducationPage;
 
-//TODO: 20/12/2021 [x] Render items from state (90 min => 85 min)
-//TODO: 20/12/2021 [X] Handle refs for start date, end, header and subheader  (90 min)?
-//TODO: [X] destructure EDUCATION from the const obj
-//TODO: [X] entry-control-box into const
+//4/01/2022
+//TODO: turn off autofill [x]
+//TODO: make details field active on edit []
+//TODO: bullet add []
+//TODO: bullet edit []
+//TODO: bullet delete []

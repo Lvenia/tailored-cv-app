@@ -19,6 +19,7 @@ const TextInput = ({
         ref={inputRef}
         onKeyDown={e => e.key === ENTER && submitHandler(e)}
         disabled={isDisabled}
+        autoComplete='off'
       />
     </>
   )
