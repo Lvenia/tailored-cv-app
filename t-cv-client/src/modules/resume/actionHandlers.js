@@ -5,7 +5,8 @@ import {
   SAVE_CHANGES,
   DROP_CHANGES,
   TOGGLE_SELECT,
-  generateId, TOGGLE_BULLET_SELECT,
+  TOGGLE_BULLET_SELECT,
+  generateId,
 } from './consts';
 
 export const addEntry = (dispatch) => {
@@ -55,5 +56,5 @@ export const toggleSelect = (dispatch) => {
 export const toggleBulletSelect = (dispatch) => {
   return (id) => (sectionName, bulletId) => {
     dispatch({ type: TOGGLE_BULLET_SELECT, payload: { sectionName, id, bulletId } });
-  }
+  };
 };

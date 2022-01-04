@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../components/Button';
 import {
-  STYLE_BULLET_ENTRY,
   STYLE_ENTRY,
   STYLE_SLC_BTN
 } from './consts';
@@ -19,7 +18,7 @@ const ItemWithActions = ({
   const { id } = item;
 
   return (
-    <div className={typeof item.value === 'object' ? STYLE_ENTRY : STYLE_BULLET_ENTRY}>
+    <div className={STYLE_ENTRY}>
       {handleToggleSelect && <Button
         title="Select"
         label="S"
@@ -48,8 +47,8 @@ ItemWithActions.propTypes = {
   name: PropTypes.string.isRequired,
   entry: PropTypes.object.isRequired,
   handleToggleSelect: PropTypes.func.isRequired,
-  handleEdit: PropTypes.func.isRequired,
-  handleDelete: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func,
+  handleDelete: PropTypes.func,
   disabled: PropTypes.bool
 };
 

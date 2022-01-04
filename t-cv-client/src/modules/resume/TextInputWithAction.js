@@ -66,9 +66,10 @@ TextInputWithAction.propTypes = {
   label: PropTypes.string.isRequired,
   inputRef: PropTypes.object.isRequired,
   handleAction: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
   editedSectionName: PropTypes.string,
-  sectionName: PropTypes.string
+  sectionName: PropTypes.string,
+  textarea: PropTypes.bool
 };
 
 export default TextInputWithAction;

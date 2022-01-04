@@ -9,7 +9,10 @@ import {
   ADD_ENTRY,
   TOGGLE_SELECT,
   DELETE_ENTRY,
-  EDIT_ENTRY, SAVE_CHANGES, DROP_CHANGES, TOGGLE_BULLET_SELECT,
+  EDIT_ENTRY,
+  SAVE_CHANGES,
+  DROP_CHANGES,
+  TOGGLE_BULLET_SELECT
 } from './modules/resume/consts';
 // MODULES
 import ResumePage from './modules/resume/ResumePage';
@@ -61,8 +64,8 @@ const reducer = (state, action) => {
       };
     case TOGGLE_BULLET_SELECT:
       //replace entries bulletPoints with new value after toggle
-      let targetEntry = state[sectionName]?.find(entry => entry.item.id === id);
-      targetEntry.item.value.bulletPoints.forEach(bullet => {
+      let targetToggleEntry = state[sectionName]?.find(entry => entry.item.id === id);
+      targetToggleEntry.item.value.bulletPoints.forEach(bullet => {
         if (bullet.item.id === bulletId) {
           bullet.isSelected = !bullet.isSelected;
         }
@@ -70,16 +73,15 @@ const reducer = (state, action) => {
       //replace entry with new value (bullets toggled)
       const afterBulletToggle = state[sectionName].map(entry => {
         if (entry.item.id === id) {
-          entry = targetEntry;
+          entry = targetToggleEntry;
         }
         return entry;
       });
-      //return entries array to state
+
       return {
         ...state,
         [sectionName]: afterBulletToggle
       };
-
     case EDIT_ENTRY:
       const editedEntry = {
         sectionName,

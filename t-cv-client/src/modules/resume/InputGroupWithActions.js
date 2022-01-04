@@ -118,25 +118,23 @@ const InputGroupWithActions = ({
       let { label, name, ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
       if (key === 'bulletPoints') {
         return (
-          <>
-            <div className="add-bullets">
-              <TextInputWithAction
-                textarea={true}
-                name={name}
-                label={label}
-                inputRef={ref}
-                handleAction={addBulletPoint}
-                editedSectionName={editedSectionName}
-                sectionName={sectionName}
-              />
-            </div>
+          <div className="add-bullets" key={key}>
+            <TextInputWithAction
+              textarea={true}
+              name={name}
+              label={label}
+              inputRef={ref}
+              handleAction={addBulletPoint}
+              editedSectionName={editedSectionName}
+              sectionName={sectionName}
+            />
             {renderBullets()}
-          </>
+          </div>
         );
       } else {
         return (
           <TextInput
-            key={name}
+            key={key}
             inputRef={ref}
             label={label}
             name={name}

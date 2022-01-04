@@ -35,7 +35,6 @@ export const getKeys = (obj) => {
   for (let key in obj) {
     keys.push(key);
   }
-
   return keys;
 };
 
@@ -53,12 +52,13 @@ export const SKILLS = 'skills';
 export const STYLE_ADD = 'add';
 export const STYLE_EDIT = 'edit';
 export const STYLE_ENTRY = 'entry';
-export const STYLE_BULLET_ENTRY = 'bullet-entry';
-export const STYLE_ENTRY_GROUP = 'group-entry';
+export const STYLE_ENTRY_GROUP = 'group';
+export const STYLE_ENTRY_HEADER = 'header';
+export const STYLE_ENTRY_SUBHEADER = 'subheader';
 export const STYLE_SLC_BTN = 'selected-btn';
-export const STYLE_BTN_COL = 'btn-col';
+export const STYLE_BTN_ROW = 'btn-row';
+export const STYLE_GROUP_LEGEND = 'group-legend';
 export const ENTRY_CONTROL = 'entry-control-box';
-
 
 //TODO: gather strings relative to inputs in mutual object - will allow to DRY code
 

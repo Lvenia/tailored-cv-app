@@ -85,5 +85,8 @@ export default EducationPage;
 //TODO: bullet edit [x]
 //TODO: bullet delete [x]
 //TODO: remove bullets list on cancel [x]
-//TODO: select/unselect bullets [X], show select/edit/delete buttons []
-
+//TODO: select/unselect bullets [X]
+//TODO: fix styles of bullets in itemWithActions [X]
+//TODO: fix styles of buttons in itemGroupWithActions [X]
+//TODO: fix buttons in multiline items [ ]
+//TODO: fix bullets position in InputGroupWithActions [ ]

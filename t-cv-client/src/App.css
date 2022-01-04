@@ -25,11 +25,14 @@ fieldset div {
 }
 
 .add-bullets {
+    display: flex;
+    flex-direction: column;
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
 .bullets {
+    display: grid;
     grid-column-start: 2;
 }
 
@@ -95,25 +98,21 @@ textarea {
     font-weight: normal;
 }
 
+.group-legend h5 {
+    position: unset;
+}
+
+.group-legend {
+    display: flex;
+    position: absolute;
+    top: -1rem;
+    background-color: white;
+}
+
 .entry {
-    display: grid;
-    margin-top: 1rem;
-    grid-template-columns: 1fr 1fr 1fr 15fr;
-}
-
-.bullet-entry {
-    display: grid;
-    grid-template-columns: 15fr 1fr 1fr 1fr;
-}
-
-.bullet-entry button:nth-of-type(1) {
-    order: 2;
-}
-.bullet-entry button:nth-of-type(2) {
-    order: 3;
-}
-.bullet-entry button:nth-of-type(3) {
-    order: 4;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0.5rem;
 }
 
 .edited-entry {
@@ -121,24 +120,15 @@ textarea {
 }
 
 .entry p {
+    width: 100%;
     border: 1px solid #767676;
     border-radius: 2px;
 }
 
 /*TEMPORARY ENTRY GROUP CONTROL STYLES */
-.group-entry {
-    display: grid;
-    grid-template-columns: 1fr 17fr;
-    padding: 1rem 0rem;
-}
 
-.group ul {
-    padding: 0;
-}
-
-.group li {
-    padding: 0.5rem;
-    border-left: 1px solid #767676;
+.group {
+    margin: 1rem 0;
 }
 
 .group .header, .group .subheader {
@@ -147,15 +137,7 @@ textarea {
     margin: 0.5rem 0;
 }
 
-.btn-col {
-    display: flex;
-    flex-direction: column;
-    margin-right: 2rem;
-    justify-content: space-around;
-}
-
 .btn-row button {
-    width: 50%;
     width: 50%;
 }
 
@@ -258,7 +240,7 @@ nav a {
 
 .resume-main article {
     width: 70%;
-    margin: 2rem auto;
+    margin: 2.5rem auto;
 }
 
 /*TEMPORARY PREVIEW PAGE STYLES*/

@@ -148,7 +148,7 @@ export const mockData = {
                 id: '411',
                 value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
               },
-              isSelected: true
+              isSelected: false
             },
             {
               item: {
@@ -190,7 +190,7 @@ export const mockData = {
                 id: '422',
                 value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
               },
-              isSelected: true
+              isSelected: false
             },
             {
               item: {
