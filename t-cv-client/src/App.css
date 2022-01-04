@@ -25,15 +25,12 @@ fieldset div {
 }
 
 .add-bullets {
-    display: flex;
-    flex-direction: column;
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
 .bullets {
-    display: grid;
-    grid-column-start: 2;
+    grid-column-start: -2;
 }
 
 .bullets li {
