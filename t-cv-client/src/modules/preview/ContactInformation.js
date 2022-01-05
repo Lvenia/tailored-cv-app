@@ -1,29 +1,35 @@
 import React from 'react';
+import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
+import { EMAIL, getSingleSelectedValue, GITHUB, LINKEDIN, PHONE } from '../resume/consts';
 
 const ContactInformation = () => {
-    const email = "xxxxxxxxxxxxxxxxxxxx@gmail.com";
-    const phone = "+xxxxxxxxxxxx"
-    return (
-        <article className="contact-information">
-            {/*<h2>Contact Information</h2>*/}
-            <span>
+  const [relevantState] = useRelevantStateAndDispatch(PHONE, EMAIL, LINKEDIN, GITHUB);
+  const { email, phone, linkedIn, gitHub } = relevantState;
+  const userEmail = getSingleSelectedValue(email);
+  const userPhone = getSingleSelectedValue(phone);
+  const userLinkedIn = getSingleSelectedValue(linkedIn);
+  const userGitHub = getSingleSelectedValue(gitHub);
+
+  return (
+    <article className="contact-information">
+      <span>
                 <h6>E-mail:</h6>
-                <a href={`mailto:${email}`}>{email}</a>
+                <a href={`mailto:${userEmail}`}>{userEmail}</a>
             </span>
-            <span>
+      <span>
                 <h6>Phone:</h6>
-                <a href={`tel:${phone}`}>{phone}</a>
+                <a href={`tel:${userPhone}`}>{userPhone}</a>
             </span>
-            <span>
+      <span>
                 <h6>LinkedIn</h6>
-                <a href="https://linkedin.com">LinkedIn</a>
+                <a href={userLinkedIn}>LinkedIn</a>
             </span>
-            <span>
+      <span>
                 <h6>github</h6>
-                <a href="https://github.com">github</a>
+                <a href={userGitHub}>GitHub</a>
             </span>
-        </article>
-    )
+    </article>
+  );
 };
 
 export default ContactInformation;

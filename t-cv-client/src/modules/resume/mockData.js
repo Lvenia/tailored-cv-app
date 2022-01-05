@@ -81,7 +81,7 @@ export const mockData = {
     {
       item: {
         id: '51',
-        value: 'https://www.linkedin.com/in/iryna-kresinska-8b59ba201/'
+        value: 'https://www.linkedin.com/in/iryna-kresinska/'
       },
       isSelected: true
     },
@@ -123,7 +123,7 @@ export const mockData = {
         id: '32',
         value: 'Prolific, full stack web developer with a passion for metrics and beating former "best-yets." Prototyped 25 new product features per year for Flexor, Inc. Decreased rework by 22% and costs by 15%. Consistently receive high user experience scores for all web development projects, including a 55% increase for Flexor, Inc. Passionate about building world class web applications. One of my sites received a 2015 Webby for Best Navigation and Structure. '
       },
-      isSelected: true
+      isSelected: false
     },
     {
       item: {
