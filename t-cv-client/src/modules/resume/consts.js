@@ -40,7 +40,10 @@ export const getKeys = (obj) => {
 
 export const getSingleSelectedValue = (arr) => {
   const selectedItem = arr.find(el => el.isSelected);
-  const { value } = selectedItem.item;
+  if(!selectedItem) {
+    return "";
+  }
+  const { value } = selectedItem.item ;
   return value;
 };
 

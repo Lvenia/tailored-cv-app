@@ -1,11 +1,16 @@
 import React from 'react';
+import { getSingleSelectedValue, SUMMARY } from '../resume/consts';
+import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
 
 const Summary = () => {
-    return (
-        <article>
-            <p>Resume objective/ resume summary: The most important rule of formatting a web developer summary statement is to lead with the most important information, such as education or training in a niche the company is focused on. Format the summary statement with at least three lines of text, but no more than five.</p>
-        </article>
-    )
+  const [relevantState] = useRelevantStateAndDispatch(SUMMARY);
+  const { summary } = relevantState;
+  const resumeSummary = getSingleSelectedValue(summary);
+  return (
+    <article>
+      <p>{resumeSummary}</p>
+    </article>
+  );
 };
 
 export default Summary;
