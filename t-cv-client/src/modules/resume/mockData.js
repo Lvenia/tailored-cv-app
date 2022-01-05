@@ -35,7 +35,7 @@ export const mockData = {
         id: '22',
         value: 'Roman Emperor'
       },
-      isSelected: true
+      isSelected: false
     },
     {
       item: {
@@ -260,3 +260,6 @@ export const mockData = {
     entry: null,
   }
 };
+
+
+//TODO: enforce how many selected values per category

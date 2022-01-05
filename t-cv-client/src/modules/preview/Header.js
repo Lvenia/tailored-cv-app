@@ -1,18 +1,19 @@
 import React from 'react';
+import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
+import { getSingleSelectedValue, NAME, ROLE } from '../resume/consts';
 
 const Header = () => {
+  const [relevantState] = useRelevantStateAndDispatch(NAME, ROLE);
+  const { name, role } = relevantState;
+  const userName = getSingleSelectedValue(name);
+  const jobTitle = getSingleSelectedValue(role);
 
-
-    const firstName = "firstName";
-    const lastName = "lastName";
-    const jobTitle = "Web Developer";
-
-    return (
-        <article className="cv-header">
-            <h1>{firstName} {lastName}</h1>
-            <h2>{jobTitle}</h2>
-        </article>
-    )
-}
+  return (
+    <article className="cv-header">
+      <h1>{userName}</h1>
+      <h2>{jobTitle}</h2>
+    </article>
+  );
+};
 
 export default Header;

@@ -38,6 +38,12 @@ export const getKeys = (obj) => {
   return keys;
 };
 
+export const getSingleSelectedValue = (arr) => {
+  const selectedItem = arr.find(el => el.isSelected);
+  const { value } = selectedItem.item;
+  return value;
+};
+
 //ENTRY GROUP NAMES
 export const NAME = 'name';
 export const ROLE = 'role';
