@@ -5,7 +5,7 @@ import { getKeys, INPUT_DEFINITIONS } from './consts';
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
   const { state, dispatch } = useContext(AppContext);
   let relevantState = {};
-  [...params].forEach(entryName => { //todo: remove [...] params.forEach is ok
+  params.forEach(entryName => {
     relevantState = { ...relevantState, [entryName]: state[entryName] };
   });
 
@@ -37,6 +37,7 @@ export const useHandleRefs = (arr) => {
   }, [editedSectionName, editedValue, arr]);
 };
 
+//useHandleGroupRef manages input.current.value when the value is edited
 export const useHandleGroupRef = (name) => { //"role", "name", "education"
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
@@ -54,7 +55,7 @@ export const useHandleGroupRef = (name) => { //"role", "name", "education"
 
     keys.forEach(subSectionName => {
       const { ref } = inputs[subSectionName];
-      if(subSectionName === 'bulletPoints'){
+      if (subSectionName === 'bulletPoints') {
         ref.current.value = '';
       } else {
         ref.current.value = editedValue[subSectionName];

@@ -88,5 +88,5 @@ export default EducationPage;
 //TODO: select/unselect bullets [X]
 //TODO: fix styles of bullets in itemWithActions [X]
 //TODO: fix styles of buttons in itemGroupWithActions [X]
-//TODO: fix buttons in multiline items [ ]
-//TODO: fix bullets position in InputGroupWithActions [ ]
+//TODO: fix buttons in multiline items [x]
+//TODO: fix bullets position in InputGroupWithActions [x]

@@ -21,7 +21,7 @@ import CertificatesPage from './modules/resume/CertificatesPage';
 import ContactPage from './modules/resume/ContactPage';
 import EducationPage from './modules/resume/EducationPage';
 import SummaryPage from './modules/resume/SummaryPage';
-import ExperiencePage from './modules/resume/ExperiencePage';
+import ExperiencePage from './modules/resume/WorkExperiencePage';
 import SkillsPage from './modules/resume/SkillsPage';
 import PreviewPage from './modules/preview/PreviewPage.js';
 import HomePage from './modules/HomePage';
@@ -139,7 +139,7 @@ const App = () => {
             <Route path="resume-settings" element={<ResumePage/>}>
               <Route path="header-settings" element={<HeaderPage/>}/>
               <Route path="summary-settings" element={<SummaryPage/>}/>
-              <Route path="experience-settings" element={<ExperiencePage/>}/>
+              <Route path="work-experience-settings" element={<ExperiencePage/>}/>
               <Route path="education-settings" element={<EducationPage/>}/>
               <Route path="certificates-settings" element={<CertificatesPage/>}/>
               <Route path="contact-settings" element={<ContactPage/>}/>

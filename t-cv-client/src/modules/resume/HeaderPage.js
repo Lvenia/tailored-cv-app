@@ -99,4 +99,4 @@ const HeaderPage = () => {
 
 export default HeaderPage;
 
-//TODO [] use refs from inputDefinitions const => his will prevent form passing refs as props, also should allow to render input fields in loop
+//TODO [] use refs from inputDefinitions const => this will prevent passing refs as props, also should allow to render input fields in loop

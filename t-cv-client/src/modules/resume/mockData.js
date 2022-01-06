@@ -218,6 +218,78 @@ export const mockData = {
       isSelected: false
     },
   ],
+  workExperience: [
+    {
+      item: {
+        id: '51',
+        value: {
+          startDate: '07/2018',
+          endDate: '02/2021',
+          header: 'Quality Management Intern',
+          subheader: 'Beiersdorf Manufacturing Poznań',
+          bulletPoints: [
+            {
+              item: {
+                id: '511',
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '512',
+                value: 'Mauris iaculis quam varius urna hendrerit vehicula.\n'
+              },
+              isSelected: true
+            },
+            {
+              item: {
+                id: '513',
+                value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
+              },
+              isSelected: true
+            },
+          ]
+        }
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '52',
+        value: {
+          startDate: '06/2014',
+          endDate: '11/2018',
+          header: 'Front Desk Receptionist',
+          subheader: 'Hotel MTJ, Poznań',
+          bulletPoints: [
+            {
+              item: {
+                id: '521',
+                value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '522',
+                value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '523',
+                value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
+              },
+              isSelected: false
+            },
+          ]
+        }
+      },
+      isSelected: true
+    },
+  ],
   skills: [
     {
       item: {

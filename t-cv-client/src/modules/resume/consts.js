@@ -43,8 +43,7 @@ export const getSingleSelectedValue = (arr) => {
   if(!selectedItem) {
     return "";
   }
-  const { value } = selectedItem.item ;
-  return value;
+  return selectedItem.item;
 };
 
 //ENTRY GROUP NAMES
@@ -111,6 +110,38 @@ export const INPUT_DEFINITIONS = {
       }
     },
     entryControl: 'Education Entry Control'
+  },
+  workExperience: {
+    name: 'workExperience',
+    fieldsetLabel: 'Work Experience',
+    inputs: {
+      startDate: {
+        label: 'Start date:',
+        name: 'work_start',
+        ref: null
+      },
+      endDate: {
+        label: 'End date:',
+        name: 'work_end',
+        ref: null
+      },
+      header: {
+        label: 'Header:',
+        name: 'work_header',
+        ref: null
+      },
+      subheader: {
+        label: 'Subheader:',
+        name: 'work_subheader',
+        ref: null
+      },
+      bulletPoints: {
+        label: 'Details:',
+        name: 'work_bullets',
+        ref: null
+      }
+    },
+    entryControl: 'Work Experience Entry Control'
   }
 };
 
