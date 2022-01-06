@@ -63,7 +63,8 @@ Goal: able to print resume even though the information is collected in mockData 
         * [x] edit single inputs
         * [X] edit bullets
         * [x] fix bullet list position on edit 
-    * [ ] initial Experience section based on Education section;
+    * [x] initial Work Experience section based on Education section;
+    * [ ] add Experience section for projects;
     * [ ] initial Certificates section;
     * [ ] initial Skills section;
   

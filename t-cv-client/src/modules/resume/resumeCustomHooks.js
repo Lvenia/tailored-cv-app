@@ -85,3 +85,4 @@ export const useInitializeRefsBySection = (sectionName) => {
 };
 
 //todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
+//TODO: add js doc to custom hooks

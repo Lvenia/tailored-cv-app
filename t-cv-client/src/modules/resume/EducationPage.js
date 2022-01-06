@@ -1,17 +1,12 @@
 import React from 'react';
 import InputGroupWithActions from './InputGroupWithActions';
-import ItemGroupWithActions from './ItemGroupWithActions';
+import ItemGroups from './ItemGroups';
 
 import {
   addEntry,
-  deleteEntry,
   dropChanges,
-  editEntry,
-  saveChanges, toggleBulletSelect,
-  toggleSelect
+  saveChanges,
 } from './actionHandlers';
-
-import { ENTRY_CONTROL, INPUT_DEFINITIONS } from './consts';
 
 import {
   useGetEditedSection,
@@ -20,34 +15,16 @@ import {
   useRelevantStateAndDispatch
 } from './resumeCustomHooks';
 
+import { INPUT_DEFINITIONS } from './consts';
+
 const { name: EDUCATION } = INPUT_DEFINITIONS.education;
 
 const EducationPage = () => {
-  const [relevantState, dispatch] = useRelevantStateAndDispatch(EDUCATION);//[{},{}], func
+  const [, dispatch] = useRelevantStateAndDispatch(EDUCATION);//[{},{}], func
   useHandleGroupRef(EDUCATION);
   useInitializeRefsBySection(EDUCATION);
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
   const bulletPoints = editedSectionValues?.item.value.bulletPoints;
-  const { education: educationSection } = relevantState;
-
-  const renderEntries = () => {
-    return educationSection.map(el => {
-      let isDisabled = editedSectionName !== null; //true if state.edited.sectionName is any string
-      return (
-        <article key={el.item.id} className={ENTRY_CONTROL}>
-          <ItemGroupWithActions
-            name={EDUCATION}
-            entry={el} //{item:{id, value}, isSelected}
-            handleToggleSelect={toggleSelect(dispatch)}
-            handleBulletToggle={toggleBulletSelect(dispatch)}
-            handleEdit={editEntry(dispatch)}
-            handleDelete={deleteEntry(dispatch)}
-            disabled={isDisabled}
-          />
-        </article>
-      );
-    });
-  };
 
   return (
     <>
@@ -60,7 +37,7 @@ const EducationPage = () => {
           handleAction={editedSectionName === EDUCATION ? saveChanges(dispatch) : addEntry(dispatch)}
         />
       </article>
-      {renderEntries()}
+      <ItemGroups sectionName={EDUCATION}/>
     </>
   );
 };
