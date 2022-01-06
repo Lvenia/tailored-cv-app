@@ -43,7 +43,7 @@ export const getSingleSelectedValue = (arr) => {
   if(!selectedItem) {
     return "";
   }
-  return selectedItem.item;
+  return selectedItem.item.value;
 };
 
 //ENTRY GROUP NAMES
