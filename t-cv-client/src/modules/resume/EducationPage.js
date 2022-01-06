@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import InputGroupWithActions from './InputGroupWithActions';
 import ItemGroupWithActions from './ItemGroupWithActions';
 
@@ -16,6 +16,7 @@ import { ENTRY_CONTROL, INPUT_DEFINITIONS } from './consts';
 import {
   useGetEditedSection,
   useHandleGroupRef,
+  useMultipleInputsRefAssign,
   useRelevantStateAndDispatch
 } from './resumeCustomHooks';
 
@@ -23,22 +24,10 @@ const { name: EDUCATION } = INPUT_DEFINITIONS.education;
 
 const EducationPage = () => {
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EDUCATION);//[{},{}], func
+  useHandleGroupRef(EDUCATION);
+  useMultipleInputsRefAssign(EDUCATION);
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
   const bulletPoints = editedSectionValues?.item.value.bulletPoints;
-  const startRef = useRef('');
-  const endRef = useRef('');
-  const headerRef = useRef('');
-  const subheaderRef = useRef('');
-  const bulletRef = useRef('');
-  const { inputs } = INPUT_DEFINITIONS.education;
-  inputs.startDate.ref = startRef;
-  inputs.endDate.ref = endRef;
-  inputs.header.ref = headerRef;
-  inputs.subheader.ref = subheaderRef;
-  inputs.bulletPoints.ref = bulletRef;
-
-  useHandleGroupRef(EDUCATION);
-
   const { education: educationSection } = relevantState;
 
   const renderEntries = () => {

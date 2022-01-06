@@ -30,8 +30,8 @@ A tool for fast resume modification. Intended as an opportunity to improve knowl
     * resumeCustomHooks allow avoiding in each page of Resume Settings section:
       * importing AppContext and useContext;
       * calling useContext, destructuring state and dispatch;
-      * defining editedsectionName and isEdited;
-      
+      * defining editedSectionName and isEdited;
+      * useMultipleInputsRefAssign allows not to call useRef in each multiple input entry with start, end, header, subheader, bullets input structure and not to repeat ref object assigment to ref property of INPUT_DEFINITIONS object
 --- 
 
 ### Plan
@@ -46,7 +46,7 @@ Goal: able to print resume even though the information is collected in mockData 
     * [x] basic markup (sections and layout);
     * [x] @media rules for printing from the browser as A4;
     * [ ] render data from the global state;
-    * [ ] add formatting;
+    * [ ] add initial formatting;
   * Resume Settings section:
     * [X] initial logic (CRUD + select) and styles for Header section (one entry = one input);
     * [X] initial Contact Information section;
@@ -72,6 +72,7 @@ Goal: able to print resume even though the information is collected in mockData 
 
 Goal: deploy front end
 * [ ] add basic validation for inputs
+* [ ] control select (single value vs multiple values per entry)
 * [ ] fix crud buttons' display
 * [ ] move state to local storage
 * [ ] add readme to client

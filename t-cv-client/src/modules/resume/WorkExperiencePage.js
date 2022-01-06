@@ -1,7 +1,17 @@
-import React, {useRef} from 'react';
-import { useGetEditedSection, useHandleGroupRef, useRelevantStateAndDispatch } from './resumeCustomHooks';
-import { ENTRY_CONTROL, INPUT_DEFINITIONS } from './consts';
+import React from 'react';
 import InputGroupWithActions from './InputGroupWithActions';
+import ItemGroupWithActions from './ItemGroupWithActions';
+
+import {
+    useGetEditedSection,
+    useHandleGroupRef,
+    useMultipleInputsRefAssign,
+    useRelevantStateAndDispatch
+} from './resumeCustomHooks';
+import {
+    ENTRY_CONTROL,
+    INPUT_DEFINITIONS
+} from './consts';
 import {
     addEntry,
     deleteEntry,
@@ -11,27 +21,16 @@ import {
     toggleBulletSelect,
     toggleSelect
 } from './actionHandlers';
-import ItemGroupWithActions from './ItemGroupWithActions';
+
+const WORK = INPUT_DEFINITIONS.workExperience.name;
 
 const WorkExperiencePage = () => {
-    //1. get relevant piece of state and dispatch method to call action creators
-    const WORK = INPUT_DEFINITIONS.workExperience.name;
+    //get relevant piece of state and dispatch method to call action creators
     const [relevantState, dispatch] = useRelevantStateAndDispatch(WORK);
-    //2. call useLayoutEffect before screen painting
+    //call useLayoutEffect before screen painting
     useHandleGroupRef(WORK);
-    //3. create ref object fro each input field, assign it to relevant ref key in INPUT_DEFINITIONS object
-    const startRef = useRef('');
-    const endRef = useRef('');
-    const headerRef = useRef('');
-    const subheaderRef = useRef('');
-    const bulletRef = useRef('');
-    const { inputs } = INPUT_DEFINITIONS.workExperience;
-    inputs.startDate.ref = startRef;
-    inputs.endDate.ref = endRef;
-    inputs.header.ref = headerRef;
-    inputs.subheader.ref = subheaderRef;
-    inputs.bulletPoints.ref = bulletRef;
-    //4. track name of the currently editet section
+    // create ref object for each input field, assign it to relevant ref key in INPUT_DEFINITIONS object
+    useMultipleInputsRefAssign(WORK);
     const {editedSectionName, editedSectionValues} = useGetEditedSection();
     const bulletPoints = editedSectionValues?.item.value.bulletPoints;
     const { workExperience } = relevantState;
@@ -78,6 +77,5 @@ export default WorkExperiencePage;
 //TODO: Add workExperience INPUT_DEFINITIONS [x]
 //TODO: Add workExperience to state (mockData object) [x]
 //TODO: change ResumePage navigation + routing: Experience => Work Experience [x]
-
-//TODO: create custom hook that assigns ref object to a ref property of INPUT_DEFINITIONS obj to DRY multiple input entries []
-//TODO: DRY renderEntries
+//TODO: create custom hook that assigns ref object to a ref property of INPUT_DEFINITIONS obj to DRY multiple input entries [X]
+//TODO: DRY renderEntries []

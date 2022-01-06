@@ -1,4 +1,4 @@
-import { useContext, useLayoutEffect } from 'react';
+import { useContext, useLayoutEffect, useRef } from 'react';
 import { AppContext } from '../../App';
 import { getKeys, INPUT_DEFINITIONS } from './consts';
 
@@ -37,7 +37,7 @@ export const useHandleRefs = (arr) => {
   }, [editedSectionName, editedValue, arr]);
 };
 
-//useHandleGroupRef manages input.current.value when the value is edited
+//useHandleGroupRef manages input.current.value when the input value gets edited
 export const useHandleGroupRef = (name) => { //"role", "name", "education"
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
@@ -63,6 +63,21 @@ export const useHandleGroupRef = (name) => { //"role", "name", "education"
 
     });
   }, [editedSectionName, name, editedValue, inputs, keys]);
+};
+
+//useMultipleInputsRefAssign: accepts sectionName like "education" or "workExperience"; use to create ref object and assign its value to the ref property of the INPUT_DEFINITION object. Applies !only in case of entries with multiple inputs! like education or workExperience.
+export const useMultipleInputsRefAssign = (sectionName) => {
+  const { inputs } = INPUT_DEFINITIONS[sectionName];
+  const startRef = useRef('');
+  const endRef = useRef('');
+  const headerRef = useRef('');
+  const subheaderRef = useRef('');
+  const bulletRef = useRef('');
+  inputs.startDate.ref = startRef;
+  inputs.endDate.ref = endRef;
+  inputs.header.ref = headerRef;
+  inputs.subheader.ref = subheaderRef;
+  inputs.bulletPoints.ref = bulletRef;
 };
 
 //todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
