@@ -5,7 +5,7 @@ import ItemGroupWithActions from './ItemGroupWithActions';
 import {
     useGetEditedSection,
     useHandleGroupRef,
-    useMultipleInputsRefAssign,
+    useInitializeRefsBySection,
     useRelevantStateAndDispatch
 } from './resumeCustomHooks';
 import {
@@ -30,7 +30,7 @@ const WorkExperiencePage = () => {
     //call useLayoutEffect before screen painting
     useHandleGroupRef(WORK);
     // create ref object for each input field, assign it to relevant ref key in INPUT_DEFINITIONS object
-    useMultipleInputsRefAssign(WORK);
+    useInitializeRefsBySection(WORK);
     const {editedSectionName, editedSectionValues} = useGetEditedSection();
     const bulletPoints = editedSectionValues?.item.value.bulletPoints;
     const { workExperience } = relevantState;

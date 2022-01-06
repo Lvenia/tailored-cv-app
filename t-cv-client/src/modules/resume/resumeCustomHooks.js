@@ -37,12 +37,15 @@ export const useHandleRefs = (arr) => {
   }, [editedSectionName, editedValue, arr]);
 };
 
-//useHandleGroupRef manages input.current.value when the input value gets edited
-export const useHandleGroupRef = (name) => { //"role", "name", "education"
+/**
+ * @description Manages input.current.value when the input value gets edited
+ * @param {string} name
+ */
+export const useHandleGroupRef = (sectionName) => { //"role", "name", "education"
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
-  const { inputs } = INPUT_DEFINITIONS[name];
+  const { inputs } = INPUT_DEFINITIONS[sectionName];
   const keys = getKeys(inputs);
 
   useLayoutEffect(() => {
@@ -50,8 +53,9 @@ export const useHandleGroupRef = (name) => { //"role", "name", "education"
       return;
     }
 
-    if (editedSectionName === name)
-      inputs[keys[0]].ref.current.focus(); //focus first input field
+    if (editedSectionName === sectionName) {
+      inputs[keys[0]].ref.current.focus();
+    } //focus first input field
 
     keys.forEach(subSectionName => {
       const { ref } = inputs[subSectionName];
@@ -62,11 +66,11 @@ export const useHandleGroupRef = (name) => { //"role", "name", "education"
       }
 
     });
-  }, [editedSectionName, name, editedValue, inputs, keys]);
+  }, [editedSectionName, sectionName, editedValue, inputs, keys]);
 };
 
 //useMultipleInputsRefAssign: accepts sectionName like "education" or "workExperience"; use to create ref object and assign its value to the ref property of the INPUT_DEFINITION object. Applies !only in case of entries with multiple inputs! like education or workExperience.
-export const useMultipleInputsRefAssign = (sectionName) => {
+export const useInitializeRefsBySection = (sectionName) => {
   const { inputs } = INPUT_DEFINITIONS[sectionName];
   const startRef = useRef('');
   const endRef = useRef('');

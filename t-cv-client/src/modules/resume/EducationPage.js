@@ -16,7 +16,7 @@ import { ENTRY_CONTROL, INPUT_DEFINITIONS } from './consts';
 import {
   useGetEditedSection,
   useHandleGroupRef,
-  useMultipleInputsRefAssign,
+  useInitializeRefsBySection,
   useRelevantStateAndDispatch
 } from './resumeCustomHooks';
 
@@ -25,7 +25,7 @@ const { name: EDUCATION } = INPUT_DEFINITIONS.education;
 const EducationPage = () => {
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EDUCATION);//[{},{}], func
   useHandleGroupRef(EDUCATION);
-  useMultipleInputsRefAssign(EDUCATION);
+  useInitializeRefsBySection(EDUCATION);
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
   const bulletPoints = editedSectionValues?.item.value.bulletPoints;
   const { education: educationSection } = relevantState;
