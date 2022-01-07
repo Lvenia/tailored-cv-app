@@ -9,8 +9,8 @@ import {
   LINKEDIN_ENTRY_CONTROL,
   PHONE,
   PHONE_ENTRY_CONTROL,
-} from './consts';
-import TextInputWithAction from './TextInputWithAction';
+} from '../consts';
+import TextInputWithAction from '../TextInputWithAction';
 import {
   addEntry,
   deleteEntry,
@@ -18,13 +18,13 @@ import {
   editEntry,
   saveChanges,
   toggleSelect
-} from './actionHandlers';
-import ItemWithActions from './ItemWithActions';
+} from '../actionHandlers';
+import ItemWithActions from '../ItemWithActions';
 import {
   useRelevantStateAndDispatch,
   useGetEditedSection,
   useHandleRefs
-} from './resumeCustomHooks';
+} from '../resumeCustomHooks';
 
 const ContactPage = () => {
   console.count('contact page renders');

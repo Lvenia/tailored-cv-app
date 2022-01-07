@@ -1,21 +1,21 @@
 import React from 'react';
-import InputGroupWithActions from './InputGroupWithActions';
-import ItemGroups from './ItemGroups';
+import InputGroupWithActions from '../InputGroupWithActions';
+import ItemGroups from '../ItemGroups';
 
 import {
   addEntry,
   dropChanges,
   saveChanges,
-} from './actionHandlers';
+} from '../actionHandlers';
 
 import {
   useGetEditedSection,
   useHandleGroupRef,
   useInitializeRefsBySection,
   useRelevantStateAndDispatch
-} from './resumeCustomHooks';
+} from '../resumeCustomHooks';
 
-import { INPUT_DEFINITIONS } from './consts';
+import { INPUT_DEFINITIONS } from '../consts';
 
 const { name: EDUCATION } = INPUT_DEFINITIONS.education;
 

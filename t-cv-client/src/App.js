@@ -15,14 +15,14 @@ import {
   TOGGLE_BULLET_SELECT
 } from './modules/resume/consts';
 // MODULES
-import ResumePage from './modules/resume/ResumePage';
-import HeaderPage from './modules/resume/HeaderPage';
-import ExperiencePage from './modules/resume/ExperiencePage';
-import ContactPage from './modules/resume/ContactPage';
-import EducationPage from './modules/resume/EducationPage';
-import SummaryPage from './modules/resume/SummaryPage';
-import WorkExperiencePage from './modules/resume/WorkExperiencePage';
-import SkillsPage from './modules/resume/SkillsPage';
+import ResumePage from './modules/resume/pages/ResumePage';
+import HeaderPage from './modules/resume/pages/HeaderPage';
+import ExperiencePage from './modules/resume/pages/ExperiencePage';
+import ContactPage from './modules/resume/pages/ContactPage';
+import EducationPage from './modules/resume/pages/EducationPage'
+import SummaryPage from './modules/resume/pages/SummaryPage';
+import WorkExperiencePage from './modules/resume/pages/WorkExperiencePage';
+import SkillsPage from './modules/resume/pages/SkillsPage';
 import PreviewPage from './modules/preview/PreviewPage.js';
 import HomePage from './modules/HomePage';
 //COMPONENTS
@@ -31,7 +31,6 @@ import NotFound from './components/NotFound';
 //STYLES
 import './App.css';
 import { mockData } from './modules/resume/mockData';
-import Experience from './modules/preview/Experiece';
 
 const initialState = mockData;
 

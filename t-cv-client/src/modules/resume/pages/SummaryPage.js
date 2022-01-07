@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import {
-  SKILLS,
-  SKILLS_ENTRY_CONTROL,
-  SKILLS_INPUTS
-} from './consts';
-import TextInputWithAction from './TextInputWithAction';
+  SUMMARY,
+  SUMMARY_ENTRY_CONTROL,
+  SUMMARY_INPUTS
+} from '../consts';
+import TextInputWithAction from '../TextInputWithAction';
 import {
   addEntry,
   deleteEntry,
@@ -12,43 +12,27 @@ import {
   editEntry,
   saveChanges,
   toggleSelect
-} from './actionHandlers';
-import ItemWithActions from './ItemWithActions';
+} from '../actionHandlers';
+import ItemWithActions from '../ItemWithActions';
 import {
   useRelevantStateAndDispatch,
   useGetEditedSection,
   useHandleRefs
-} from './resumeCustomHooks';
+} from '../resumeCustomHooks';
 
-const SkillsPage = () => {
+const SummaryPage = () => {
   console.count('summary page renders');
-  const [relevantState, dispatch] = useRelevantStateAndDispatch(SKILLS);
+  const [relevantState, dispatch] = useRelevantStateAndDispatch(SUMMARY);
   const { editedSectionName } = useGetEditedSection();
-  const skillsRef = useRef('');
+  const summaryRef = useRef('');
   const pageRefs = [
-    { ref: skillsRef, name: SKILLS },
+    { ref: summaryRef, name: SUMMARY },
   ];
 
   useHandleRefs(pageRefs);
 
   const handleDropChanges = () => {
     return dropChanges(dispatch);
-  };
-
-  const renderInputs = () => {
-    return (
-      <fieldset>
-        <legend>{SKILLS_INPUTS}</legend>
-        <TextInputWithAction
-          label="Skills:"
-          handleAction={editedSectionName === SKILLS ? saveChanges(dispatch) : addEntry(dispatch)}
-          name={SKILLS}
-          inputRef={skillsRef}
-          onCancel={handleDropChanges}
-          editedSectionName={editedSectionName}
-        />
-      </fieldset>
-    );
   };
 
   const renderEntries = (stateSection, sectionName) => {
@@ -69,20 +53,31 @@ const SkillsPage = () => {
     });
   };
 
-  const { skills: skillsSection } = relevantState;
+  const { summary: summarySection } = relevantState;
 
   return (
     <>
       <article>
-        {renderInputs()}
+        <fieldset>
+          <legend>{SUMMARY_INPUTS}</legend>
+          <TextInputWithAction
+            textarea={true}
+            label="Summary:"
+            handleAction={editedSectionName === SUMMARY ? saveChanges(dispatch) : addEntry(dispatch)}
+            name={SUMMARY}
+            inputRef={summaryRef}
+            onCancel={handleDropChanges}
+            editedSectionName={editedSectionName}
+          />
+        </fieldset>
       </article>
       <article className="entry-control-box">
-        <h5>{SKILLS_ENTRY_CONTROL}</h5>
-        {renderEntries(skillsSection, SKILLS)}
+        <h5>{SUMMARY_ENTRY_CONTROL}</h5>
+        {renderEntries(summarySection, SUMMARY)}
       </article>
     </>
   );
 };
 
-export default SkillsPage;
+export default SummaryPage;
 

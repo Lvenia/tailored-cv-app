@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import TextInputWithAction from './TextInputWithAction';
-import ItemWithActions from './ItemWithActions';
+import TextInputWithAction from '../TextInputWithAction';
+import ItemWithActions from '../ItemWithActions';
 
 import {
   addEntry,
@@ -9,7 +9,7 @@ import {
   saveChanges,
   dropChanges,
   deleteEntry,
-} from './actionHandlers';
+} from '../actionHandlers';
 
 import {
   HEADER_INPUTS,
@@ -17,12 +17,12 @@ import {
   ROLE_ENTRY_CONTROL,
   NAME,
   ROLE,
-} from './consts';
+} from '../consts';
 import {
   useGetEditedSection,
   useHandleRefs,
   useRelevantStateAndDispatch
-} from './resumeCustomHooks';
+} from '../resumeCustomHooks';
 
 const HeaderPage = () => {
   console.count('header page renders');
