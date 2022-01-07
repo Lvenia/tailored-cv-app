@@ -155,14 +155,14 @@ export const mockData = {
                 id: '412',
                 value: 'Mauris iaculis quam varius urna hendrerit vehicula.\n'
               },
-              isSelected: true
+              isSelected: false
             },
             {
               item: {
                 id: '413',
                 value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
               },
-              isSelected: true
+              isSelected: false
             },
           ]
         }
@@ -183,7 +183,7 @@ export const mockData = {
                 id: '421',
                 value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
               },
-              isSelected: true
+              isSelected: false
             },
             {
               item: {
@@ -197,7 +197,7 @@ export const mockData = {
                 id: '423',
                 value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
               },
-              isSelected: true
+              isSelected: false
             },
           ]
         }
@@ -240,14 +240,14 @@ export const mockData = {
                 id: '512',
                 value: 'Mauris iaculis quam varius urna hendrerit vehicula.\n'
               },
-              isSelected: true
+              isSelected: false
             },
             {
               item: {
                 id: '513',
                 value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
               },
-              isSelected: true
+              isSelected: false
             },
           ]
         }
@@ -298,28 +298,28 @@ export const mockData = {
           startDate: '11/2021',
           endDate: 'currently',
           header: 'Web Application "Tailored CV"',
-          subheader: 'personal project',
+          subheader: '',
           bulletPoints: [
             {
               item: {
                 id: '711',
-                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+                value: 'A tool for fast resume modification built to improve knowledge of React Ecosystem and learn the basics of backend development with Node.js and Express.js.'
               },
-              isSelected: false
+              isSelected: true
             },
             {
               item: {
                 id: '712',
                 value: 'Mauris iaculis quam varius urna hendrerit vehicula.\n'
               },
-              isSelected: true
+              isSelected: false
             },
             {
               item: {
                 id: '713',
                 value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
               },
-              isSelected: true
+              isSelected: false
             },
           ]
         }
@@ -332,15 +332,15 @@ export const mockData = {
         value: {
           startDate: '10/2021',
           endDate: '',
-          header: 'FFINN.no recommendation section clone',
-          subheader: 'personal project',
+          header: 'FINN.no recommendation section clone',
+          subheader: '',
           bulletPoints: [
             {
               item: {
                 id: '721',
-                value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
+                value: 'A static version of FINN.no UI section. Responsive design built with React and styled in plain CSS. Page deployed with GitHub Pages.'
               },
-              isSelected: false
+              isSelected: true
             },
             {
               item: {
@@ -368,14 +368,14 @@ export const mockData = {
           startDate: '10/2020',
           endDate: '02/2021',
           header: 'Web Application "How Was Your Day"',
-          subheader: 'personal project',
+          subheader: '',
           bulletPoints: [
             {
               item: {
                 id: '731',
-                value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
+                value: 'A tool for tracking how everyday actions affect a person\'s well-being, intended as an opportunity to learn the React Ecosystem.'
               },
-              isSelected: false
+              isSelected: true
             },
             {
               item: {

@@ -245,7 +245,8 @@ nav a {
     border: 1px dotted red;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    justify-content: flex-start;
     font-size: var(--basic-font-size);
     line-height: var(--text-line-heihth);
 }
@@ -275,7 +276,7 @@ nav a {
     box-shadow: inset 0px 0px 200px rgba(215 193 167 0.1);
 }
 
-#header h1,  #header h2{
+#header h1, #header h2 {
     margin: 0.2rem 0;
 }
 
@@ -284,7 +285,7 @@ nav a {
     font-weight: bold;
 }
 
-#header h2{
+#header h2 {
     font-size: 1rem;
     font-weight: 100;
 }
@@ -308,7 +309,7 @@ a:hover {
     justify-content: space-between;
 }
 
-.contact-information a{
+.contact-information a {
     margin-right: 1rem;
 }
 
@@ -320,21 +321,39 @@ a:hover {
     justify-content: space-between;
     width: 100%;
 }
-#preview-body .row .left{
+
+#preview-body .row .left {
     width: 30%;
 }
-#preview-body .row .right{
-    width: 70%;
-}
 
-#preview-body ul {
+#preview-body .left ul {
     margin-left: 1.5rem;
 }
 
-#preview-body li {
+#preview-body .left li {
     margin: 0.5rem;
 }
 
+#preview-body .row .right {
+    width: 70%;
+}
+
+/*experience card*/
+.experience .date-header {
+    display: flex;
+    margin: 0.3rem 0;
+    border-bottom: 1px solid #EEE;
+}
+
+.experience .date-header span {
+    width: 30%;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.experience .date-header h4 {
+    font-weight: normal;
+}
 
 .cv-content {
     display: grid;

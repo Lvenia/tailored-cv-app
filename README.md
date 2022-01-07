@@ -41,11 +41,11 @@ A tool for fast resume modification. Intended as an opportunity to improve knowl
 Goal: able to print resume even though the information is collected in mockData object. Control over resume content by means of select/unselect buttons.
 
   * [x] implement routing
-  * [ ] create mockData object which eventually will become a schema prototype;
+  * [x] create mockData object which eventually will become a schema prototype;
   * Resume Preview Section:
     * [x] basic markup (sections and layout);
     * [x] @media rules for printing from the browser as A4;
-    * [ ] render data from the global state;
+    * [x] render data from the global state;
     * [ ] add initial formatting;
   * Resume Settings section:
     * [X] initial logic (CRUD + select) and styles for Header section (one entry = one input);
@@ -64,8 +64,8 @@ Goal: able to print resume even though the information is collected in mockData 
         * [X] edit bullets
         * [x] fix bullet list position on edit 
     * [x] initial Work WorkExperience section based on Education section;
-    * [ ] add WorkExperience section for projects;
-    * [ ] initial Skills section;
+    * [x] add WorkExperience section for projects;
+    * [x] initial Skills section;
   
 ---
 ###### Stage 2.
