@@ -1,6 +1,14 @@
 import React from 'react';
+import { IoMail, IoLogoLinkedin, IoLogoGithub } from 'react-icons/io5';
+import { ImPhone } from 'react-icons/im';
 import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
-import { EMAIL, getSingleSelectedValue, GITHUB, LINKEDIN, PHONE } from '../resume/consts';
+import {
+  EMAIL,
+  GITHUB,
+  LINKEDIN,
+  PHONE,
+  getSingleSelectedValue
+} from '../resume/consts';
 
 const ContactInformation = () => {
   const [relevantState] = useRelevantStateAndDispatch(PHONE, EMAIL, LINKEDIN, GITHUB);
@@ -12,22 +20,22 @@ const ContactInformation = () => {
 
   return (
     <article className="contact-information">
-      <span>
-                <h6>E-mail:</h6>
-                <a href={`mailto:${userEmail}`}>{userEmail}</a>
-            </span>
-      <span>
-                <h6>Phone:</h6>
-                <a href={`tel:${userPhone}`}>{userPhone}</a>
-            </span>
-      <span>
-                <h6>LinkedIn</h6>
-                <a href={userLinkedIn}>LinkedIn</a>
-            </span>
-      <span>
-                <h6>github</h6>
-                <a href={userGitHub}>GitHub</a>
-            </span>
+      {userEmail && <a href={`mailto:${userEmail}`}>
+        <IoMail/>
+        {userEmail}
+      </a>}
+      {userPhone && <a href={`tel:${userPhone}`}>
+        <ImPhone/>
+        {userPhone}
+      </a>}
+      {userLinkedIn && <a href={userLinkedIn}>
+        <IoLogoLinkedin/>
+        LinkedIn
+      </a>}
+      {userGitHub && <a href={userGitHub}>
+        <IoLogoGithub/>
+        GitHub
+      </a>}
     </article>
   );
 };

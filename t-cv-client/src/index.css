@@ -2,13 +2,13 @@
   --A4-width: 794px; /*for resolution 96 PPI*/
   --A4-heigth: 1123px; /*for  resolution 96 PPI*/
   /* CV-recommended margin is 0.5-1 inch, 1 inch = 96PPI*/
-  --preview-margin-t-b: 1in; /* top-bottom 0.5 inch*/
-  --preview-margin-l-r: 1in; /* left-right 0.75 inch*/
+  --preview-margin-t-b: 0.5in; /* top-bottom 0.5 inch*/
+  --preview-margin-l-r: 0.75in; /* left-right 0.75 inch*/
   --preview-container-heigth: calc(var(--A4-heigth) - var(--preview-margin-t-b)*2); /*cv aria*/
   --preview-container-width: calc(var(--A4-width) - var(--preview-margin-l-r)*2); /*cv aria*/
   --basic-font-size: 16px; /* 16px = 12pt or 1em*/
   --text-aligment: left; /*Always align text in CV to left, especially headers and bullet points*/
-  --text-line-heihth: 1.4;
+  --text-line-heihth: 1.5;
 }
 
 * {

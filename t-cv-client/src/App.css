@@ -190,10 +190,6 @@ h2 {
     font-weight: normal;
 }
 
-article h2 {
-    border-bottom: 1px solid lightsteelblue;
-}
-
 header, article {
     margin: 1px
 }
@@ -240,6 +236,7 @@ nav a {
     margin: 2.5rem auto;
 }
 
+/*========================================================*/
 /*TEMPORARY PREVIEW PAGE STYLES*/
 .preview-container {
     height: var(--preview-container-heigth); /*ADJUST INCLUDING BORDERS WHEN SETTLED */
@@ -248,9 +245,64 @@ nav a {
     border: 1px dotted red;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     font-size: var(--basic-font-size);
     line-height: var(--text-line-heihth);
+}
+
+.preview-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*header*/
+#header {
+    padding: 0.5rem 0;
+    background-color: rgba(221, 211, 201, 0.1);
+    box-shadow: inset 0px 0px 200px rgba(215 193 167 0.1);
+}
+
+#header h1,  #header h2{
+    margin: 0.2rem 0;
+}
+
+#header h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#header h2{
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+a {
+    display: flex;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+a:hover {
+    color: #00656c;
+}
+
+.preview-container a svg {
+    height: 100%;
+    width: 100%;
+    margin-right: 0.5rem;
+}
+
+.contact-information {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact-information a{
+    margin-right: 1rem;
 }
 
 .cv-content {
@@ -262,16 +314,4 @@ nav a {
 .item {
     display: grid;
     grid-template-columns: 1fr 4fr;
-}
-
-.contact-information {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.contact-information > div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
 }

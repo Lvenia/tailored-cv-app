@@ -40,10 +40,7 @@ export const getKeys = (obj) => {
 
 export const getSingleSelectedValue = (arr) => {
   const selectedItem = arr.find(el => el.isSelected);
-  if(!selectedItem) {
-    return "";
-  }
-  return selectedItem.item.value;
+  return selectedItem?.item?.value || null;
 };
 
 //ENTRY GROUP NAMES

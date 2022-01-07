@@ -9,9 +9,9 @@ const Header = () => {
   const jobTitle = getSingleSelectedValue(role);
 
   return (
-    <article className="cv-header">
-      <h1>{userName}</h1>
-      <h2>{jobTitle}</h2>
+    <article>
+      {userName && <h1>{userName}</h1>}
+      {jobTitle && <h2>{jobTitle}</h2>}
     </article>
   );
 };

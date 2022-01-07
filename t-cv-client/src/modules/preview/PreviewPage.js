@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import {AppContext} from '../../App';
+import React from 'react';
 import Header from "./Header";
 import Summary from "./Summary";
 import WorkExperience from "./WorkExperience";
@@ -9,24 +8,31 @@ import Skills from "./Skills";
 import Experience from './Experiece';
 
 const PreviewPage = () => {
-    const { state } = useContext(AppContext);
-    console.log(state)
-    console.log("global app state is accessible from PreviewPage");
-
     return (
         <main className="preview-container">
-            {<Header/>}
-            {<ContactInformation/>}
-            {<Summary/>}
-            <div className="cv-content">
-                <section className="left">
-                    {<Experience/>}
-                    {<WorkExperience/>}
-                    {<Education/>}
-                </section>
-                <section className="right">
-                    {<Skills/>}
-                </section>
+            <div id="header">
+                {<Header/>}
+                {<ContactInformation/>}
+            </div>
+            <div id="about-me">
+                {/*add image*/}
+                {<Summary/>}
+            </div>
+            <div id="preview-body">
+              <div  className="row">
+              {/*skills + projects*/}
+              </div>
+              <div  className="row">
+                {/*lang + work and education*/}
+              </div>
+                {/*<section className="left">*/}
+                {/*    {<Experience/>}*/}
+                {/*    {<WorkExperience/>}*/}
+                {/*    {<Education/>}*/}
+                {/*</section>*/}
+                {/*<section className="right">*/}
+                {/*    {<Skills/>}*/}
+                {/*</section>*/}
             </div>
         </main>
     )
