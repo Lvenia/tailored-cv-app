@@ -312,6 +312,30 @@ a:hover {
     margin-right: 1rem;
 }
 
+/* preview body row*/
+
+#preview-body .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+#preview-body .row .left{
+    width: 30%;
+}
+#preview-body .row .right{
+    width: 70%;
+}
+
+#preview-body ul {
+    margin-left: 1.5rem;
+}
+
+#preview-body li {
+    margin: 0.5rem;
+}
+
+
 .cv-content {
     display: grid;
     grid-template-columns: 2fr 1fr;

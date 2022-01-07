@@ -401,37 +401,86 @@ export const mockData = {
     {
       item: {
         id: '61',
-        value: 'HTML'
-      },
-      isSelected: true
-    },
-    {
-      item: {
-        id: '62',
-        value: 'CSS'
-      },
-      isSelected: true
-    },
-    {
-      item: {
-        id: '63',
-        value: 'JavaScript'
-      },
-      isSelected: true
-    },
-    {
-      item: {
-        id: '64',
         value: 'React'
       },
       isSelected: true
     },
     {
       item: {
-        id: '65',
-        value: 'Agile'
+        id: '62',
+        value: 'Redux'
       },
-      isSelected: false
+      isSelected: true
+    },
+    {
+      item: {
+        id: '63',
+        value: 'React Router'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '64',
+        value: 'JavaScript'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '65',
+        value: 'TypeScript'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '66',
+        value: 'HTML5'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '67',
+        value: 'CSS'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '68',
+        value: 'Responsive Web Design'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '69',
+        value: 'Mocha/Chai'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '70',
+        value: 'Webpack'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '71',
+        value: 'Git'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '72',
+        value: 'CircleCI'
+      },
+      isSelected: true
     },
   ],
   edited: {

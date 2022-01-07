@@ -20,7 +20,12 @@ const PreviewPage = () => {
             </div>
             <div id="preview-body">
               <div  className="row">
-              {/*skills + projects*/}
+                <div className="left">
+                  {<Skills/>}
+                </div>
+                <div className="right">
+                  {/*{<Experience/>}*/}
+                </div>
               </div>
               <div  className="row">
                 {/*lang + work and education*/}

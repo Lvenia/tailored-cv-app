@@ -43,6 +43,11 @@ export const getSingleSelectedValue = (arr) => {
   return selectedItem?.item?.value || null;
 };
 
+export const getAllSelectedItems= (arr) => {
+  const selectedItems = arr.filter(el => el.isSelected === true);
+  return selectedItems.length > 0 ? selectedItems : null;
+};
+
 //ENTRY GROUP NAMES
 export const NAME = 'name';
 export const ROLE = 'role';
