@@ -142,6 +142,38 @@ export const INPUT_DEFINITIONS = {
       }
     },
     entryControl: 'Work Experience Entry Control'
+  },
+  experience: {
+    name: 'experience',
+    fieldsetLabel: 'Experience',
+    inputs: {
+      startDate: {
+        label: 'Start date:',
+        name: 'exp_start',
+        ref: null
+      },
+      endDate: {
+        label: 'End date:',
+        name: 'exp_end',
+        ref: null
+      },
+      header: {
+        label: 'Header:',
+        name: 'exp_header',
+        ref: null
+      },
+      subheader: {
+        label: 'Subheader:',
+        name: 'exp_subheader',
+        ref: null
+      },
+      bulletPoints: {
+        label: 'Details:',
+        name: 'exp_bullets',
+        ref: null
+      }
+    },
+    entryControl: 'Experience Entry Control'
   }
 };
 

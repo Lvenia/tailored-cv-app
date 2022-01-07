@@ -290,6 +290,113 @@ export const mockData = {
       isSelected: true
     },
   ],
+  experience: [
+    {
+      item: {
+        id: '71',
+        value: {
+          startDate: '11/2021',
+          endDate: 'currently',
+          header: 'Web Application "Tailored CV"',
+          subheader: 'personal project',
+          bulletPoints: [
+            {
+              item: {
+                id: '711',
+                value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '712',
+                value: 'Mauris iaculis quam varius urna hendrerit vehicula.\n'
+              },
+              isSelected: true
+            },
+            {
+              item: {
+                id: '713',
+                value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
+              },
+              isSelected: true
+            },
+          ]
+        }
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '72',
+        value: {
+          startDate: '10/2021',
+          endDate: '',
+          header: 'FFINN.no recommendation section clone',
+          subheader: 'personal project',
+          bulletPoints: [
+            {
+              item: {
+                id: '721',
+                value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '722',
+                value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '723',
+                value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
+              },
+              isSelected: false
+            },
+          ]
+        }
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '73',
+        value: {
+          startDate: '10/2020',
+          endDate: '02/2021',
+          header: 'Web Application "How Was Your Day"',
+          subheader: 'personal project',
+          bulletPoints: [
+            {
+              item: {
+                id: '731',
+                value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '732',
+                value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '733',
+                value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
+              },
+              isSelected: false
+            },
+          ]
+        }
+      },
+      isSelected: true
+    },
+  ],
   skills: [
     {
       item: {

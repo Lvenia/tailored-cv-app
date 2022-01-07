@@ -63,15 +63,15 @@ Goal: able to print resume even though the information is collected in mockData 
         * [x] edit single inputs
         * [X] edit bullets
         * [x] fix bullet list position on edit 
-    * [x] initial Work Experience section based on Education section;
-    * [ ] add Experience section for projects;
-    * [ ] initial Certificates section;
+    * [x] initial Work WorkExperience section based on Education section;
+    * [ ] add WorkExperience section for projects;
     * [ ] initial Skills section;
   
 ---
 ###### Stage 2.
 
 Goal: deploy front end
+* [ ] add js docs to hooks
 * [ ] add basic validation for inputs
 * [ ] control select (single value vs multiple values per entry)
 * [ ] fix crud buttons' display
