@@ -17,11 +17,11 @@ import {
 // MODULES
 import ResumePage from './modules/resume/ResumePage';
 import HeaderPage from './modules/resume/HeaderPage';
-import CertificatesPage from './modules/resume/CertificatesPage';
+import ExperiencePage from './modules/resume/ExperiencePage';
 import ContactPage from './modules/resume/ContactPage';
 import EducationPage from './modules/resume/EducationPage';
 import SummaryPage from './modules/resume/SummaryPage';
-import ExperiencePage from './modules/resume/WorkExperiencePage';
+import WorkExperiencePage from './modules/resume/WorkExperiencePage';
 import SkillsPage from './modules/resume/SkillsPage';
 import PreviewPage from './modules/preview/PreviewPage.js';
 import HomePage from './modules/HomePage';
@@ -31,6 +31,7 @@ import NotFound from './components/NotFound';
 //STYLES
 import './App.css';
 import { mockData } from './modules/resume/mockData';
+import Experience from './modules/preview/Experiece';
 
 const initialState = mockData;
 
@@ -139,9 +140,9 @@ const App = () => {
             <Route path="resume-settings" element={<ResumePage/>}>
               <Route path="header-settings" element={<HeaderPage/>}/>
               <Route path="summary-settings" element={<SummaryPage/>}/>
-              <Route path="work-experience-settings" element={<ExperiencePage/>}/>
+              <Route path="work-experience-settings" element={<WorkExperiencePage/>}/>
               <Route path="education-settings" element={<EducationPage/>}/>
-              <Route path="certificates-settings" element={<CertificatesPage/>}/>
+              <Route path="experience-settings" element={<ExperiencePage/>}/>
               <Route path="contact-settings" element={<ContactPage/>}/>
               <Route path="skills-settings" element={<SkillsPage/>}/>
             </Route>

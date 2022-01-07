@@ -8,9 +8,9 @@ const ResumePage = () => {
         <Link to="header-settings">Header</Link>
         <Link to="contact-settings">Contact Information</Link>
         <Link to="summary-settings">Resume Summary</Link>
+        <Link to="experience-settings">Experience</Link>
         <Link to="work-experience-settings">Work Experience</Link>
         <Link to="education-settings">Education</Link>
-        <Link to="certificates-settings">Certificates</Link>
         <Link to="skills-settings">Skills</Link>
       </nav>
       <section>

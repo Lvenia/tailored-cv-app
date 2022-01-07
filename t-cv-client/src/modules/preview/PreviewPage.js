@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import {AppContext} from '../../App';
-import Certificates from "./Certificates";
 import Header from "./Header";
 import Summary from "./Summary";
-import Experience from "./Experience";
+import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 import ContactInformation from "./ContactInformation";
 import Skills from "./Skills";
+import Experience from './Experiece';
 
 const PreviewPage = () => {
     const { state } = useContext(AppContext);
@@ -21,8 +21,8 @@ const PreviewPage = () => {
             <div className="cv-content">
                 <section className="left">
                     {<Experience/>}
+                    {<WorkExperience/>}
                     {<Education/>}
-                    {<Certificates/>}
                 </section>
                 <section className="right">
                     {<Skills/>}
