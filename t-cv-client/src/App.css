@@ -256,6 +256,18 @@ nav a {
     box-sizing: border-box;
 }
 
+.preview-container h3 {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.preview-container svg {
+    margin-right: 0.5rem;
+}
+
 /*header*/
 #header {
     padding: 0.5rem 0;
@@ -279,6 +291,7 @@ nav a {
 
 a {
     display: flex;
+    align-items: center;
     text-decoration: none;
     cursor: pointer;
     color: inherit;
@@ -286,12 +299,6 @@ a {
 
 a:hover {
     color: #00656c;
-}
-
-.preview-container a svg {
-    height: 100%;
-    width: 100%;
-    margin-right: 0.5rem;
 }
 
 .contact-information {
