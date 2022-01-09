@@ -20,22 +20,22 @@ const ContactInformation = () => {
 
   return (
     <article className="contact-information">
-      {userEmail && <a href={`mailto:${userEmail}`}>
+      {userEmail && <li><a href={`mailto:${userEmail}`}>
         <IoMail/>
         {userEmail}
-      </a>}
-      {userPhone && <a href={`tel:${userPhone}`}>
+      </a></li>}
+      {userPhone && <li><a href={`tel:${userPhone}`}>
         <ImPhone/>
         {userPhone}
-      </a>}
-      {userLinkedIn && <a href={userLinkedIn}>
+      </a></li>}
+      {userLinkedIn && <li><a href={userLinkedIn}>
         <IoLogoLinkedin/>
         LinkedIn
-      </a>}
-      {userGitHub && <a href={userGitHub}>
+      </a></li>}
+      {userGitHub && <li><a href={userGitHub}>
         <IoLogoGithub/>
         GitHub
-      </a>}
+      </a></li>}
     </article>
   );
 };

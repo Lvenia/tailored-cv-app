@@ -46,7 +46,7 @@ Goal: able to print resume even though the information is collected in mockData 
     * [x] basic markup (sections and layout);
     * [x] @media rules for printing from the browser as A4;
     * [x] render data from the global state;
-    * [ ] add initial formatting;
+    * [x] add initial formatting;
   * Resume Settings section:
     * [X] initial logic (CRUD + select) and styles for Header section (one entry = one input);
     * [X] initial Contact Information section;
@@ -71,6 +71,7 @@ Goal: able to print resume even though the information is collected in mockData 
 ###### Stage 2.
 
 Goal: deploy front end
+* [ ] add links to ExperienceItems
 * [ ] add js docs to hooks
 * [ ] add basic validation for inputs
 * [ ] control select (single value vs multiple values per entry)

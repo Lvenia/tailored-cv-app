@@ -7,6 +7,7 @@ section {
     background-color: mediumspringgreen;
 }
 
+/*====================================================================================*/
 /*TEMPORARY FORM STYLES*/
 
 fieldset, .entry-control-box {
@@ -81,6 +82,7 @@ textarea {
     height: 6rem;
 }
 
+/*====================================================================================*/
 /*TEMPORARY ENTRY CONTROL STYLES */
 .entry-control-box {
     position: relative;
@@ -122,6 +124,7 @@ textarea {
     border-radius: 2px;
 }
 
+/*====================================================================================*/
 /*TEMPORARY ENTRY GROUP CONTROL STYLES */
 
 .group {
@@ -163,6 +166,7 @@ textarea {
     background-color: rgba(255, 0, 0, 0.3);
 }
 
+/*====================================================================================*/
 /*TEMPORARY LIST STYLES*/
 
 ul {
@@ -198,6 +202,7 @@ ul {
     padding-left: 2em;
 }
 
+/*====================================================================================*/
 /*TEMPORARY NAVIGATION STYLES*/
 
 nav {
@@ -221,6 +226,7 @@ nav a {
     width: 25%;
 }
 
+/*====================================================================================*/
 /*TEMPORARY RESUME PAGE STYLES*/
 .resume-main {
     display: flex;
@@ -236,16 +242,24 @@ nav a {
     margin: 2.5rem auto;
 }
 
-/*========================================================*/
+/*====================================================================================*/
 /*TEMPORARY PREVIEW PAGE STYLES*/
+
+.wrapper {
+    border: 1px solid #DDD;
+    width: var(--A4-width);
+    height: calc(var(--A4-heigth) - 2px);
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
 .preview-container {
     height: var(--preview-container-heigth); /*ADJUST INCLUDING BORDERS WHEN SETTLED */
     width: var(--preview-container-width);
     margin: auto;
-    border: 1px dotted red;
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between;*/
     justify-content: flex-start;
     font-size: var(--basic-font-size);
     line-height: var(--text-line-heihth);
@@ -260,20 +274,28 @@ nav a {
 .preview-container h3 {
     display: flex;
     align-items: center;
-    margin: 0.5rem 0;
+    margin: 1rem 0;
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+.preview-container p {
+    white-space: break-spaces;
+    text-align: justify;
+    text-align-last: left;
 }
 
 .preview-container svg {
     margin-right: 0.5rem;
 }
 
+#header, #about-me {
+    max-height: 15%;
+}
+
 /*header*/
 #header {
-    padding: 0.5rem 0;
-    background-color: rgba(221, 211, 201, 0.1);
-    box-shadow: inset 0px 0px 200px rgba(215 193 167 0.1);
+    padding: 0.7rem 0;
 }
 
 #header h1, #header h2 {
@@ -313,13 +335,10 @@ a:hover {
     margin-right: 1rem;
 }
 
-/* preview body row*/
-
 #preview-body .row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
 }
 
 #preview-body .row .left {
@@ -327,11 +346,12 @@ a:hover {
 }
 
 #preview-body .left ul {
-    margin-left: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 #preview-body .left li {
-    margin: 0.5rem;
+    display: list-item;
+    list-style: circle;
 }
 
 #preview-body .row .right {
@@ -339,6 +359,14 @@ a:hover {
 }
 
 /*experience card*/
+.experience {
+    margin: 1rem 0;
+}
+
+li.experience {
+    display: block;
+}
+
 .experience .date-header {
     display: flex;
     margin: 0.3rem 0;

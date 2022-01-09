@@ -1,57 +1,63 @@
 :root {
-  --A4-width: 794px; /*for resolution 96 PPI*/
-  --A4-heigth: 1123px; /*for  resolution 96 PPI*/
-  /* CV-recommended margin is 0.5-1 inch, 1 inch = 96PPI*/
-  --preview-margin-t-b: 0.5in; /* top-bottom 0.5 inch*/
-  --preview-margin-l-r: 0.75in; /* left-right 0.75 inch*/
-  --preview-container-heigth: calc(var(--A4-heigth) - var(--preview-margin-t-b)*2); /*cv aria*/
-  --preview-container-width: calc(var(--A4-width) - var(--preview-margin-l-r)*2); /*cv aria*/
-  --basic-font-size: 16px; /* 16px = 12pt or 1em*/
-  --text-aligment: left; /*Always align text in CV to left, especially headers and bullet points*/
-  --text-line-heihth: 1.5;
+    --A4-width: 794px; /*for resolution 96 PPI*/
+    --A4-heigth: 1123px; /*for  resolution 96 PPI*/
+    /* CV-recommended margin is 0.5-1 inch, 1 inch = 96PPI*/
+    --preview-margin-t-b: 0.5in; /* top-bottom 0.5 inch*/
+    --preview-margin-l-r: 0.75in; /* left-right 0.75 inch*/
+    --preview-container-heigth: calc(var(--A4-heigth) - var(--preview-margin-t-b) * 2); /*cv aria*/
+    --preview-container-width: calc(var(--A4-width) - var(--preview-margin-l-r) * 2); /*cv aria*/
+    --basic-font-size: 16px; /* 16px = 12pt or 1em*/
+    --text-aligment: left; /*Always align text in CV to left, especially headers and bullet points*/
+    --text-line-heihth: 1.5;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-size: var(--basic-font-size);
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  color: #323232;
+    font-size: var(--basic-font-size);
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: #323232;
 }
 
 @media print {
-  body {
-    border: none;
-    color: #000;
-  }
-  nav {
-    display: none;
-  }
+    body {
+        border: none;
+        color: #000;
+    }
 
-  .preview-container {
-    position: initial;
-    margin: var(--preview-margin-t-b) var(--preview-margin-l-r);/*ok*/
-    border: none;
-  }
-/* set on class corresponding to readyCV element*/
-  /*
-  Remove background colors and images
-  Adjust text for readability - using black text on a white background works best.
-  Hide web-only functionality
-  For images decrease the size of large images to avoid taking up too much real estate on the page.
-  Flexbox and CSS grid styles both have limited support, for example. Make sure you’re implementing fallbacks.
-  Control page breaking: use the page-break-before, page-break-after
-  Prevent widows and orphans
-  [...] https://blog.tbhcreative.com/2019/06/website-print-friendly-styling.html
-  */
+    nav {
+        display: none;
+    }
+
+    .wrapper {
+        border: none;
+        margin: 0;
+    }
+
+    .preview-container {
+        position: initial;
+        margin: var(--preview-margin-t-b) var(--preview-margin-l-r); /*ok*/
+        border: none;
+    }
+
+    /* set on class corresponding to readyCV element*/
+    /*
+    Remove background colors and images
+    Adjust text for readability - using black text on a white background works best.
+    Hide web-only functionality
+    For images decrease the size of large images to avoid taking up too much real estate on the page.
+    Flexbox and CSS grid styles both have limited support, for example. Make sure you’re implementing fallbacks.
+    Control page breaking: use the page-break-before, page-break-after
+    Prevent widows and orphans
+    [...] https://blog.tbhcreative.com/2019/06/website-print-friendly-styling.html
+    */
 }
 
 @page {
-  margin: 0px; /*prevent adding default margins and body margins during print*/
+    margin: 0px; /*prevent adding default margins and body margins during print*/
 }
-

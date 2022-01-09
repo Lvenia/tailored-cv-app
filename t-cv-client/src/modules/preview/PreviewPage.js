@@ -9,31 +9,36 @@ import Experience from './Experiece';
 
 const PreviewPage = () => {
   return (
-    <main className="preview-container">
-      <div id="header">
-        <Header/>
-        <ContactInformation/>
-      </div>
-      <div id="about-me">
-        {/*add image*/}
-        <Summary/>
-      </div>
-      <div id="preview-body">
-        <div className="row">
-          <div className="left">
-            <Skills/>
+    <div className="wrapper">
+      <main className="preview-container">
+        <div id="header">
+          <Header/>
+          <ContactInformation/>
+        </div>
+        <div id="about-me">
+          {/*add image*/}
+          <Summary/>
+        </div>
+        <div id="preview-body">
+          <div className="row">
+            <div className="left">
+              <Skills/>
+            </div>
+            <div className="right">
+              <Experience/>
+            </div>
           </div>
-          <div className="right">
-            <Experience/>
-            <WorkExperience/>
-            <Education/>
+          <div className="row">
+            <div className="left">
+            </div>
+            <div className="right">
+              <WorkExperience/>
+              <Education/>
+            </div>
           </div>
         </div>
-        {/*<section className="left">*/}
-        {/*    {<Education/>}*/}
-        {/*</section>*/}
-      </div>
-    </main>
+      </main>
+    </div>
   );
 };
 

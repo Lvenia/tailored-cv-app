@@ -10,14 +10,7 @@ export const mockData = {
     {
       item: {
         id: '7383278236',
-        value: 'Marcus Aurelius'
-      },
-      isSelected: false
-    },
-    {
-      item: {
-        id: '738328236',
-        value: 'Don Quijote'
+        value: 'Kresinska Iryna'
       },
       isSelected: false
     },
@@ -26,21 +19,14 @@ export const mockData = {
     {
       item: {
         id: '21',
-        value: 'Software Engineer'
+        value: 'Junior Software Engineer'
       },
       isSelected: true
     },
     {
       item: {
         id: '22',
-        value: 'Roman Emperor'
-      },
-      isSelected: false
-    },
-    {
-      item: {
-        id: '23',
-        value: 'Knight-errant'
+        value: 'Junior Web Developer'
       },
       isSelected: false
     },
@@ -85,22 +71,8 @@ export const mockData = {
       },
       isSelected: true
     },
-    {
-      item: {
-        id: '52',
-        value: 'https://www.linkedin.com'
-      },
-      isSelected: false
-    },
   ],
   gitHub: [
-    {
-      item: {
-        id: '61',
-        value: 'https://github.com/'
-      },
-      isSelected: true
-    },
     {
       item: {
         id: '62',
@@ -114,21 +86,21 @@ export const mockData = {
     {
       item: {
         id: '31',
-        value: 'Dedicated web developer with five years of experience in database administration and website design. Strong creative and analytical skills. Team player with an eye for detail. MySQL, Python and Ruby on Rails.'
+        value: 'I am a web developer who is looking for the first experience working in a tech company. I\'m curious by nature and willing to learn. I enjoy improving my skills by building personal projects. It is important for me to understand, how the technology works and what is the difference between possible solutions.'
       },
       isSelected: true
     },
     {
       item: {
         id: '32',
-        value: 'Prolific, full stack web developer with a passion for metrics and beating former "best-yets." Prototyped 25 new product features per year for Flexor, Inc. Decreased rework by 22% and costs by 15%. Consistently receive high user experience scores for all web development projects, including a 55% increase for Flexor, Inc. Passionate about building world class web applications. One of my sites received a 2015 Webby for Best Navigation and Structure. '
+        value: 'I am an enthusiastic developer who is looking for the opportunity to improve my skills by contributing to a meaningful project. I have a background in Chemical Technology and Process Engineering which helps me to understand technology better and grow a passion for web development. I\'m curious by nature and willing to learn in order to build highquality software.'
       },
       isSelected: false
     },
     {
       item: {
         id: '33',
-        value: 'Hard-working web developer with a flair for creating elegant solutions in the least amount of time. Developed an ecommerce webapp, customer web portal, documentary launch website, and donations webapp for a local charity. Passionate about software architecture and cloud computing. Regular attendee of web developer meetups and hackathons.'
+        value: 'I am a self-taught, enthusiastic developer who is at the start of the web engineering journey. Looking for the first experience, while constantly learning new things. It is important to me to really understand how technology works rather than just use it.'
       },
       isSelected: false
     },
@@ -157,13 +129,6 @@ export const mockData = {
               },
               isSelected: false
             },
-            {
-              item: {
-                id: '413',
-                value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
-              },
-              isSelected: false
-            },
           ]
         }
       },
@@ -178,13 +143,6 @@ export const mockData = {
           header: 'Politechnika Poznańska',
           subheader: 'Engineer in Chemical and Process Engineering',
           bulletPoints: [
-            {
-              item: {
-                id: '421',
-                value: 'Praesent pretium lectus in sem vestibulum interdum. 1'
-              },
-              isSelected: false
-            },
             {
               item: {
                 id: '422',
@@ -242,13 +200,6 @@ export const mockData = {
               },
               isSelected: false
             },
-            {
-              item: {
-                id: '513',
-                value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
-              },
-              isSelected: false
-            },
           ]
         }
       },
@@ -274,13 +225,6 @@ export const mockData = {
               item: {
                 id: '522',
                 value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
-              },
-              isSelected: false
-            },
-            {
-              item: {
-                id: '523',
-                value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
               },
               isSelected: false
             },
@@ -310,14 +254,28 @@ export const mockData = {
             {
               item: {
                 id: '712',
-                value: 'Mauris iaculis quam varius urna hendrerit vehicula.\n'
+                value: 'Single-page React application based on React hooks.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '714',
+                value: 'state management with useReducer and React Context Provider.'
               },
               isSelected: false
             },
             {
               item: {
                 id: '713',
-                value: 'Proin vestibulum erat in massa malesuada tristique.Proin vestibulum erat in massa malesuada tristique.\n'
+                value: 'Routing with React Router v6, nested routes.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '715',
+                value: 'CRUD (create-read-update-delete) functionality.'
               },
               isSelected: false
             },
@@ -345,14 +303,28 @@ export const mockData = {
             {
               item: {
                 id: '722',
-                value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
+                value: 'Built with React.'
               },
               isSelected: false
             },
             {
               item: {
                 id: '723',
-                value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
+                value: 'Responsive design.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '724',
+                value: 'Styled in plain CSS.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '725',
+                value: 'Deployed with GitHub Pages.'
               },
               isSelected: false
             },
@@ -380,14 +352,63 @@ export const mockData = {
             {
               item: {
                 id: '732',
-                value: 'Praesent pretium lectus in sem vestibulum interdum.\n'
+                value: 'Single-page React application build of React class components.'
               },
               isSelected: false
             },
             {
               item: {
                 id: '733',
-                value: 'Suspendisse faucibus massa et metus condimentum, sed aliquam lacus varius.\n'
+                value: 'Client-side routing with React Router v5.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '734',
+                value: 'State managed with Redux.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '735',
+                value: 'HTTP requests with axios.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '736',
+                value: 'Responsive design.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '737',
+                value: 'Styled with React Bootstrap and styled-components.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '738',
+                value: 'Data visualization with react-chartjs-2 charting library.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '739',
+                value: 'Unit-testing with Mocha and Chai.'
+              },
+              isSelected: false
+            },
+            {
+              item: {
+                id: '740',
+                value: 'CI/CD with CircleCI pipeline.'
               },
               isSelected: false
             },
@@ -430,6 +451,13 @@ export const mockData = {
       item: {
         id: '65',
         value: 'TypeScript'
+      },
+      isSelected: true
+    },
+    {
+      item: {
+        id: '73',
+        value: 'Markdown'
       },
       isSelected: true
     },
