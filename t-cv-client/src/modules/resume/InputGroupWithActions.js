@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TextInput from './TextInput';
-import { generateId, getKeys, INPUT_DEFINITIONS } from './consts';
+import { INPUT_DEFINITIONS } from './consts';
+import { generateId } from '../utils';
 import Button from '../../components/Button';
 import TextInputWithAction from './TextInputWithAction';
 
@@ -23,6 +24,7 @@ const InputGroupWithActions = ({
   const groupIsEdited = editedSectionName === name;
   const { fieldsetLabel, inputs } = INPUT_DEFINITIONS[name];
   const { ref: bulletsRef } = inputs.bulletPoints;
+  const keys = Object.keys(inputs);
 
   const addBulletPoint = (name, value) => {
     const bullet = {
@@ -51,7 +53,8 @@ const InputGroupWithActions = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     const currentValues = {};
-    const keys = getKeys(inputs);
+    // const keys = getKeys(inputs);
+    // const keys = Object.getOwnPropertyNames(inputs);
     keys.forEach(key => {
       if (key === 'bulletPoints') {
         currentValues[key] = [...bullets];
@@ -70,8 +73,9 @@ const InputGroupWithActions = ({
     //set state.edited with {sectionName: null, entry: null}
     onCancel();
     //set all inputs with value of empty string
-    const { inputs } = INPUT_DEFINITIONS[name];
-    const keys = getKeys(inputs);
+    // const { inputs } = INPUT_DEFINITIONS[name];
+    // const keys = getKeys(inputs);
+    // const keys = Object.getOwnPropertyNames(inputs);
     keys.forEach(key => {
       inputs[key].ref.current.value = '';
     });
@@ -113,7 +117,7 @@ const InputGroupWithActions = ({
   };
 
   const renderInputGroup = (sectionName) => {
-    const keys = getKeys(INPUT_DEFINITIONS[sectionName].inputs); //['startDate', 'endDate','header', 'subheader', 'bulletPoints']
+    // const keys = getKeys(INPUT_DEFINITIONS[sectionName].inputs); //['startDate', 'endDate','header', 'subheader', 'bulletPoints']
     return keys.map(key => {
       let { label, name, ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
       if (key === 'bulletPoints') {

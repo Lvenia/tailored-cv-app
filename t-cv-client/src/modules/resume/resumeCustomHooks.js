@@ -1,6 +1,6 @@
 import { useContext, useLayoutEffect, useRef } from 'react';
 import { AppContext } from '../../App';
-import { getKeys, INPUT_DEFINITIONS } from './consts';
+import { INPUT_DEFINITIONS } from './consts';
 
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
   const { state, dispatch } = useContext(AppContext);
@@ -46,7 +46,7 @@ export const useHandleGroupRef = (sectionName) => { //"role", "name", "education
   const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
   const { inputs } = INPUT_DEFINITIONS[sectionName];
-  const keys = getKeys(inputs);
+  const keys = Object.keys(inputs);
 
   useLayoutEffect(() => {
     if (!editedSectionName) {

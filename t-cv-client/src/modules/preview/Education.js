@@ -1,8 +1,9 @@
 import React from 'react';
-import { getAllSelectedItems, INPUT_DEFINITIONS } from '../resume/consts';
-import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
 import { FaGraduationCap } from 'react-icons/fa';
 import ExperienceItems from './ExperienceItems';
+import { INPUT_DEFINITIONS } from '../resume/consts';
+import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
+import { getAllSelectedItems } from '../utils';
 
 const Education = () => {
   const EDUCATION = INPUT_DEFINITIONS.education.name;

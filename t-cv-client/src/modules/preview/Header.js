@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
-import { getSingleSelectedValue, NAME, ROLE } from '../resume/consts';
+import { NAME, ROLE } from '../resume/consts';
+import { getSingleSelectedValue } from '../utils';
 
 const Header = () => {
   const [relevantState] = useRelevantStateAndDispatch(NAME, ROLE);

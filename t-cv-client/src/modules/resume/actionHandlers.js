@@ -5,9 +5,10 @@ import {
   SAVE_CHANGES,
   DROP_CHANGES,
   TOGGLE_SELECT,
-  TOGGLE_BULLET_SELECT,
-  generateId,
+  TOGGLE_BULLET_SELECT
 } from './consts';
+
+import { generateId } from '../utils';
 
 export const addEntry = (dispatch) => {
   return (sectionName, value) => {

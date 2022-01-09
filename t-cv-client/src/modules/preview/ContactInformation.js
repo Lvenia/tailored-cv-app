@@ -6,9 +6,9 @@ import {
   EMAIL,
   GITHUB,
   LINKEDIN,
-  PHONE,
-  getSingleSelectedValue
+  PHONE
 } from '../resume/consts';
+import { getSingleSelectedValue } from '../utils';
 
 const ContactInformation = () => {
   const [relevantState] = useRelevantStateAndDispatch(PHONE, EMAIL, LINKEDIN, GITHUB);

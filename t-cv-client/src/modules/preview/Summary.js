@@ -1,6 +1,7 @@
 import React from 'react';
-import {BsFileEarmarkPerson} from 'react-icons/bs'
-import { getSingleSelectedValue, SUMMARY } from '../resume/consts';
+import { BsFileEarmarkPerson } from 'react-icons/bs';
+import { SUMMARY } from '../resume/consts';
+import { getSingleSelectedValue } from '../utils';
 import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
 
 const Summary = () => {

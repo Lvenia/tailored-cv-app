@@ -26,27 +26,9 @@ export const SUMMARY_ENTRY_CONTROL = 'Summary Entry Control';
 export const SKILLS_INPUTS = 'Skills';
 export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
 
-export const generateId = () => {
-  return new Date().getTime().toString(); //temporary solution
-};
 
-export const getKeys = (obj) => {
-  const keys = [];
-  for (let key in obj) {
-    keys.push(key);
-  }
-  return keys;
-};
 
-export const getSingleSelectedValue = (arr) => {
-  const selectedItem = arr.find(el => el.isSelected);
-  return selectedItem?.item?.value || null;
-};
 
-export const getAllSelectedItems= (arr) => {
-  const selectedItems = arr.filter(el => el.isSelected === true);
-  return selectedItems.length > 0 ? selectedItems : null;
-};
 
 //ENTRY GROUP NAMES
 export const NAME = 'name';

@@ -1,8 +1,9 @@
 import React from 'react';
-import { getAllSelectedItems, INPUT_DEFINITIONS } from '../resume/consts';
-import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
 import { MdWork } from 'react-icons/md';
 import ExperienceItems from './ExperienceItems';
+import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
+import { INPUT_DEFINITIONS } from '../resume/consts';
+import { getAllSelectedItems } from '../utils';
 
 const WorkExperience = () => {
   const WORK = INPUT_DEFINITIONS.workExperience.name;

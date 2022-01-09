@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getAllSelectedItems } from '../resume/consts';
+import { getAllSelectedItems } from '../utils';
 
 const ExperienceItems = ({ selectedItems }) => {
   return (
