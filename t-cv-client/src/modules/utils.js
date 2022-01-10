@@ -14,20 +14,20 @@ export const generateId = () => {
  * @property {string} endDate - ending of the time span
  * @property {string} header - time span header
  * @property {string} subheader - time span subheader
- * @property {Array<Item>} bulletPoints - array of single resume entries
+ * @property {Array<Entry>} bulletPoints - array of single resume entries
  */
 
 /**
  * Simple entry value
- * @typedef {Object} SimpleValue
+ * @typedef {Object} EntryItem
  * @property {string} id
- * @property {string} value
+ * @property {string|ComplexValue} value
  */
 
 /**
  * Resume entry
  * @typedef {Object} Entry
- * @property {SimpleValue|ComplexValue} item
+ * @property {EntryItem} item
  * @property {boolean} isSelected - entries state
  */
 

@@ -6,8 +6,16 @@ const ExperienceItems = ({ selectedItems }) => {
   return (
     <ul>
       {selectedItems.map(el => {
-        const { id, value } = el.item;
+
+        const {
+          id,
+          /**
+           * @type {ComplexValue}
+           */
+          value
+        } = el.item;
         const { startDate, endDate, header, subheader, bulletPoints } = value;
+
         const selectedBullets = getAllSelectedItems(bulletPoints);
         return (
           <li key={id} className="experience">

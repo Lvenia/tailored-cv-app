@@ -134,6 +134,8 @@ const App = () => {
       <BrowserRouter>
         <MainNavBar/>
         <AppContext.Provider value={{ state, dispatch }}>
+          {/* TODO: Routes to separate Routes.js component*/}
+          {/* TODO: reducer + state stuff to the separate component */}
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="resume-settings" element={<ResumePage/>}>

@@ -18,31 +18,13 @@ export const useRelevantStateAndDispatch = (...params) => {
 
 /**
  * Get name and value of section that is edited
- * @returns {{editedSectionName: (null|String), editedSectionValues: (null|Object)}}
+ * @returns {{editedSectionName: (null|String), editedSectionValues: (null|Entry)}}
  */
 export const useGetEditedSection = () => {
   const { state } = useContext(AppContext);
   return { editedSectionName: state.edited?.sectionName, editedSectionValues: state.edited?.entry };
 };
 
-export const useHandleRefs = (arr) => {
-  const { state } = useContext(AppContext);
-  const editedSectionName = state?.edited?.sectionName;
-  const editedValue = state?.edited?.entry?.item?.value;
-
-  useLayoutEffect(() => {
-    if (!editedSectionName) {
-      return;
-    }
-
-    arr.forEach(({ ref, name }) => {
-      if (editedSectionName === name) {
-        ref.current.value = editedValue;
-        ref.current.focus();
-      }
-    });
-  }, [editedSectionName, editedValue, arr]);
-};
 /**
  * Manages ref.current.value when the input value of type SimpleValue gets edited
  * @param {string} params - global state property names (e.g. ("name", "role"))

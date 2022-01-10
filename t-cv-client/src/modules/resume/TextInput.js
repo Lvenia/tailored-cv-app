@@ -1,6 +1,6 @@
 import React from 'react';
-import { ENTER } from './consts';
 import PropTypes from 'prop-types';
+import { ENTER } from './consts';
 
 const TextInput = ({
   name,
