@@ -1,10 +1,11 @@
 import React from 'react';
 import { AiOutlineCode } from 'react-icons/ai';
 import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
-import { SKILLS } from '../resume/consts';
+import { SIMPLE_INPUT_DEFS } from '../resume/consts';
 import { getAllSelectedItems } from '../utils';
 
 const Skills = () => {
+  const SKILLS = SIMPLE_INPUT_DEFS.skills.name;
   const [relevantState] = useRelevantStateAndDispatch(SKILLS);
   const { skills } = relevantState;
   const selectedItems = getAllSelectedItems(skills);

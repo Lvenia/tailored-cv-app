@@ -9,18 +9,11 @@ export const DROP_CHANGES = 'DROP_CHANGES';
 export const TOGGLE_SELECT = 'TOGGLE_SELECT';
 export const TOGGLE_BULLET_SELECT = 'TOGGLE_BULLET_SELECT';
 
-//fieldset legend
+//resume pages fieldset legends
 export const HEADER_INPUTS = 'Resume Header';
 export const CONTACT_INPUTS = 'Contact Information';
 export const SUMMARY_INPUTS = 'Resume Summary';
-
-export const SKILLS_INPUTS = 'Skills';
-export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
-
-
-//ENTRY GROUP NAMES
-
-export const SKILLS = 'skills';
+export const SKILLS_INPUT = 'Skills';
 
 //CSS CLASS NAMES
 export const STYLE_ADD = 'add';
@@ -33,7 +26,7 @@ export const STYLE_SLC_BTN = 'selected-btn';
 export const STYLE_GROUP_LEGEND = 'group-legend';
 export const ENTRY_CONTROL = 'entry-control-box';
 
-//TODO: 10-01-2022 gather strings relative to inputs in mutual object - will allow to DRY code
+//TODO: 10-01-2022 [X] gather strings relative to inputs in mutual object - will allow to DRY code
 
 export const SIMPLE_INPUT_DEFS = {
   name: {
@@ -77,6 +70,12 @@ export const SIMPLE_INPUT_DEFS = {
     name: 'summary',
     ref: null,
     entryControl: 'Summary Entry Control'
+  },
+  skills: {
+    label: 'Skill:',
+    name: 'skills',
+    ref: null,
+    entryControl: 'Skills Entry Control'
   },
 }
 
@@ -178,4 +177,3 @@ export const INPUT_DEFINITIONS = {
     entryControl: 'Experience Entry Control'
   }
 };
-

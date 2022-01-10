@@ -1,10 +1,6 @@
-import React, { useRef } from 'react';
-import {
-  SKILLS,
-  SKILLS_ENTRY_CONTROL,
-  SKILLS_INPUTS
-} from '../consts';
+import React from 'react';
 import TextInputWithAction from '../TextInputWithAction';
+import ItemWithActions from '../ItemWithActions';
 import {
   addEntry,
   deleteEntry,
@@ -13,23 +9,20 @@ import {
   saveChanges,
   toggleSelect
 } from '../actionHandlers';
-import ItemWithActions from '../ItemWithActions';
 import {
   useRelevantStateAndDispatch,
   useGetEditedSection,
-  useHandleRefs
+  useHandleRef,
+  useInitializeRef
 } from '../resumeCustomHooks';
+import { SIMPLE_INPUT_DEFS, SKILLS_INPUT } from '../consts';
 
 const SkillsPage = () => {
-  console.count('summary page renders');
+  const SKILLS = SIMPLE_INPUT_DEFS.skills.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(SKILLS);
   const { editedSectionName } = useGetEditedSection();
-  const skillsRef = useRef('');
-  const pageRefs = [
-    { ref: skillsRef, name: SKILLS },
-  ];
-
-  useHandleRefs(pageRefs);
+  useInitializeRef(SKILLS);
+  useHandleRef(SKILLS);
 
   const handleDropChanges = () => {
     return dropChanges(dispatch);
@@ -38,12 +31,12 @@ const SkillsPage = () => {
   const renderInputs = () => {
     return (
       <fieldset>
-        <legend>{SKILLS_INPUTS}</legend>
+        <legend>{SKILLS_INPUT}</legend>
         <TextInputWithAction
           label="Skills:"
           handleAction={editedSectionName === SKILLS ? saveChanges(dispatch) : addEntry(dispatch)}
           name={SKILLS}
-          inputRef={skillsRef}
+          inputRef={SIMPLE_INPUT_DEFS.skills.ref}
           onCancel={handleDropChanges}
           editedSectionName={editedSectionName}
         />
@@ -77,7 +70,7 @@ const SkillsPage = () => {
         {renderInputs()}
       </article>
       <article className="entry-control-box">
-        <h5>{SKILLS_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS.skills.entryControl}</h5>
         {renderEntries(skillsSection, SKILLS)}
       </article>
     </>
