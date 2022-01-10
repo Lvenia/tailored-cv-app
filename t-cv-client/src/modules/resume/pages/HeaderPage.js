@@ -20,8 +20,6 @@ import {
 
 import {
   HEADER_INPUTS,
-  NAME_ENTRY_CONTROL,
-  ROLE_ENTRY_CONTROL,
   SIMPLE_INPUT_DEFS,
 } from '../consts';
 
@@ -80,11 +78,11 @@ const HeaderPage = () => {
         {renderTextInputs(NAME, ROLE)}
       </article>
       <article className="entry-control-box">
-        <h5>{NAME_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS[NAME].entryControl}</h5>
         {renderEntries(nameSection, NAME)}
       </article>
       <article className="entry-control-box">
-        <h5>{ROLE_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS[ROLE].entryControl}</h5>
         {renderEntries(roleSection, ROLE)}
       </article>
     </>
