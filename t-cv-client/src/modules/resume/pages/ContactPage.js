@@ -1,15 +1,5 @@
-import React, { useRef } from 'react';
-import {
-  CONTACT_INPUTS,
-  EMAIL,
-  EMAIL_ENTRY_CONTROL,
-  GITHUB,
-  GITHUB_ENTRY_CONTROL,
-  LINKEDIN,
-  LINKEDIN_ENTRY_CONTROL,
-  PHONE,
-  PHONE_ENTRY_CONTROL,
-} from '../consts';
+import React from 'react';
+import { CONTACT_INPUTS, SIMPLE_INPUT_DEFS } from '../consts';
 import TextInputWithAction from '../TextInputWithAction';
 import {
   addEntry,
@@ -23,66 +13,44 @@ import ItemWithActions from '../ItemWithActions';
 import {
   useRelevantStateAndDispatch,
   useGetEditedSection,
-  useHandleRefs
+  useInitializeRef,
+  useHandleRef
 } from '../resumeCustomHooks';
 
 const ContactPage = () => {
-  console.count('contact page renders');
+  const EMAIL = SIMPLE_INPUT_DEFS.email.name;
+  const PHONE = SIMPLE_INPUT_DEFS.phone.name;
+  const LINKEDIN = SIMPLE_INPUT_DEFS.linkedIn.name;
+  const GITHUB = SIMPLE_INPUT_DEFS.gitHub.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EMAIL, PHONE, LINKEDIN, GITHUB);
   const { editedSectionName } = useGetEditedSection();
-  const emailRef = useRef('');
-  const phoneRef = useRef('');
-  const linkedInRef = useRef('');
-  const gitHubRef = useRef('');
-  const pageRefs = [
-    { ref: emailRef, name: EMAIL },
-    { ref: phoneRef, name: PHONE },
-    { ref: linkedInRef, name: LINKEDIN },
-    { ref: gitHubRef, name: GITHUB },
-  ];
-
-  useHandleRefs(pageRefs);
+  useInitializeRef(EMAIL);
+  useInitializeRef(PHONE);
+  useInitializeRef(LINKEDIN);
+  useInitializeRef(GITHUB);
+  useHandleRef(EMAIL, PHONE, LINKEDIN, GITHUB);
 
   const handleDropChanges = () => {
     return dropChanges(dispatch);
   };
 
-  const renderInputs = () => {
+  const renderInputs = (...params) => {
     return (
       <fieldset>
         <legend>{CONTACT_INPUTS}</legend>
-        <TextInputWithAction
-          label="Email:"
-          handleAction={editedSectionName === EMAIL ? saveChanges(dispatch) : addEntry(dispatch)}
-          name={EMAIL}
-          inputRef={emailRef}
-          onCancel={handleDropChanges}
-          editedSectionName={editedSectionName}
-        />
-        <TextInputWithAction
-          label="Phone:"
-          handleAction={editedSectionName === PHONE ? saveChanges(dispatch) : addEntry(dispatch)}
-          name={PHONE}
-          inputRef={phoneRef}
-          onCancel={handleDropChanges}
-          editedSectionName={editedSectionName}
-        />
-        <TextInputWithAction
-          label="LinkedIn:"
-          handleAction={editedSectionName === LINKEDIN ? saveChanges(dispatch) : addEntry(dispatch)}
-          name={LINKEDIN}
-          inputRef={linkedInRef}
-          onCancel={handleDropChanges}
-          editedSectionName={editedSectionName}
-        />
-        <TextInputWithAction
-          label="GitHub:"
-          handleAction={editedSectionName === GITHUB ? saveChanges(dispatch) : addEntry(dispatch)}
-          name={GITHUB}
-          inputRef={gitHubRef}
-          onCancel={handleDropChanges}
-          editedSectionName={editedSectionName}
-        />
+        {params.map(sectionName => {
+          return (
+            <TextInputWithAction
+              key={sectionName}
+              name={sectionName}
+              label={SIMPLE_INPUT_DEFS[sectionName].label}
+              inputRef={SIMPLE_INPUT_DEFS[sectionName].ref}
+              handleAction={editedSectionName === sectionName ? saveChanges(dispatch) : addEntry(dispatch)}
+              onCancel={handleDropChanges}
+              editedSectionName={editedSectionName}
+            />
+          );
+        })}
       </fieldset>
     );
   };
@@ -112,26 +80,25 @@ const ContactPage = () => {
     linkedIn: linkedInSection,
   } = relevantState;
 
-  //todo: useGetSectionsToBeRendered will return Array of Sections based on array of sectionNames
   return (
     <>
       <article>
-        {renderInputs()}
+        {renderInputs(EMAIL, PHONE, LINKEDIN, GITHUB)}
       </article>
       <article className="entry-control-box">
-        <h5>{EMAIL_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS.email.entryControl}</h5>
         {renderEntries(emailSection, EMAIL)}
       </article>
       <article className="entry-control-box">
-        <h5>{PHONE_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS.phone.entryControl}</h5>
         {renderEntries(phoneSection, PHONE)}
       </article>
       <article className="entry-control-box">
-        <h5>{LINKEDIN_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS.linkedIn.entryControl}</h5>
         {renderEntries(linkedInSection, LINKEDIN)}
       </article>
       <article className="entry-control-box">
-        <h5>{GITHUB_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS.gitHub.entryControl}</h5>
         {renderEntries(githubSection, GITHUB)}
       </article>
     </>

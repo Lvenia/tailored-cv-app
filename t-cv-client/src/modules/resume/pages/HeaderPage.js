@@ -1,7 +1,6 @@
 import React from 'react';
 import TextInputWithAction from '../TextInputWithAction';
 import ItemWithActions from '../ItemWithActions';
-
 import {
   addEntry,
   toggleSelect,
@@ -10,18 +9,13 @@ import {
   dropChanges,
   deleteEntry,
 } from '../actionHandlers';
-
 import {
   useGetEditedSection,
   useHandleRef,
   useInitializeRef,
   useRelevantStateAndDispatch
 } from '../resumeCustomHooks';
-
-import {
-  HEADER_INPUTS,
-  SIMPLE_INPUT_DEFS,
-} from '../consts';
+import { HEADER_INPUTS, SIMPLE_INPUT_DEFS } from '../consts';
 
 const HeaderPage = () => {
   const NAME = SIMPLE_INPUT_DEFS.name.name;
@@ -91,5 +85,4 @@ const HeaderPage = () => {
 
 export default HeaderPage;
 
-//TODO [X] store ref objects in SIMPLE_INPUT_DEFS => allows to initialize and create refs using custom hooks instead of calling useRef in each Page + allow to render input fields in loop
 //TODO [] replace article in return statement with more semantically correct tag

@@ -2,15 +2,14 @@ import React from 'react';
 import { IoMail, IoLogoLinkedin, IoLogoGithub } from 'react-icons/io5';
 import { ImPhone } from 'react-icons/im';
 import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
-import {
-  EMAIL,
-  GITHUB,
-  LINKEDIN,
-  PHONE
-} from '../resume/consts';
+import { SIMPLE_INPUT_DEFS } from '../resume/consts';
 import { getSingleSelectedValue } from '../utils';
 
 const ContactInformation = () => {
+  const EMAIL = SIMPLE_INPUT_DEFS.email.name;
+  const PHONE = SIMPLE_INPUT_DEFS.phone.name;
+  const LINKEDIN = SIMPLE_INPUT_DEFS.linkedIn.name;
+  const GITHUB = SIMPLE_INPUT_DEFS.gitHub.name;
   const [relevantState] = useRelevantStateAndDispatch(PHONE, EMAIL, LINKEDIN, GITHUB);
   const { email, phone, linkedIn, gitHub } = relevantState;
   const userEmail = getSingleSelectedValue(email);

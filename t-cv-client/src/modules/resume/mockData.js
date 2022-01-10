@@ -421,98 +421,98 @@ export const mockData = {
   skills: [
     {
       item: {
-        id: '61',
+        id: '91',
         value: 'React'
       },
       isSelected: true
     },
     {
       item: {
-        id: '62',
+        id: '92',
         value: 'Redux'
       },
       isSelected: true
     },
     {
       item: {
-        id: '63',
+        id: '93',
         value: 'React Router'
       },
       isSelected: true
     },
     {
       item: {
-        id: '64',
+        id: '94',
         value: 'JavaScript'
       },
       isSelected: true
     },
     {
       item: {
-        id: '65',
+        id: '95',
         value: 'TypeScript'
       },
       isSelected: true
     },
     {
       item: {
-        id: '73',
+        id: '96',
         value: 'Markdown'
       },
       isSelected: true
     },
     {
       item: {
-        id: '73',
+        id: '97',
         value: 'JSDoc'
       },
       isSelected: true
     },
     {
       item: {
-        id: '66',
+        id: '100',
         value: 'HTML5'
       },
       isSelected: true
     },
     {
       item: {
-        id: '67',
+        id: '101',
         value: 'CSS'
       },
       isSelected: true
     },
     {
       item: {
-        id: '68',
+        id: '102',
         value: 'Responsive Web Design'
       },
       isSelected: true
     },
     {
       item: {
-        id: '69',
+        id: '103',
         value: 'Mocha/Chai'
       },
       isSelected: true
     },
     {
       item: {
-        id: '70',
+        id: '104',
         value: 'Webpack'
       },
       isSelected: true
     },
     {
       item: {
-        id: '71',
+        id: '105',
         value: 'Git'
       },
       isSelected: true
     },
     {
       item: {
-        id: '72',
+        id: '106',
         value: 'CircleCI'
       },
       isSelected: true
