@@ -1,10 +1,6 @@
-import React, { useRef } from 'react';
-import {
-  SUMMARY,
-  SUMMARY_ENTRY_CONTROL,
-  SUMMARY_INPUTS
-} from '../consts';
+import React from 'react';
 import TextInputWithAction from '../TextInputWithAction';
+import ItemWithActions from '../ItemWithActions';
 import {
   addEntry,
   deleteEntry,
@@ -13,23 +9,23 @@ import {
   saveChanges,
   toggleSelect
 } from '../actionHandlers';
-import ItemWithActions from '../ItemWithActions';
 import {
   useRelevantStateAndDispatch,
   useGetEditedSection,
-  useHandleRefs
+  useInitializeRef,
+  useHandleRef
 } from '../resumeCustomHooks';
+import {
+  SIMPLE_INPUT_DEFS,
+  SUMMARY_INPUTS
+} from '../consts';
 
 const SummaryPage = () => {
-  console.count('summary page renders');
+  const SUMMARY = SIMPLE_INPUT_DEFS.summary.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(SUMMARY);
   const { editedSectionName } = useGetEditedSection();
-  const summaryRef = useRef('');
-  const pageRefs = [
-    { ref: summaryRef, name: SUMMARY },
-  ];
-
-  useHandleRefs(pageRefs);
+  useInitializeRef(SUMMARY);
+  useHandleRef(SUMMARY);
 
   const handleDropChanges = () => {
     return dropChanges(dispatch);
@@ -62,17 +58,17 @@ const SummaryPage = () => {
           <legend>{SUMMARY_INPUTS}</legend>
           <TextInputWithAction
             textarea={true}
-            label="Summary:"
+            label={SIMPLE_INPUT_DEFS.summary.label}
             handleAction={editedSectionName === SUMMARY ? saveChanges(dispatch) : addEntry(dispatch)}
             name={SUMMARY}
-            inputRef={summaryRef}
+            inputRef={SIMPLE_INPUT_DEFS.summary.ref}
             onCancel={handleDropChanges}
             editedSectionName={editedSectionName}
           />
         </fieldset>
       </article>
       <article className="entry-control-box">
-        <h5>{SUMMARY_ENTRY_CONTROL}</h5>
+        <h5>{SIMPLE_INPUT_DEFS.summary.entryControl}</h5>
         {renderEntries(summarySection, SUMMARY)}
       </article>
     </>
@@ -80,4 +76,3 @@ const SummaryPage = () => {
 };
 
 export default SummaryPage;
-

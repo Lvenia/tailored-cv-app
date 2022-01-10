@@ -1,10 +1,11 @@
 import React from 'react';
 import { BsFileEarmarkPerson } from 'react-icons/bs';
-import { SUMMARY } from '../resume/consts';
+import { SIMPLE_INPUT_DEFS } from '../resume/consts';
 import { getSingleSelectedValue } from '../utils';
 import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
 
 const Summary = () => {
+  const SUMMARY = SIMPLE_INPUT_DEFS.summary.name;
   const [relevantState] = useRelevantStateAndDispatch(SUMMARY);
   const { summary } = relevantState;
   const resumeSummary = getSingleSelectedValue(summary);

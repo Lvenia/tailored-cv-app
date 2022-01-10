@@ -12,9 +12,7 @@ export const TOGGLE_BULLET_SELECT = 'TOGGLE_BULLET_SELECT';
 //fieldset legend
 export const HEADER_INPUTS = 'Resume Header';
 export const CONTACT_INPUTS = 'Contact Information';
-
 export const SUMMARY_INPUTS = 'Resume Summary';
-export const SUMMARY_ENTRY_CONTROL = 'Summary Entry Control';
 
 export const SKILLS_INPUTS = 'Skills';
 export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
@@ -22,7 +20,6 @@ export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
 
 //ENTRY GROUP NAMES
 
-export const SUMMARY = 'summary';
 export const SKILLS = 'skills';
 
 //CSS CLASS NAMES
@@ -37,14 +34,6 @@ export const STYLE_GROUP_LEGEND = 'group-legend';
 export const ENTRY_CONTROL = 'entry-control-box';
 
 //TODO: 10-01-2022 gather strings relative to inputs in mutual object - will allow to DRY code
-
-// const INPUTS_DEFINITIONS = {
-//   email: {
-//     label: 'Email',
-//     title: 'Email Entry Control',
-//     name: 'email',
-//   }
-// }
 
 export const SIMPLE_INPUT_DEFS = {
   name: {
@@ -82,6 +71,12 @@ export const SIMPLE_INPUT_DEFS = {
     name: 'gitHub',
     ref: null,
     entryControl: 'GitHub Entry Control'
+  },
+  summary: {
+    label: 'Summary:',
+    name: 'summary',
+    ref: null,
+    entryControl: 'Summary Entry Control'
   },
 }
 
