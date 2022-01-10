@@ -463,6 +463,13 @@ export const mockData = {
     },
     {
       item: {
+        id: '73',
+        value: 'JSDoc'
+      },
+      isSelected: true
+    },
+    {
+      item: {
         id: '66',
         value: 'HTML5'
       },

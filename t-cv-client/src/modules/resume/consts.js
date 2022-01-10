@@ -52,7 +52,7 @@ export const STYLE_BTN_ROW = 'btn-row';
 export const STYLE_GROUP_LEGEND = 'group-legend';
 export const ENTRY_CONTROL = 'entry-control-box';
 
-//TODO: gather strings relative to inputs in mutual object - will allow to DRY code
+//TODO: 10-01-2022 gather strings relative to inputs in mutual object - will allow to DRY code
 
 // const INPUTS_DEFINITIONS = {
 //   email: {

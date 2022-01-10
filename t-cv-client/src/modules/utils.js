@@ -8,18 +8,33 @@ export const generateId = () => {
 //TODO: find better way to generate id
 
 /**
- * Singular resume entry
- * @typedef {startDate: string, endDate: string,header: string, subheader: string, bulletPoints: Array<Item>} AdvancedItem
- */
-/**
- * Singular resume entry
- * @typedef {{item:{id: string, value: [string|AdvancedItem]}, isSelected: boolean}} Item
+ * Complex entry value
+ * @typedef {Object} ComplexValue
+ * @property {string} startDate - beginning of the time span
+ * @property {string} endDate - ending of the time span
+ * @property {string} header - time span header
+ * @property {string} subheader - time span subheader
+ * @property {Array<Item>} bulletPoints - array of single resume entries
  */
 
 /**
- * Returns the value of the first selected resume entry. If no entry is selected, returns null.
- * @param {Array<Item>} entries
- * @returns {string|null}
+ * Simple entry value
+ * @typedef {Object} SimpleValue
+ * @property {string} id
+ * @property {string} value
+ */
+
+/**
+ * Resume entry
+ * @typedef {Object} Entry
+ * @property {SimpleValue|ComplexValue} item
+ * @property {boolean} isSelected - entries state
+ */
+
+/**
+ * Get value of the first selected entry
+ * @param {Array<Entry>} entries - array of resume entries
+ * @returns {string|null} - value of the first selected entry; if no entry is selected, returns null
  */
 export const getSingleSelectedValue = (entries) => {
   const selectedItem = entries.find(entry => entry.isSelected);
@@ -27,9 +42,9 @@ export const getSingleSelectedValue = (entries) => {
 };
 
 /**
- * Returns array of all selected resume entry. If no entry is selected, returns null.
- * @param {Array<Item>} entries
- * @returns {Array<Item>|null}
+ * Get all selected resume entries
+ * @param {Array<Entry>} entries - array of resume entries
+ * @returns {Array<Entry>|null} - array of selected entries; if no entry is selected, returns null
  */
 export const getAllSelectedItems = (entries) => {
   const selectedItems = entries.filter(entry => entry.isSelected === true);
