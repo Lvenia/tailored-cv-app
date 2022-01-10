@@ -15,27 +15,34 @@ import {
   HEADER_INPUTS,
   NAME_ENTRY_CONTROL,
   ROLE_ENTRY_CONTROL,
-  NAME,
-  ROLE,
+  SIMPLE_INPUT_DEFS,
 } from '../consts';
 import {
-  useGetEditedSection,
-  useHandleRefs,
+  useGetEditedSection, useHandleRef,
+  useInitializeRef,
   useRelevantStateAndDispatch
 } from '../resumeCustomHooks';
 
+const NAME = SIMPLE_INPUT_DEFS.name.name;
+const ROLE = SIMPLE_INPUT_DEFS.role.name;
+
 const HeaderPage = () => {
-  console.count('header page renders');
+  useInitializeRef(NAME);
+  useInitializeRef(ROLE);
   const [relevantState, dispatch] = useRelevantStateAndDispatch(NAME, ROLE);
   const { editedSectionName } = useGetEditedSection();
   const nameRef = useRef('');
   const roleRef = useRef('');
-  const pageRefs = [
-    { ref: nameRef, name: NAME },
-    { ref: roleRef, name: ROLE }
-  ];
+  // const pageRefs = [
+  //   { ref: nameRef, name: NAME },
+  //   { ref: roleRef, name: ROLE }
+  // ];
 
-  useHandleRefs(pageRefs);
+  // useHandleRefs(pageRefs);
+  useHandleRef(NAME, ROLE);
+  useInitializeRef(NAME);
+  useInitializeRef(ROLE);
+
 
   const renderTextInputs = () => {
     return (
@@ -44,7 +51,7 @@ const HeaderPage = () => {
         <TextInputWithAction
           name={NAME}
           label="Name:"
-          inputRef={nameRef}
+          // inputRef={nameRef}
           handleAction={editedSectionName === NAME ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
           editedSectionName={editedSectionName}
@@ -52,7 +59,7 @@ const HeaderPage = () => {
         <TextInputWithAction
           name={ROLE}
           label="Role:"
-          inputRef={roleRef}
+          // inputRef={roleRef}
           handleAction={editedSectionName === ROLE ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
           editedSectionName={editedSectionName}

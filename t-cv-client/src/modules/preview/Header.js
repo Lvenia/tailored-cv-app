@@ -1,7 +1,10 @@
 import React from 'react';
 import { useRelevantStateAndDispatch } from '../resume/resumeCustomHooks';
-import { NAME, ROLE } from '../resume/consts';
+import { SIMPLE_INPUT_DEFS } from '../resume/consts';
 import { getSingleSelectedValue } from '../utils';
+
+const NAME = SIMPLE_INPUT_DEFS.name.name;
+const ROLE = SIMPLE_INPUT_DEFS.role.name;
 
 const Header = () => {
   const [relevantState] = useRelevantStateAndDispatch(NAME, ROLE);

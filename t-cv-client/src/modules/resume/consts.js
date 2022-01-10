@@ -27,12 +27,9 @@ export const SKILLS_INPUTS = 'Skills';
 export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
 
 
-
-
-
 //ENTRY GROUP NAMES
-export const NAME = 'name';
-export const ROLE = 'role';
+// export const NAME = 'name';
+// export const ROLE = 'role';
 export const EMAIL = 'email';
 export const PHONE = 'phone';
 export const LINKEDIN = 'linkedIn';
@@ -61,6 +58,21 @@ export const ENTRY_CONTROL = 'entry-control-box';
 //     name: 'email',
 //   }
 // }
+
+export const SIMPLE_INPUT_DEFS = {
+  name: {
+    label: 'Name:',
+    name: 'name',
+    ref: null,
+    entryControl: 'Name Entry Control'
+  },
+  role: {
+    label: 'Role:',
+    name: 'role',
+    ref: null,
+    entryControl: 'Role Entry Control'
+  },
+}
 
 export const INPUT_DEFINITIONS = {
   education: {

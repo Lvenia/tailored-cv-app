@@ -17,8 +17,9 @@ const WORK = INPUT_DEFINITIONS.workExperience.name;
 
 const WorkExperiencePage = () => {
   const [, dispatch] = useRelevantStateAndDispatch(WORK);
-  useHandleGroupRef(WORK);
   useInitializeRefsBySection(WORK);
+  useHandleGroupRef(WORK);
+  //TODO: 10/01/2022 [] call useInitializeRefsBySection before useHandleGroupRef in similar components
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
   const bulletPoints = editedSectionValues?.item.value.bulletPoints;
 
@@ -34,7 +35,8 @@ const WorkExperiencePage = () => {
         />
       </article>
       <ItemGroups sectionName={WORK}/>
-    </>
+      {//TODO: 10/10/2022 [] pass dispatch and section as props to avoid calling useRelevantStateAndDispatch twice
+      }    </>
   );
 };
 

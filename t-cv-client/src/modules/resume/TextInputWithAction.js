@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../components/Button';
 import TextInput from './TextInput';
-import { STYLE_ADD, STYLE_EDIT } from './consts';
+import { SIMPLE_INPUT_DEFS, STYLE_ADD, STYLE_EDIT } from './consts';
 import TextArea from './TextArea';
 
 const TextInputWithAction = ({
   textarea,
   name,
   label,
-  inputRef,
+  // inputRef,
   handleAction,
   onCancel,
   editedSectionName,
@@ -18,6 +18,7 @@ const TextInputWithAction = ({
 
   const sectionIsEdited = editedSectionName === sectionName || editedSectionName === name; //case for input sub name like "edu_bullets" || case fot input name like "education"
   const isDisabled = editedSectionName !== null && !sectionIsEdited;
+  const inputRef  = SIMPLE_INPUT_DEFS[name]?.ref;
 
   const handleSubmit = (e) => {
     e?.preventDefault(); //prevent page refresh
@@ -39,7 +40,7 @@ const TextInputWithAction = ({
         <TextArea
           label={label}
           name={name}
-          inputRef={inputRef}
+          // inputRef={inputRef}
           submitHandler={handleSubmit}
           isDisabled={isDisabled}
         />
@@ -47,7 +48,7 @@ const TextInputWithAction = ({
         <TextInput
           label={label}
           name={name}
-          inputRef={inputRef}
+          // inputRef={inputRef}
           submitHandler={handleSubmit}
           isDisabled={isDisabled}
         />}

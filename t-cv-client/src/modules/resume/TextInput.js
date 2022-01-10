@@ -1,15 +1,15 @@
 import React from 'react';
-import { ENTER } from "./consts";
+import { ENTER, SIMPLE_INPUT_DEFS } from './consts';
 import PropTypes from 'prop-types';
 
 const TextInput = ({
   name,
   label,
-  inputRef,
+  // inputRef,
   submitHandler,
   isDisabled
 }) => {
-
+  const inputRef  = SIMPLE_INPUT_DEFS[name]?.ref;
   return (
     <>
       <label htmlFor={name}>{label}</label>

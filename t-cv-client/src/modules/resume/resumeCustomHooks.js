@@ -1,6 +1,6 @@
 import { useContext, useLayoutEffect, useRef } from 'react';
 import { AppContext } from '../../App';
-import { INPUT_DEFINITIONS } from './consts';
+import { INPUT_DEFINITIONS, SIMPLE_INPUT_DEFS } from './consts';
 
 export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
   const { state, dispatch } = useContext(AppContext);
@@ -35,6 +35,31 @@ export const useHandleRefs = (arr) => {
       }
     });
   }, [editedSectionName, editedValue, arr]);
+};
+
+export const useHandleRef = (...params) => { // "name", "role"
+  const { state } = useContext(AppContext);
+  const editedSectionName = state?.edited?.sectionName;
+  const editedValue = state?.edited?.entry?.item?.value;
+
+  useLayoutEffect(() => {
+    if (!editedSectionName) {
+      return;
+    }
+
+    params.forEach((sectionName) => {
+      const { ref } = SIMPLE_INPUT_DEFS[sectionName];
+      if (editedSectionName === sectionName) {
+        ref.current.value = editedValue;
+        ref.current.focus();
+      }
+      // if (editedSectionName === name) {
+      //   ref.current.value = editedValue;
+      //   ref.current.focus();
+      // }
+    });
+  }, [editedSectionName, editedValue, params]);
+
 };
 
 /**
@@ -84,5 +109,9 @@ export const useInitializeRefsBySection = (sectionName) => {
   inputs.bulletPoints.ref = bulletRef;
 };
 
+export const useInitializeRef = (sectionName) => {
+  const sectionNameRef = useRef('');
+  SIMPLE_INPUT_DEFS[sectionName].ref = sectionNameRef;
+};
 //todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
 //TODO: add js doc to custom hooks
