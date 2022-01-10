@@ -26,8 +26,6 @@ export const STYLE_SLC_BTN = 'selected-btn';
 export const STYLE_GROUP_LEGEND = 'group-legend';
 export const ENTRY_CONTROL = 'entry-control-box';
 
-//TODO: 10-01-2022 [X] gather strings relative to inputs in mutual object - will allow to DRY code
-
 export const SIMPLE_INPUT_DEFS = {
   name: {
     label: 'Name:',

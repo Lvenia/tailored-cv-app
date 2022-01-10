@@ -31,7 +31,8 @@ A tool for fast resume modification. Intended as an opportunity to improve knowl
       * importing AppContext and useContext;
       * calling useContext, destructuring state and dispatch;
       * defining editedSectionName and isEdited;
-      * useMultipleInputsRefAssign allows not to call useRef in each multiple input entry with start, end, header, subheader, bullets input structure and not to repeat ref object assigment to ref property of INPUT_DEFINITIONS object
+      * store ref objects in SIMPLE_INPUT_DEFS => allows to initialize and create refs using custom hooks instead of calling useRef in each Page + allow to render input fields in loop
+      * useInitializeRefsBySection allows not to call useRef in each multiple input entry with start, end, header, subheader, bullets input structure and not to repeat ref object assigment to ref property of INPUT_DEFINITIONS object
 --- 
 
 ### Plan
@@ -71,14 +72,17 @@ Goal: able to print resume even though the information is collected in mockData 
 ###### Stage 2.
 
 Goal: deploy front end
+* [x] refactor Pages with entries which value object is type of SimpleValue
 * [ ] add links to ExperienceItems
-* [ ] add js docs to hooks
+* [x] add JSDocs to hooks
+* [x] add JSDocs to utils
 * [ ] add basic validation for inputs
 * [ ] control select (single value vs multiple values per entry)
 * [ ] fix crud buttons' display
 * [ ] move state to local storage
 * [ ] add readme to client
 * [ ] deploy as web page
+* [ ] import JSDoc typedefs to be available in the whole project, adjust data types  (SimpleValue, ComplexValue)
 
 ---
 ###### Stage 3.

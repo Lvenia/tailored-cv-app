@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ItemGroupWithActions from './ItemGroupWithActions';
 import { useGetEditedSection, useRelevantStateAndDispatch } from './resumeCustomHooks';
-import { deleteEntry, editEntry, toggleBulletSelect, toggleSelect } from './actionHandlers';
+import {
+  deleteEntry,
+  editEntry,
+  toggleBulletSelect,
+  toggleSelect
+} from './actionHandlers';
 import { ENTRY_CONTROL } from './consts';
 
 const ItemGroups = ({ sectionName }) => {

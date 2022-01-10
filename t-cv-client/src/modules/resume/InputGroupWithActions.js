@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import TextInput from './TextInput';
-import { INPUT_DEFINITIONS } from './consts';
-import { generateId } from '../utils';
-import Button from '../../components/Button';
 import TextInputWithAction from './TextInputWithAction';
+import Button from '../../components/Button';
+import { generateId } from '../utils';
+import { INPUT_DEFINITIONS } from './consts';
 
 const InputGroupWithActions = ({
   name,
@@ -12,7 +13,6 @@ const InputGroupWithActions = ({
   onCancel,
   handleAction
 }) => {
-
   const [bullets, setBullets] = useState([]);
 
   useEffect(() => {
@@ -53,8 +53,6 @@ const InputGroupWithActions = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     const currentValues = {};
-    // const keys = getKeys(inputs);
-    // const keys = Object.getOwnPropertyNames(inputs);
     keys.forEach(key => {
       if (key === 'bulletPoints') {
         currentValues[key] = [...bullets];
@@ -73,9 +71,6 @@ const InputGroupWithActions = ({
     //set state.edited with {sectionName: null, entry: null}
     onCancel();
     //set all inputs with value of empty string
-    // const { inputs } = INPUT_DEFINITIONS[name];
-    // const keys = getKeys(inputs);
-    // const keys = Object.getOwnPropertyNames(inputs);
     keys.forEach(key => {
       inputs[key].ref.current.value = '';
     });
@@ -94,12 +89,12 @@ const InputGroupWithActions = ({
                 <li key={id}>
                   <p>{value}</p>
                   <div className="btn-row">
-                          <span
-                            className="edit-btn"
-                            onClick={(e) => handleEditBullet(e, id, value)}
-                          >
-                            &#9998;
-                          </span>
+                    <span
+                      className="edit-btn"
+                      onClick={(e) => handleEditBullet(e, id, value)}
+                    >
+                      &#9998;
+                    </span>
                     <span
                       className="remove-btn"
                       onClick={() => removeBulletPoint(id)}
@@ -117,13 +112,11 @@ const InputGroupWithActions = ({
   };
 
   const renderInputGroup = (sectionName) => {
-    // const keys = getKeys(INPUT_DEFINITIONS[sectionName].inputs); //['startDate', 'endDate','header', 'subheader', 'bulletPoints']
     return keys.map(key => {
       let { label, name, ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
       if (key === 'bulletPoints') {
         return (
-          <>
-            <div className="add-bullets" key={key}>
+          <div className="add-bullets" key={key}>
               <TextInputWithAction
                 textarea={true}
                 name={name}
@@ -133,9 +126,8 @@ const InputGroupWithActions = ({
                 editedSectionName={editedSectionName}
                 sectionName={sectionName}
               />
-            </div>
             {renderBullets()}
-          </>
+          </div>
         );
       } else {
         return (
@@ -165,8 +157,14 @@ const InputGroupWithActions = ({
   );
 };
 
+InputGroupWithActions.propTypes = {
+  name: PropTypes.string.isRequired,
+  editedSectionName: PropTypes.string,
+  bulletsArr: PropTypes.array,
+  onCancel: PropTypes.func.isRequired,
+  handleAction: PropTypes.func.isRequired
+};
 export default InputGroupWithActions;
 
-//TODO [] add proptypes, name is required
-//TODO [] change datatype for date email and so on
-//TODO Q should I pass components prop as an argument into handler?
+//TODO [x] add proptypes, name is require
+//TODO [] fix bullet list position
