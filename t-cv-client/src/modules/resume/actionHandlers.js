@@ -39,7 +39,7 @@ export const saveChanges = (dispatch) => {
 };
 
 export const dropChanges = (dispatch) => {
-  dispatch({ type: DROP_CHANGES, payload: {} }); //TODO: payload as empty obj to prevent undefined in reducer?
+  dispatch({ type: DROP_CHANGES, payload: {} });
 };
 
 export const deleteEntry = (dispatch) => {

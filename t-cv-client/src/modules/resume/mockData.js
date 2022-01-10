@@ -524,5 +524,4 @@ export const mockData = {
   }
 };
 
-
-//TODO: enforce how many selected values per category
+//TODO: address the amount of selected values per category

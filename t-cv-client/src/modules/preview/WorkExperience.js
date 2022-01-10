@@ -23,5 +23,3 @@ const WorkExperience = () => {
 };
 
 export default WorkExperience;
-
-//TODO: DRY Experience cards [x]

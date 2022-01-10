@@ -166,5 +166,4 @@ InputGroupWithActions.propTypes = {
 };
 export default InputGroupWithActions;
 
-//TODO [x] add proptypes, name is require
 //TODO [] fix bullet list position
