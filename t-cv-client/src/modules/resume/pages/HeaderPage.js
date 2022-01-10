@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import TextInputWithAction from '../TextInputWithAction';
 import ItemWithActions from '../ItemWithActions';
 
@@ -23,26 +23,14 @@ import {
   useRelevantStateAndDispatch
 } from '../resumeCustomHooks';
 
-const NAME = SIMPLE_INPUT_DEFS.name.name;
-const ROLE = SIMPLE_INPUT_DEFS.role.name;
-
 const HeaderPage = () => {
-  useInitializeRef(NAME);
-  useInitializeRef(ROLE);
+  const NAME = SIMPLE_INPUT_DEFS.name.name;
+  const ROLE = SIMPLE_INPUT_DEFS.role.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(NAME, ROLE);
   const { editedSectionName } = useGetEditedSection();
-  const nameRef = useRef('');
-  const roleRef = useRef('');
-  // const pageRefs = [
-  //   { ref: nameRef, name: NAME },
-  //   { ref: roleRef, name: ROLE }
-  // ];
-
-  // useHandleRefs(pageRefs);
-  useHandleRef(NAME, ROLE);
   useInitializeRef(NAME);
   useInitializeRef(ROLE);
-
+  useHandleRef(NAME, ROLE);
 
   const renderTextInputs = () => {
     return (
@@ -51,6 +39,7 @@ const HeaderPage = () => {
         <TextInputWithAction
           name={NAME}
           label="Name:"
+          inputRef={SIMPLE_INPUT_DEFS.name.ref}
           // inputRef={nameRef}
           handleAction={editedSectionName === NAME ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
@@ -59,6 +48,7 @@ const HeaderPage = () => {
         <TextInputWithAction
           name={ROLE}
           label="Role:"
+          inputRef={SIMPLE_INPUT_DEFS.role.ref}
           // inputRef={roleRef}
           handleAction={editedSectionName === ROLE ? saveChanges(dispatch) : addEntry(dispatch)}
           onCancel={() => dropChanges(dispatch)}
@@ -107,3 +97,4 @@ const HeaderPage = () => {
 export default HeaderPage;
 
 //TODO [] use refs from inputDefinitions const => this will prevent passing refs as props, also should allow to render input fields in loop
+//TODO [] replace article in return statement with more semantically correct tag

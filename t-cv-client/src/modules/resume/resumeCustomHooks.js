@@ -2,22 +2,29 @@ import { useContext, useLayoutEffect, useRef } from 'react';
 import { AppContext } from '../../App';
 import { INPUT_DEFINITIONS, SIMPLE_INPUT_DEFS } from './consts';
 
-export const useRelevantStateAndDispatch = (...params) => { //["name","role"]
+/**
+ * Get a relevant fragment of the global state and dispatch
+ * @param {String} params - global state property names (e.g. "role", "education") to be separated as a state fragment
+ * @returns {[{}, Function]} - array of state fragment and dispatch
+ */
+export const useRelevantStateAndDispatch = (...params) => {
   const { state, dispatch } = useContext(AppContext);
   let relevantState = {};
   params.forEach(entryName => {
     relevantState = { ...relevantState, [entryName]: state[entryName] };
   });
-
-  return [relevantState, dispatch]; //[{}, func]
+  return [relevantState, dispatch];
 };
 
+/**
+ * Get name and value of section that is edited
+ * @returns {{editedSectionName: (null|String), editedSectionValues: (null|Object)}}
+ */
 export const useGetEditedSection = () => {
   const { state } = useContext(AppContext);
   return { editedSectionName: state.edited?.sectionName, editedSectionValues: state.edited?.entry };
 };
 
-//TODO: after INPUT_DEFINITIONS is done adjust useHandleRefs
 export const useHandleRefs = (arr) => {
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
@@ -36,8 +43,11 @@ export const useHandleRefs = (arr) => {
     });
   }, [editedSectionName, editedValue, arr]);
 };
-
-export const useHandleRef = (...params) => { // "name", "role"
+/**
+ * Manages ref.current.value when the input value of type SimpleValue gets edited
+ * @param {string} params - global state property names (e.g. ("name", "role"))
+ */
+export const useHandleRef = (...params) => { //
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
@@ -53,20 +63,15 @@ export const useHandleRef = (...params) => { // "name", "role"
         ref.current.value = editedValue;
         ref.current.focus();
       }
-      // if (editedSectionName === name) {
-      //   ref.current.value = editedValue;
-      //   ref.current.focus();
-      // }
     });
   }, [editedSectionName, editedValue, params]);
-
 };
 
 /**
- * @description Manages input.current.value when the input value gets edited
- * @param {string} name
+ * Manages ref.current.value when the input value of type ComplexValue gets edited
+ * @param {string} sectionName - global state property name (e.g. "education")
  */
-export const useHandleGroupRef = (sectionName) => { //"role", "name", "education"
+export const useHandleGroupRef = (sectionName) => {
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
@@ -94,7 +99,21 @@ export const useHandleGroupRef = (sectionName) => { //"role", "name", "education
   }, [editedSectionName, sectionName, editedValue, inputs, keys]);
 };
 
-//useMultipleInputsRefAssign: accepts sectionName like "education" or "workExperience"; use to create ref object and assign its value to the ref property of the INPUT_DEFINITION object. Applies !only in case of entries with multiple inputs! like education or workExperience.
+/**
+ * Initialize ref object and assign its value to the corresponding ref property of the SIMPLE_INPUT_DEFS object
+ * @param {string} sectionName - name of the global state property which item value is a type of SimpleValue (e.g. "role", "name")
+ * @return {void}
+ */
+export const useInitializeRef = (sectionName) => {
+  const sectionNameRef = useRef('');
+  SIMPLE_INPUT_DEFS[sectionName].ref = sectionNameRef;
+};
+
+/**
+ * Initialize ref objects and assign their values to the corresponding ref properties of INPUT_DEFINITIONS object
+ * @param {string} sectionName - name of the global state property which item value is a type of ComplexValue (e.g. "education", "workExperience")
+ * @return {void}
+ */
 export const useInitializeRefsBySection = (sectionName) => {
   const { inputs } = INPUT_DEFINITIONS[sectionName];
   const startRef = useRef('');
@@ -109,9 +128,6 @@ export const useInitializeRefsBySection = (sectionName) => {
   inputs.bulletPoints.ref = bulletRef;
 };
 
-export const useInitializeRef = (sectionName) => {
-  const sectionNameRef = useRef('');
-  SIMPLE_INPUT_DEFS[sectionName].ref = sectionNameRef;
-};
-//todo: rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch
-//TODO: add js doc to custom hooks
+//TODO: 10-01-2022 rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch [X]
+//TODO: 10-01-2022 add js doc to custom hooks [x]
+//TODO: after INPUT_DEFINITIONS is done remove useHandleRefs []
