@@ -23,6 +23,7 @@ import {
 const SummaryPage = () => {
   const SUMMARY = SIMPLE_INPUT_DEFS.summary.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(SUMMARY);
+  const { summary: summarySection } = relevantState;
   const { editedSectionName } = useGetEditedSection();
   useInitializeRef(SUMMARY);
   useHandleRef(SUMMARY);
@@ -48,8 +49,6 @@ const SummaryPage = () => {
       );
     });
   };
-
-  const { summary: summarySection } = relevantState;
 
   return (
     <>

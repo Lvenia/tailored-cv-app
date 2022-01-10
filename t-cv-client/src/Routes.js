@@ -10,7 +10,7 @@ import ExperiencePage from './modules/resume/pages/ExperiencePage';
 import ContactPage from './modules/resume/pages/ContactPage';
 import SkillsPage from './modules/resume/pages/SkillsPage';
 import PreviewPage from './modules/preview/PreviewPage';
-import NotFound from './components/NotFound';
+import NotFoundPage from './modules/NotFoundPage';
 
 const Routes = () => {
   return (
@@ -26,7 +26,7 @@ const Routes = () => {
         <Route path="skills-settings" element={<SkillsPage/>}/>
       </Route>
       <Route path="preview" element={<PreviewPage/>}/>
-      <Route path="*" element={<NotFound/>}/>
+      <Route path="*" element={<NotFoundPage/>}/>
     </ReactRoutes>
   );
 };

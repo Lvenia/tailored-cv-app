@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+
 import TextInput from './TextInput';
 import TextInputWithAction from './TextInputWithAction';
 import Button from '../../components/Button';
@@ -164,6 +165,7 @@ InputGroupWithActions.propTypes = {
   onCancel: PropTypes.func.isRequired,
   handleAction: PropTypes.func.isRequired
 };
+
 export default InputGroupWithActions;
 
 //TODO [] fix bullet list position

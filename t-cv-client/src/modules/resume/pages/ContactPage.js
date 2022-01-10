@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { CONTACT_INPUTS, SIMPLE_INPUT_DEFS } from '../consts';
 import TextInputWithAction from '../TextInputWithAction';
 import {
@@ -23,6 +24,12 @@ const ContactPage = () => {
   const LINKEDIN = SIMPLE_INPUT_DEFS.linkedIn.name;
   const GITHUB = SIMPLE_INPUT_DEFS.gitHub.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(EMAIL, PHONE, LINKEDIN, GITHUB);
+  const {
+    email: emailSection,
+    phone: phoneSection,
+    gitHub: githubSection,
+    linkedIn: linkedInSection,
+  } = relevantState;
   const { editedSectionName } = useGetEditedSection();
   useInitializeRef(EMAIL);
   useInitializeRef(PHONE);
@@ -72,13 +79,6 @@ const ContactPage = () => {
       );
     });
   };
-
-  const {
-    email: emailSection,
-    phone: phoneSection,
-    gitHub: githubSection,
-    linkedIn: linkedInSection,
-  } = relevantState;
 
   return (
     <>

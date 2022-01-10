@@ -1,13 +1,12 @@
 import React from 'react';
+
 import InputGroupWithActions from '../InputGroupWithActions';
 import ItemGroups from '../ItemGroups';
-
 import {
   addEntry,
   dropChanges,
   saveChanges,
 } from '../actionHandlers';
-
 import {
   useGetEditedSection,
   useHandleGroupRef,
@@ -17,10 +16,9 @@ import {
 
 import { INPUT_DEFINITIONS } from '../consts';
 
-const { name: EDUCATION } = INPUT_DEFINITIONS.education;
-
 const EducationPage = () => {
-  const [, dispatch] = useRelevantStateAndDispatch(EDUCATION);//[{},{}], func
+  const { name: EDUCATION } = INPUT_DEFINITIONS.education;
+  const [, dispatch] = useRelevantStateAndDispatch(EDUCATION);
   useHandleGroupRef(EDUCATION);
   useInitializeRefsBySection(EDUCATION);
   const { editedSectionName, editedSectionValues } = useGetEditedSection();

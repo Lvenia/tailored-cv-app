@@ -1,3 +1,4 @@
+// Key names
 export const ENTER = 'Enter';
 
 //action types

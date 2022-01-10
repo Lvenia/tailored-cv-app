@@ -10,9 +10,8 @@ import {
 import { addEntry, dropChanges, saveChanges } from '../actionHandlers';
 import { INPUT_DEFINITIONS } from '../consts';
 
-const WORK = INPUT_DEFINITIONS.workExperience.name;
-
 const WorkExperiencePage = () => {
+  const WORK = INPUT_DEFINITIONS.workExperience.name;
   const [, dispatch] = useRelevantStateAndDispatch(WORK);
   useInitializeRefsBySection(WORK);
   useHandleGroupRef(WORK);
@@ -32,8 +31,8 @@ const WorkExperiencePage = () => {
         />
       </article>
       <ItemGroups sectionName={WORK}/>
-      {//TODO: 10/10/2022 [] pass dispatch and section as props to avoid calling useRelevantStateAndDispatch twice
-      }    </>
+      {/*TODO: 10/10/2022 [] pass dispatch and section as props to avoid calling useRelevantStateAndDispatch twice*/}
+    </>
   );
 };
 

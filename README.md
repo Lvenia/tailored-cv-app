@@ -83,6 +83,7 @@ Goal: deploy front end
 * [ ] add readme to client
 * [ ] deploy as web page
 * [ ] import JSDoc typedefs to be available in the whole project, adjust data types  (SimpleValue, ComplexValue)
+* [ ] replace relative imports with absolute imports, rename consts.js to constants.js
 
 ---
 ###### Stage 3.

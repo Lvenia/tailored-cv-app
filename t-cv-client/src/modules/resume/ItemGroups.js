@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import ItemGroupWithActions from './ItemGroupWithActions';
 import { useGetEditedSection, useRelevantStateAndDispatch } from './resumeCustomHooks';
 import {
@@ -13,7 +14,7 @@ import { ENTRY_CONTROL } from './consts';
 const ItemGroups = ({ sectionName }) => {
   const [relevantState, dispatch] = useRelevantStateAndDispatch(sectionName);
   const { editedSectionName } = useGetEditedSection();
-  const section = relevantState[sectionName];//[{…}, {…}, {…}]
+  const section = relevantState[sectionName];
   return (
     <>
       {section.map(el => {

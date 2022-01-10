@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { ENTER } from './consts';
 
 const TextInput = ({
@@ -9,7 +10,6 @@ const TextInput = ({
   submitHandler,
   isDisabled
 }) => {
-
   return (
     <>
       <label htmlFor={name}>{label}</label>

@@ -13,9 +13,8 @@ import { addEntry, dropChanges, saveChanges } from '../actionHandlers';
 
 import { INPUT_DEFINITIONS } from '../consts';
 
-const EXPERIENCE = INPUT_DEFINITIONS.experience.name;
-
 const ExperiencePage = () => {
+  const EXPERIENCE = INPUT_DEFINITIONS.experience.name;
   const [, dispatch] = useRelevantStateAndDispatch(EXPERIENCE);
   useHandleGroupRef(EXPERIENCE);
   useInitializeRefsBySection(EXPERIENCE);

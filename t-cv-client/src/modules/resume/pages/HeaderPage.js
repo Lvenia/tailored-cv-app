@@ -21,6 +21,7 @@ const HeaderPage = () => {
   const NAME = SIMPLE_INPUT_DEFS.name.name;
   const ROLE = SIMPLE_INPUT_DEFS.role.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(NAME, ROLE);
+  const { name: nameSection, role: roleSection } = relevantState;
   const { editedSectionName } = useGetEditedSection();
   useInitializeRef(NAME);
   useInitializeRef(ROLE);
@@ -30,25 +31,23 @@ const HeaderPage = () => {
     return (
       <fieldset>
         <legend>{HEADER_INPUTS}</legend>
-        {params.map(sectionName => {
-          return (
-            <TextInputWithAction
-              key={sectionName}
-              name={sectionName}
-              label={SIMPLE_INPUT_DEFS[sectionName].label}
-              inputRef={SIMPLE_INPUT_DEFS[sectionName].ref}
-              handleAction={editedSectionName === sectionName ? saveChanges(dispatch) : addEntry(dispatch)}
-              onCancel={() => dropChanges(dispatch)}
-              editedSectionName={editedSectionName}
-            />
-          );
-        })}
+        {params.map(sectionName => (
+          <TextInputWithAction
+            key={sectionName}
+            name={sectionName}
+            label={SIMPLE_INPUT_DEFS[sectionName].label}
+            inputRef={SIMPLE_INPUT_DEFS[sectionName].ref}
+            handleAction={editedSectionName === sectionName ? saveChanges(dispatch) : addEntry(dispatch)}
+            onCancel={() => dropChanges(dispatch)}
+            editedSectionName={editedSectionName}
+          />
+        ))}
       </fieldset>
     );
   };
 
   const renderEntries = (stateSection, sectionName) => {
-    const editMode = editedSectionName !== null; //some of entries is currently edited
+    const editMode = editedSectionName !== null; //some of entries are currently edited
     return stateSection.map(el => {
       const { id } = el.item;
       return (
@@ -65,7 +64,6 @@ const HeaderPage = () => {
     });
   };
 
-  const { name: nameSection, role: roleSection } = relevantState;
   return (
     <>
       <article>

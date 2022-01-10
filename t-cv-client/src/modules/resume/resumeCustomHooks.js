@@ -26,10 +26,10 @@ export const useGetEditedSection = () => {
 };
 
 /**
- * Manages ref.current.value when the input value of type SimpleValue gets edited
+ * Manages refs of edited inputs
  * @param {string} params - global state property names (e.g. ("name", "role"))
  */
-export const useHandleRef = (...params) => { //
+export const useHandleRef = (...params) => {
   const { state } = useContext(AppContext);
   const editedSectionName = state?.edited?.sectionName;
   const editedValue = state?.edited?.entry?.item?.value;
@@ -50,7 +50,7 @@ export const useHandleRef = (...params) => { //
 };
 
 /**
- * Manages ref.current.value when the input value of type ComplexValue gets edited
+ * Manages all refs of edited section
  * @param {string} sectionName - global state property name (e.g. "education")
  */
 export const useHandleGroupRef = (sectionName) => {

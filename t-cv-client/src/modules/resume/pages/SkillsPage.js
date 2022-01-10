@@ -1,4 +1,5 @@
 import React from 'react';
+
 import TextInputWithAction from '../TextInputWithAction';
 import ItemWithActions from '../ItemWithActions';
 import {
@@ -20,6 +21,7 @@ import { SIMPLE_INPUT_DEFS, SKILLS_INPUT } from '../consts';
 const SkillsPage = () => {
   const SKILLS = SIMPLE_INPUT_DEFS.skills.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(SKILLS);
+  const { skills: skillsSection } = relevantState;
   const { editedSectionName } = useGetEditedSection();
   useInitializeRef(SKILLS);
   useHandleRef(SKILLS);
@@ -45,7 +47,7 @@ const SkillsPage = () => {
   };
 
   const renderEntries = (stateSection, sectionName) => {
-    const editMode = editedSectionName !== null; //some of entries is currently edited
+    const editMode = editedSectionName !== null; //some of entries are currently edited
     return stateSection.map(el => {
       const { id } = el.item;
       return (
@@ -61,8 +63,6 @@ const SkillsPage = () => {
       );
     });
   };
-
-  const { skills: skillsSection } = relevantState;
 
   return (
     <>

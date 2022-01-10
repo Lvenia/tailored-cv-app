@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Button from '../../components/Button';
 import TextInput from './TextInput';
 import { STYLE_ADD, STYLE_EDIT } from './consts';
@@ -15,19 +16,18 @@ const TextInputWithAction = ({
   editedSectionName,
   sectionName //passed only if name is equal to input sub name like "edu_bullets"
 }) => {
-
-  const sectionIsEdited = editedSectionName === sectionName || editedSectionName === name; //case for input sub name like "edu_bullets" || case fot input name like "education"
+  const sectionIsEdited = editedSectionName === sectionName || editedSectionName === name; //case for input sub name like "edu_bullets" || case for input name like "education"
   const isDisabled = editedSectionName !== null && !sectionIsEdited;
 
   const handleSubmit = (e) => {
-    e?.preventDefault(); //prevent page refresh
+    e?.preventDefault();
     handleAction(name, inputRef.current.value);
     inputRef.current.value = '';
     inputRef.current.blur();
   };
 
   const handleCancel = (e) => {
-    e?.preventDefault(); //prevent page refresh
+    e?.preventDefault();
     onCancel();
     inputRef.current.value = '';
     inputRef.current.blur();
