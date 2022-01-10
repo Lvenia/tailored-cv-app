@@ -106,4 +106,4 @@ export const useInitializeRefsBySection = (sectionName) => {
 
 //TODO: 10-01-2022 rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch [X]
 //TODO: 10-01-2022 add js doc to custom hooks [x]
-//TODO: after INPUT_DEFINITIONS is done remove useHandleRefs []
+//TODO: after INPUT_DEFINITIONS is done remove useHandleRefs [x]

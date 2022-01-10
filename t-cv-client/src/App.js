@@ -1,10 +1,7 @@
 import React, { useReducer } from 'react';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
-
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './Routes';
+import MainNavBar from './components/MainNavBar';
 import {
   ADD_ENTRY,
   TOGGLE_SELECT,
@@ -14,23 +11,8 @@ import {
   DROP_CHANGES,
   TOGGLE_BULLET_SELECT
 } from './modules/resume/consts';
-// MODULES
-import ResumePage from './modules/resume/pages/ResumePage';
-import HeaderPage from './modules/resume/pages/HeaderPage';
-import ExperiencePage from './modules/resume/pages/ExperiencePage';
-import ContactPage from './modules/resume/pages/ContactPage';
-import EducationPage from './modules/resume/pages/EducationPage'
-import SummaryPage from './modules/resume/pages/SummaryPage';
-import WorkExperiencePage from './modules/resume/pages/WorkExperiencePage';
-import SkillsPage from './modules/resume/pages/SkillsPage';
-import PreviewPage from './modules/preview/PreviewPage.js';
-import HomePage from './modules/HomePage';
-//COMPONENTS
-import MainNavBar from './components/MainNavBar';
-import NotFound from './components/NotFound';
-//STYLES
-import './App.css';
 import { mockData } from './modules/resume/mockData';
+import './App.css';
 
 const initialState = mockData;
 
@@ -134,22 +116,8 @@ const App = () => {
       <BrowserRouter>
         <MainNavBar/>
         <AppContext.Provider value={{ state, dispatch }}>
-          {/* TODO: Routes to separate Routes.js component*/}
           {/* TODO: reducer + state stuff to the separate component */}
-          <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="resume-settings" element={<ResumePage/>}>
-              <Route path="header-settings" element={<HeaderPage/>}/>
-              <Route path="summary-settings" element={<SummaryPage/>}/>
-              <Route path="work-experience-settings" element={<WorkExperiencePage/>}/>
-              <Route path="education-settings" element={<EducationPage/>}/>
-              <Route path="experience-settings" element={<ExperiencePage/>}/>
-              <Route path="contact-settings" element={<ContactPage/>}/>
-              <Route path="skills-settings" element={<SkillsPage/>}/>
-            </Route>
-            <Route path="preview" element={<PreviewPage/>}/>
-            <Route path="*" element={<NotFound/>}/>
-          </Routes>
+          <Routes/>
         </AppContext.Provider>
       </BrowserRouter>
     </React.StrictMode>
