@@ -105,8 +105,7 @@ export const useHandleGroupRef = (sectionName) => {
  * @return {void}
  */
 export const useInitializeRef = (sectionName) => {
-  const sectionNameRef = useRef('');
-  SIMPLE_INPUT_DEFS[sectionName].ref = sectionNameRef;
+  SIMPLE_INPUT_DEFS[sectionName].ref = useRef('');
 };
 
 /**
@@ -116,16 +115,11 @@ export const useInitializeRef = (sectionName) => {
  */
 export const useInitializeRefsBySection = (sectionName) => {
   const { inputs } = INPUT_DEFINITIONS[sectionName];
-  const startRef = useRef('');
-  const endRef = useRef('');
-  const headerRef = useRef('');
-  const subheaderRef = useRef('');
-  const bulletRef = useRef('');
-  inputs.startDate.ref = startRef;
-  inputs.endDate.ref = endRef;
-  inputs.header.ref = headerRef;
-  inputs.subheader.ref = subheaderRef;
-  inputs.bulletPoints.ref = bulletRef;
+  inputs.startDate.ref = useRef('');
+  inputs.endDate.ref = useRef('');
+  inputs.header.ref = useRef('');
+  inputs.subheader.ref = useRef('');
+  inputs.bulletPoints.ref = useRef('');
 };
 
 //TODO: 10-01-2022 rename, remove unnecessary, take a closer look at useRelevantAppStateAndDispatch [X]

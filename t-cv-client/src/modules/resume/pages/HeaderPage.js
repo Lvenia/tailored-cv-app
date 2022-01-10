@@ -12,16 +12,18 @@ import {
 } from '../actionHandlers';
 
 import {
+  useGetEditedSection,
+  useHandleRef,
+  useInitializeRef,
+  useRelevantStateAndDispatch
+} from '../resumeCustomHooks';
+
+import {
   HEADER_INPUTS,
   NAME_ENTRY_CONTROL,
   ROLE_ENTRY_CONTROL,
   SIMPLE_INPUT_DEFS,
 } from '../consts';
-import {
-  useGetEditedSection, useHandleRef,
-  useInitializeRef,
-  useRelevantStateAndDispatch
-} from '../resumeCustomHooks';
 
 const HeaderPage = () => {
   const NAME = SIMPLE_INPUT_DEFS.name.name;
@@ -32,28 +34,23 @@ const HeaderPage = () => {
   useInitializeRef(ROLE);
   useHandleRef(NAME, ROLE);
 
-  const renderTextInputs = () => {
+  const renderTextInputs = (...params) => {
     return (
       <fieldset>
         <legend>{HEADER_INPUTS}</legend>
-        <TextInputWithAction
-          name={NAME}
-          label="Name:"
-          inputRef={SIMPLE_INPUT_DEFS.name.ref}
-          // inputRef={nameRef}
-          handleAction={editedSectionName === NAME ? saveChanges(dispatch) : addEntry(dispatch)}
-          onCancel={() => dropChanges(dispatch)}
-          editedSectionName={editedSectionName}
-        />
-        <TextInputWithAction
-          name={ROLE}
-          label="Role:"
-          inputRef={SIMPLE_INPUT_DEFS.role.ref}
-          // inputRef={roleRef}
-          handleAction={editedSectionName === ROLE ? saveChanges(dispatch) : addEntry(dispatch)}
-          onCancel={() => dropChanges(dispatch)}
-          editedSectionName={editedSectionName}
-        />
+        {params.map(sectionName => {
+          return (
+            <TextInputWithAction
+              key={sectionName}
+              name={sectionName}
+              label={SIMPLE_INPUT_DEFS[sectionName].label}
+              inputRef={SIMPLE_INPUT_DEFS[sectionName].ref}
+              handleAction={editedSectionName === sectionName ? saveChanges(dispatch) : addEntry(dispatch)}
+              onCancel={() => dropChanges(dispatch)}
+              editedSectionName={editedSectionName}
+            />
+          );
+        })}
       </fieldset>
     );
   };
@@ -80,7 +77,7 @@ const HeaderPage = () => {
   return (
     <>
       <article>
-        {renderTextInputs(HEADER_INPUTS, [NAME, ROLE])}
+        {renderTextInputs(NAME, ROLE)}
       </article>
       <article className="entry-control-box">
         <h5>{NAME_ENTRY_CONTROL}</h5>
@@ -96,5 +93,5 @@ const HeaderPage = () => {
 
 export default HeaderPage;
 
-//TODO [] use refs from inputDefinitions const => this will prevent passing refs as props, also should allow to render input fields in loop
+//TODO [X] store ref objects in SIMPLE_INPUT_DEFS => allows to initialize and create refs using custom hooks instead of calling useRef in each Page + allow to render input fields in loop
 //TODO [] replace article in return statement with more semantically correct tag
