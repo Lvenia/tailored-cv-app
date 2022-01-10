@@ -12,10 +12,6 @@ export const TOGGLE_BULLET_SELECT = 'TOGGLE_BULLET_SELECT';
 //fieldset legend
 export const HEADER_INPUTS = 'Resume Header';
 export const CONTACT_INPUTS = 'Contact Information';
-// export const EMAIL_ENTRY_CONTROL = 'Email Entry Control';
-// export const PHONE_ENTRY_CONTROL = 'Phone Entry Control';
-// export const LINKEDIN_ENTRY_CONTROL = 'LinkedIn Entry Control';
-// export const GITHUB_ENTRY_CONTROL = 'GitHub Entry Control';
 
 export const SUMMARY_INPUTS = 'Resume Summary';
 export const SUMMARY_ENTRY_CONTROL = 'Summary Entry Control';
@@ -26,10 +22,6 @@ export const SKILLS_ENTRY_CONTROL = 'Skills Entry Control';
 
 //ENTRY GROUP NAMES
 
-// export const EMAIL = 'email';
-// export const PHONE = 'phone';
-// export const LINKEDIN = 'linkedIn';
-// export const GITHUB = 'gitHub';
 export const SUMMARY = 'summary';
 export const SKILLS = 'skills';
 
