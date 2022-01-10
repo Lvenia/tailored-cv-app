@@ -78,7 +78,7 @@ export const mockData = {
         id: '62',
         value: 'https://github.com/Lvenia'
       },
-      isSelected: false
+      isSelected: true
     },
 
   ],
