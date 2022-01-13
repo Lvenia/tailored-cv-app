@@ -10,14 +10,14 @@ import {
 } from './actionHandlers';
 import { ENTRY_CONTROL } from './consts';
 
-const ItemGroups = ({ relevantSection, dispatch, isDisabled }) => {
+const ItemGroups = ({ relevantSection, sectionName, dispatch, isDisabled }) => {
   return (
     <>
-      {relevantSection.sectionState.map(el => {
+      {relevantSection[sectionName].map(el => {
         return (
           <article key={el.item.id} className={ENTRY_CONTROL}>
             <ItemGroupWithActions
-              name={relevantSection.sectionName}
+              name={sectionName}
               entry={el} //{item:{id, value}, isSelected}
               handleToggleSelect={toggleSelect(dispatch)}
               handleBulletToggle={toggleBulletSelect(dispatch)}
@@ -34,6 +34,7 @@ const ItemGroups = ({ relevantSection, dispatch, isDisabled }) => {
 
 ItemGroups.propTypes = {
   relevantSection: PropTypes.object.isRequired,
+  sectionName: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired,
   isDisabled: PropTypes.bool.isRequired
 };
