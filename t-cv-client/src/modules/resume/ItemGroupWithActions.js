@@ -23,7 +23,7 @@ const ItemGroupWithActions = ({
   const { id, value } = item;
 
   const renderBullets = (bullets) => {
-    if (typeof bullets !== 'string' && bullets.length > 0) {  //quick fix, to be removed when bullets are handled properly
+    if (bullets.length > 0) {
       return (
         bullets.map(bullet => {
           return (

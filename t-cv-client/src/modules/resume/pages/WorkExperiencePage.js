@@ -15,7 +15,6 @@ const WorkExperiencePage = () => {
   const [relevantState, dispatch] = useRelevantStateAndDispatch(WORK);
   useInitializeRefsBySection(WORK);
   useHandleGroupRef(WORK);
-  //TODO: 10/01/2022 [] call useInitializeRefsBySection before useHandleGroupRef in similar components
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
   const bulletPoints = editedSectionValues?.item.value.bulletPoints;
 
