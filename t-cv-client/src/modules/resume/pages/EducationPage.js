@@ -18,7 +18,7 @@ import { INPUT_DEFINITIONS } from '../consts';
 
 const EducationPage = () => {
   const { name: EDUCATION } = INPUT_DEFINITIONS.education;
-  const [, dispatch] = useRelevantStateAndDispatch(EDUCATION);
+  const [relevantState, dispatch] = useRelevantStateAndDispatch(EDUCATION);
   useHandleGroupRef(EDUCATION);
   useInitializeRefsBySection(EDUCATION);
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
@@ -35,7 +35,12 @@ const EducationPage = () => {
           handleAction={editedSectionName === EDUCATION ? saveChanges(dispatch) : addEntry(dispatch)}
         />
       </article>
-      <ItemGroups sectionName={EDUCATION}/>
+      <ItemGroups
+        dispatch={dispatch}
+        relevantSection={relevantState}
+        sectionName={EDUCATION}
+        isDisabled={editedSectionName !== null}
+      />
     </>
   );
 };

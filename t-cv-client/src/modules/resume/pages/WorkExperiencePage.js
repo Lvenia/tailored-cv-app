@@ -13,7 +13,6 @@ import { INPUT_DEFINITIONS } from '../consts';
 const WorkExperiencePage = () => {
   const WORK = INPUT_DEFINITIONS.workExperience.name;
   const [relevantState, dispatch] = useRelevantStateAndDispatch(WORK);
-  //TODO: [] fix broken Experience and education section
   useInitializeRefsBySection(WORK);
   useHandleGroupRef(WORK);
   //TODO: 10/01/2022 [] call useInitializeRefsBySection before useHandleGroupRef in similar components

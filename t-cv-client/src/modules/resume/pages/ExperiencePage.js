@@ -15,7 +15,7 @@ import { INPUT_DEFINITIONS } from '../consts';
 
 const ExperiencePage = () => {
   const EXPERIENCE = INPUT_DEFINITIONS.experience.name;
-  const [, dispatch] = useRelevantStateAndDispatch(EXPERIENCE);
+  const [relevantState, dispatch] = useRelevantStateAndDispatch(EXPERIENCE);
   useHandleGroupRef(EXPERIENCE);
   useInitializeRefsBySection(EXPERIENCE);
   const { editedSectionName, editedSectionValues } = useGetEditedSection();
@@ -32,7 +32,12 @@ const ExperiencePage = () => {
           handleAction={editedSectionName === EXPERIENCE ? saveChanges(dispatch) : addEntry(dispatch)}
         />
       </article>
-      <ItemGroups sectionName={EXPERIENCE}/>
+      <ItemGroups
+        dispatch={dispatch}
+        relevantSection={relevantState}
+        sectionName={EXPERIENCE}
+        isDisabled={editedSectionName !== null}
+      />
     </>
   );
 };
