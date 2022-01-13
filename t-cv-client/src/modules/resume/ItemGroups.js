@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ItemGroupWithActions from './ItemGroupWithActions';
-import { useGetEditedSection, useRelevantStateAndDispatch } from './resumeCustomHooks';
 import {
   deleteEntry,
   editEntry,
@@ -11,18 +10,14 @@ import {
 } from './actionHandlers';
 import { ENTRY_CONTROL } from './consts';
 
-const ItemGroups = ({ sectionName }) => {
-  const [relevantState, dispatch] = useRelevantStateAndDispatch(sectionName);
-  const { editedSectionName } = useGetEditedSection();
-  const section = relevantState[sectionName];
+const ItemGroups = ({ relevantSection, dispatch, isDisabled }) => {
   return (
     <>
-      {section.map(el => {
-        let isDisabled = editedSectionName !== null;
+      {relevantSection.sectionState.map(el => {
         return (
           <article key={el.item.id} className={ENTRY_CONTROL}>
             <ItemGroupWithActions
-              name={sectionName}
+              name={relevantSection.sectionName}
               entry={el} //{item:{id, value}, isSelected}
               handleToggleSelect={toggleSelect(dispatch)}
               handleBulletToggle={toggleBulletSelect(dispatch)}
@@ -31,14 +26,16 @@ const ItemGroups = ({ sectionName }) => {
               disabled={isDisabled}
             />
           </article>
-        )
+        );
       })}
     </>
-  )
+  );
 };
 
 ItemGroups.propTypes = {
-  sectionName: PropTypes.string.isRequired
-}
+  relevantSection: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  isDisabled: PropTypes.bool.isRequired
+};
 
 export default ItemGroups;

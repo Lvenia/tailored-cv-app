@@ -5,14 +5,16 @@ import {
   useGetEditedSection,
   useHandleGroupRef,
   useInitializeRefsBySection,
-  useRelevantStateAndDispatch
+  useRelevantStateAndDispatchWithSectionName //temporary name
 } from '../resumeCustomHooks';
 import { addEntry, dropChanges, saveChanges } from '../actionHandlers';
 import { INPUT_DEFINITIONS } from '../consts';
 
 const WorkExperiencePage = () => {
   const WORK = INPUT_DEFINITIONS.workExperience.name;
-  const [, dispatch] = useRelevantStateAndDispatch(WORK);
+  const [relevantState, dispatch] = useRelevantStateAndDispatchWithSectionName(WORK);
+  //TODO: [] fix broken Experience and education section
+  //TODO: [] improve useRelevantStateAndDispatch hook, refactor relying components
   useInitializeRefsBySection(WORK);
   useHandleGroupRef(WORK);
   //TODO: 10/01/2022 [] call useInitializeRefsBySection before useHandleGroupRef in similar components
@@ -30,8 +32,12 @@ const WorkExperiencePage = () => {
           handleAction={editedSectionName === WORK ? saveChanges(dispatch) : addEntry(dispatch)}
         />
       </article>
-      <ItemGroups sectionName={WORK}/>
-      {/*TODO: 10/10/2022 [] pass dispatch and section as props to avoid calling useRelevantStateAndDispatch twice*/}
+      <ItemGroups
+        relevantSection={relevantState[WORK]}
+        dispatch={dispatch}
+        isDisabled={editedSectionName !== null}
+      />
+      {/*TODO: 10/10/2022 [x] pass dispatch and section as props to avoid calling useRelevantStateAndDispatch twice*/}
     </>
   );
 };

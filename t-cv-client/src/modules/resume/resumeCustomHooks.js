@@ -16,6 +16,16 @@ export const useRelevantStateAndDispatch = (...params) => {
   return [relevantState, dispatch];
 };
 
+//work version to test if sending entry name allows to reduce amount of code in components
+export const useRelevantStateAndDispatchWithSectionName = (...params) => {
+  const { state, dispatch } = useContext(AppContext);
+  let relevantState = {};
+  params.forEach(entryName => {
+    relevantState = { ...relevantState, [entryName]: { sectionState: state[entryName], sectionName: entryName} };
+  });
+  return [relevantState, dispatch];
+};
+
 /**
  * Get name and value of section that is edited
  * @returns {{editedSectionName: (null|String), editedSectionValues: (null|Entry)}}
