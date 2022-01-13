@@ -21,6 +21,11 @@ fieldset div {
     align-items: center;
 }
 
+fieldset.with-bullet-list .add, fieldset.with-bullet-list .edit {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
 .group-input {
     grid-template-columns: 1fr 10fr;
 }

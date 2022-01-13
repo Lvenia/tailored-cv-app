@@ -117,7 +117,7 @@ const InputGroupWithActions = ({
       let { label, name, ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
       if (key === 'bulletPoints') {
         return (
-          <div className="add-bullets" key={key}>
+          <>
               <TextInputWithAction
                 textarea={true}
                 name={name}
@@ -128,7 +128,7 @@ const InputGroupWithActions = ({
                 sectionName={sectionName}
               />
             {renderBullets()}
-          </div>
+          </>
         );
       } else {
         return (
@@ -145,7 +145,7 @@ const InputGroupWithActions = ({
   };
 
   return (
-    <fieldset>
+    <fieldset className="with-bullet-list">
       <legend>{fieldsetLabel}</legend>
       <div className="group-input">
         {renderInputGroup(name)}
@@ -167,5 +167,3 @@ InputGroupWithActions.propTypes = {
 };
 
 export default InputGroupWithActions;
-
-//TODO [] fix bullet list position
