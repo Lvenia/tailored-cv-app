@@ -117,7 +117,7 @@ const InputGroupWithActions = ({
       let { label, name, ref } = INPUT_DEFINITIONS[sectionName].inputs[key];
       if (key === 'bulletPoints') {
         return (
-          <>
+          <React.Fragment key={name}>
               <TextInputWithAction
                 textarea={true}
                 name={name}
@@ -128,12 +128,12 @@ const InputGroupWithActions = ({
                 sectionName={sectionName}
               />
             {renderBullets()}
-          </>
+          </React.Fragment>
         );
       } else {
         return (
           <TextInput
-            key={key}
+            key={name}
             inputRef={ref}
             label={label}
             name={name}
